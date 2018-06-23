@@ -430,18 +430,18 @@ export class ReportsService {
      * @param startDate 
      * @param endDate 
      * @param userIds 
-     * @param sort 
-     * @param order 
+     * @param sort 0 &#x3D; Username, 1 &#x3D; EmailAddress, 2 &#x3D; JobCode, 3 &#x3D; TaskName, 4 &#x3D; ClientName, 5 &#x3D; ProjectName, 6 &#x3D; StartDate, 7 &#x3D; EndDate, 8 &#x3D; SpanSeconds, 9 &#x3D; Description, 10 &#x3D; PayAmount, 11 &#x3D; PayOvertimeAmount, 12 &#x3D; TripCost, 13 &#x3D; TripDistanceMeters
+     * @param order 0 &#x3D; Ascending, 1 &#x3D; Descending
      * @param skip 
      * @param take 
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, userIds: string, sort: string, order: string, skip: number, take: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseForPaginatedListRawReportItem>;
-    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, userIds: string, sort: string, order: string, skip: number, take: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseForPaginatedListRawReportItem>>;
-    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, userIds: string, sort: string, order: string, skip: number, take: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseForPaginatedListRawReportItem>>;
-    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, userIds: string, sort: string, order: string, skip: number, take: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, userIds: string, sort: number, order: number, skip: number, take: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseForPaginatedListRawReportItem>;
+    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, userIds: string, sort: number, order: number, skip: number, take: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseForPaginatedListRawReportItem>>;
+    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, userIds: string, sort: number, order: number, skip: number, take: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseForPaginatedListRawReportItem>>;
+    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, userIds: string, sort: number, order: number, skip: number, take: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling reportsGetRawDataAdmin.');
         }

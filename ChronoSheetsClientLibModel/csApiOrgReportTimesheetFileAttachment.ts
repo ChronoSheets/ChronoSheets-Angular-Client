@@ -26,7 +26,13 @@ export interface CsApiOrgReportTimesheetFileAttachment {
     fileAttachmentId?: number;
     userId?: number;
     orgId?: number;
+    /**
+     * 0 = Unknown, 1 = iOS, 2 = Android
+     */
     mobilePlatform?: CsApiOrgReportTimesheetFileAttachment.CsApiMobilePlatformEnum;
+    /**
+     * 1 = Image, 30 = WordDoc, 31 = Pdf, 32 = MSSpreadSheet, 33 = MSPowerPoint, 34 = RichTextFormat, 35 = ZipFile, 100 = Other
+     */
     attachmentType?: CsApiOrgReportTimesheetFileAttachment.CsApiAttachmentTypeEnum;
     notes?: string;
     nonImageFilePath?: string;
@@ -41,21 +47,21 @@ export interface CsApiOrgReportTimesheetFileAttachment {
     storageAllocationBytes?: number;
 }
 export namespace CsApiOrgReportTimesheetFileAttachment {
-    export type CsApiMobilePlatformEnum = 'Unknown' | 'iOS' | 'Android';
+    export type CsApiMobilePlatformEnum = 0 | 1 | 2;
     export const CsApiMobilePlatformEnum = {
-        Unknown: 'Unknown' as CsApiMobilePlatformEnum,
-        IOS: 'iOS' as CsApiMobilePlatformEnum,
-        Android: 'Android' as CsApiMobilePlatformEnum
+        NUMBER_0: 0 as CsApiMobilePlatformEnum,
+        NUMBER_1: 1 as CsApiMobilePlatformEnum,
+        NUMBER_2: 2 as CsApiMobilePlatformEnum
     }
-    export type CsApiAttachmentTypeEnum = 'Image' | 'WordDoc' | 'Pdf' | 'MSSpreadSheet' | 'MSPowerPoint' | 'RichTextFormat' | 'ZipFile' | 'Other';
+    export type CsApiAttachmentTypeEnum = 1 | 30 | 31 | 32 | 33 | 34 | 35 | 100;
     export const CsApiAttachmentTypeEnum = {
-        Image: 'Image' as CsApiAttachmentTypeEnum,
-        WordDoc: 'WordDoc' as CsApiAttachmentTypeEnum,
-        Pdf: 'Pdf' as CsApiAttachmentTypeEnum,
-        MSSpreadSheet: 'MSSpreadSheet' as CsApiAttachmentTypeEnum,
-        MSPowerPoint: 'MSPowerPoint' as CsApiAttachmentTypeEnum,
-        RichTextFormat: 'RichTextFormat' as CsApiAttachmentTypeEnum,
-        ZipFile: 'ZipFile' as CsApiAttachmentTypeEnum,
-        Other: 'Other' as CsApiAttachmentTypeEnum
+        NUMBER_1: 1 as CsApiAttachmentTypeEnum,
+        NUMBER_30: 30 as CsApiAttachmentTypeEnum,
+        NUMBER_31: 31 as CsApiAttachmentTypeEnum,
+        NUMBER_32: 32 as CsApiAttachmentTypeEnum,
+        NUMBER_33: 33 as CsApiAttachmentTypeEnum,
+        NUMBER_34: 34 as CsApiAttachmentTypeEnum,
+        NUMBER_35: 35 as CsApiAttachmentTypeEnum,
+        NUMBER_100: 100 as CsApiAttachmentTypeEnum
     }
 }

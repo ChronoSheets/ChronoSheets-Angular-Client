@@ -14,17 +14,20 @@ import { CsApiJobSeriesReportItem } from './csApiCsApiJobSeriesReportItem';
 
 export interface CsApiApiResponseListJobSeriesReportItem {
     data?: Array<CsApiJobSeriesReportItem>;
+    /**
+     * 0 = Succeeded, 1 = FatalException, 2 = GeneralError, 3 = ValidationError, 4 = UnAuthorized, 5 = SessionExpired
+     */
     status?: CsApiApiResponseListJobSeriesReportItem.CsApiStatusEnum;
     message?: string;
 }
 export namespace CsApiApiResponseListJobSeriesReportItem {
-    export type CsApiStatusEnum = 'Succeeded' | 'FatalException' | 'GeneralError' | 'ValidationError' | 'UnAuthorized' | 'SessionExpired';
+    export type CsApiStatusEnum = 0 | 1 | 2 | 3 | 4 | 5;
     export const CsApiStatusEnum = {
-        Succeeded: 'Succeeded' as CsApiStatusEnum,
-        FatalException: 'FatalException' as CsApiStatusEnum,
-        GeneralError: 'GeneralError' as CsApiStatusEnum,
-        ValidationError: 'ValidationError' as CsApiStatusEnum,
-        UnAuthorized: 'UnAuthorized' as CsApiStatusEnum,
-        SessionExpired: 'SessionExpired' as CsApiStatusEnum
+        NUMBER_0: 0 as CsApiStatusEnum,
+        NUMBER_1: 1 as CsApiStatusEnum,
+        NUMBER_2: 2 as CsApiStatusEnum,
+        NUMBER_3: 3 as CsApiStatusEnum,
+        NUMBER_4: 4 as CsApiStatusEnum,
+        NUMBER_5: 5 as CsApiStatusEnum
     }
 }
