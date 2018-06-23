@@ -14,19 +14,20 @@
 export interface CsApiApiResponseListInt32 {
     data?: Array<number>;
     /**
-     * 0 = Succeeded, 1 = FatalException, 2 = GeneralError, 3 = ValidationError, 4 = UnAuthorized, 5 = SessionExpired
+     * 0 = Succeeded, 1 = FatalException, 2 = GeneralError, 3 = ValidationError, 4 = UnAuthorized, 5 = SessionExpired, 128 = TestingABC
      */
     status?: CsApiApiResponseListInt32.CsApiStatusEnum;
     message?: string;
 }
 export namespace CsApiApiResponseListInt32 {
-    export type CsApiStatusEnum = 0 | 1 | 2 | 3 | 4 | 5;
+    export type CsApiStatusEnum = 0 | 1 | 2 | 3 | 4 | 5 | 128;
     export const CsApiStatusEnum = {
         NUMBER_0: 0 as CsApiStatusEnum,
         NUMBER_1: 1 as CsApiStatusEnum,
         NUMBER_2: 2 as CsApiStatusEnum,
         NUMBER_3: 3 as CsApiStatusEnum,
         NUMBER_4: 4 as CsApiStatusEnum,
-        NUMBER_5: 5 as CsApiStatusEnum
+        NUMBER_5: 5 as CsApiStatusEnum,
+        NUMBER_128: 128 as CsApiStatusEnum
     }
 }
