@@ -233,7 +233,7 @@ export class TimesheetsService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CsApiApiResponseInt32>(`${this.basePath}/api/Timesheets/InsertSingleTimesheet`,
+        return this.httpClient.put<CsApiApiResponseInt32>(`${this.basePath}/api/Timesheets/InsertSingleTimesheet`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
