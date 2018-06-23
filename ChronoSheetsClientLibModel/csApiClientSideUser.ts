@@ -18,6 +18,7 @@ export interface CsApiClientSideUser {
     userName?: string;
     firstName?: string;
     lastName?: string;
+    emailAddress?: string;
     roles?: number;
     alertSettings?: number;
     setupWizardRequired?: boolean;

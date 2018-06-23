@@ -13,7 +13,6 @@ import { CsApiOrganisation } from './csApiCsApiOrganisation';
 
 
 export interface CsApiUserForManagement {
-    emailAddress?: string;
     isSubscribedToNewsletter?: boolean;
     isAccountActive?: boolean;
     id?: number;
@@ -21,6 +20,7 @@ export interface CsApiUserForManagement {
     userName?: string;
     firstName?: string;
     lastName?: string;
+    emailAddress?: string;
     roles?: number;
     alertSettings?: number;
     setupWizardRequired?: boolean;
