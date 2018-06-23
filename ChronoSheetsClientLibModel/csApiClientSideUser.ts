@@ -22,5 +22,6 @@ export interface CsApiClientSideUser {
     roles?: number;
     alertSettings?: number;
     setupWizardRequired?: boolean;
+    isSubscribedToNewsletter?: boolean;
     organisation?: CsApiOrganisation;
 }
