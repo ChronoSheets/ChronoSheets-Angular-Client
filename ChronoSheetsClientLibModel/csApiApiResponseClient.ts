@@ -1,6 +1,6 @@
 /**
  * ChronoSheets API
- * An API for integrating into ChronoSheets timesheets
+ * ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 5 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.
  *
  * OpenAPI spec version: v1
  * Contact: lachlan@chronosheets.com
