@@ -62,6 +62,68 @@ export class TimesheetsService {
 
 
     /**
+     * Inserts a single timesheet record
+     * 
+     * @param request The timesheet request object
+     * @param xChronosheetsAuth The ChronoSheets Auth Token
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public timesheetsCreateSingleTimesheet(request: CsApiTimesheet, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseInt32>;
+    public timesheetsCreateSingleTimesheet(request: CsApiTimesheet, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseInt32>>;
+    public timesheetsCreateSingleTimesheet(request: CsApiTimesheet, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseInt32>>;
+    public timesheetsCreateSingleTimesheet(request: CsApiTimesheet, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (request === null || request === undefined) {
+            throw new Error('Required parameter request was null or undefined when calling timesheetsCreateSingleTimesheet.');
+        }
+        if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
+            throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling timesheetsCreateSingleTimesheet.');
+        }
+
+        let headers = this.defaultHeaders;
+        if (xChronosheetsAuth !== undefined && xChronosheetsAuth !== null) {
+            headers = headers.set('x-chronosheets-auth', String(xChronosheetsAuth));
+        }
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json',
+            'text/json',
+            'application/xml',
+            'text/xml',
+            'multipart/form-data'
+        ];
+        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set("Accept", httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        let consumes: string[] = [
+            'application/json',
+            'text/json',
+            'application/xml',
+            'text/xml',
+            'application/x-www-form-urlencoded',
+            'multipart/form-data'
+        ];
+        let httpContentTypeSelected:string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected != undefined) {
+            headers = headers.set("Content-Type", httpContentTypeSelected);
+        }
+
+        return this.httpClient.put<CsApiApiResponseInt32>(`${this.basePath}/api/Timesheets/CreateSingleTimesheet`,
+            request,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
      * Delete a timesheet
      * 
      * @param timesheetId The ID of the timesheet to delete
@@ -174,68 +236,6 @@ export class TimesheetsService {
         return this.httpClient.get<CsApiApiResponseListTimesheet>(`${this.basePath}/api/Timesheets/GetTimesheets`,
             {
                 params: queryParameters,
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * Inserts a single timesheet record
-     * 
-     * @param request The timesheet request object
-     * @param xChronosheetsAuth The ChronoSheets Auth Token
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public timesheetsInsertSingleTimesheet(request: CsApiTimesheet, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseInt32>;
-    public timesheetsInsertSingleTimesheet(request: CsApiTimesheet, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseInt32>>;
-    public timesheetsInsertSingleTimesheet(request: CsApiTimesheet, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseInt32>>;
-    public timesheetsInsertSingleTimesheet(request: CsApiTimesheet, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-        if (request === null || request === undefined) {
-            throw new Error('Required parameter request was null or undefined when calling timesheetsInsertSingleTimesheet.');
-        }
-        if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
-            throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling timesheetsInsertSingleTimesheet.');
-        }
-
-        let headers = this.defaultHeaders;
-        if (xChronosheetsAuth !== undefined && xChronosheetsAuth !== null) {
-            headers = headers.set('x-chronosheets-auth', String(xChronosheetsAuth));
-        }
-
-        // to determine the Accept header
-        let httpHeaderAccepts: string[] = [
-            'application/json',
-            'text/json',
-            'application/xml',
-            'text/xml',
-            'multipart/form-data'
-        ];
-        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set("Accept", httpHeaderAcceptSelected);
-        }
-
-        // to determine the Content-Type header
-        let consumes: string[] = [
-            'application/json',
-            'text/json',
-            'application/xml',
-            'text/xml',
-            'application/x-www-form-urlencoded',
-            'multipart/form-data'
-        ];
-        let httpContentTypeSelected:string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected != undefined) {
-            headers = headers.set("Content-Type", httpContentTypeSelected);
-        }
-
-        return this.httpClient.put<CsApiApiResponseInt32>(`${this.basePath}/api/Timesheets/InsertSingleTimesheet`,
-            request,
-            {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,
