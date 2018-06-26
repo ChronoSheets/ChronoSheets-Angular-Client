@@ -18,9 +18,6 @@ export interface CsApiTrip {
     vehicleId?: number;
     userId?: number;
     orgId?: number;
-    /**
-     * 0 = Unknown, 1 = iOS, 2 = Android
-     */
     mobilePlatform?: CsApiTrip.CsApiMobilePlatformEnum;
     startDate?: Date;
     endDate?: Date;
@@ -37,10 +34,10 @@ export interface CsApiTrip {
     cacheExpiryDate?: Date;
 }
 export namespace CsApiTrip {
-    export type CsApiMobilePlatformEnum = 0 | 1 | 2;
+    export type CsApiMobilePlatformEnum = 'Unknown' | 'iOS' | 'Android';
     export const CsApiMobilePlatformEnum = {
-        NUMBER_0: 0 as CsApiMobilePlatformEnum,
-        NUMBER_1: 1 as CsApiMobilePlatformEnum,
-        NUMBER_2: 2 as CsApiMobilePlatformEnum
+        Unknown: 'Unknown' as CsApiMobilePlatformEnum,
+        IOS: 'iOS' as CsApiMobilePlatformEnum,
+        Android: 'Android' as CsApiMobilePlatformEnum
     }
 }

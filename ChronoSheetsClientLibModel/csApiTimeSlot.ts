@@ -12,9 +12,6 @@
 
 
 export interface CsApiTimeSlot {
-    /**
-     * 0 = Monday, 1 = Tuesday, 2 = Wednesday, 3 = Thursday, 4 = Friday, 5 = Saturday, 6 = Sunday
-     */
     dayType?: CsApiTimeSlot.CsApiDayTypeEnum;
     usualHourId?: number;
     startHour?: number;
@@ -24,14 +21,14 @@ export interface CsApiTimeSlot {
     isValid?: boolean;
 }
 export namespace CsApiTimeSlot {
-    export type CsApiDayTypeEnum = 0 | 1 | 2 | 3 | 4 | 5 | 6;
+    export type CsApiDayTypeEnum = 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday';
     export const CsApiDayTypeEnum = {
-        NUMBER_0: 0 as CsApiDayTypeEnum,
-        NUMBER_1: 1 as CsApiDayTypeEnum,
-        NUMBER_2: 2 as CsApiDayTypeEnum,
-        NUMBER_3: 3 as CsApiDayTypeEnum,
-        NUMBER_4: 4 as CsApiDayTypeEnum,
-        NUMBER_5: 5 as CsApiDayTypeEnum,
-        NUMBER_6: 6 as CsApiDayTypeEnum
+        Monday: 'Monday' as CsApiDayTypeEnum,
+        Tuesday: 'Tuesday' as CsApiDayTypeEnum,
+        Wednesday: 'Wednesday' as CsApiDayTypeEnum,
+        Thursday: 'Thursday' as CsApiDayTypeEnum,
+        Friday: 'Friday' as CsApiDayTypeEnum,
+        Saturday: 'Saturday' as CsApiDayTypeEnum,
+        Sunday: 'Sunday' as CsApiDayTypeEnum
     }
 }
