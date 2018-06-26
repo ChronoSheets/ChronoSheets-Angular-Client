@@ -18,12 +18,12 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
-import { CsApiCsApiApiResponseBoolean } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseBoolean';
-import { CsApiCsApiApiResponseInt32 } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseInt32';
-import { CsApiCsApiApiResponseListInt32 } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseListInt32';
-import { CsApiCsApiApiResponseListTimesheet } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseListTimesheet';
-import { CsApiCsApiBatchUpdateTimesheetRequest } from '../ChronoSheetsClientLibModel/csApiCsApiBatchUpdateTimesheetRequest';
-import { CsApiCsApiTimesheet } from '../ChronoSheetsClientLibModel/csApiCsApiTimesheet';
+import { CSCSApiResponseBoolean } from '../ChronoSheetsClientLibModel/cSCSApiResponseBoolean';
+import { CSCSApiResponseInt32 } from '../ChronoSheetsClientLibModel/cSCSApiResponseInt32';
+import { CSCSApiResponseListInt32 } from '../ChronoSheetsClientLibModel/cSCSApiResponseListInt32';
+import { CSCSApiResponseListTimesheet } from '../ChronoSheetsClientLibModel/cSCSApiResponseListTimesheet';
+import { CSCSBatchUpdateTimesheetRequest } from '../ChronoSheetsClientLibModel/cSCSBatchUpdateTimesheetRequest';
+import { CSCSTimesheet } from '../ChronoSheetsClientLibModel/cSCSTimesheet';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -69,10 +69,10 @@ export class TimesheetsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public timesheetsCreateSingleTimesheet(request: CsApiTimesheet, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseInt32>;
-    public timesheetsCreateSingleTimesheet(request: CsApiTimesheet, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseInt32>>;
-    public timesheetsCreateSingleTimesheet(request: CsApiTimesheet, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseInt32>>;
-    public timesheetsCreateSingleTimesheet(request: CsApiTimesheet, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public timesheetsCreateSingleTimesheet(request: CSTimesheet, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseInt32>;
+    public timesheetsCreateSingleTimesheet(request: CSTimesheet, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseInt32>>;
+    public timesheetsCreateSingleTimesheet(request: CSTimesheet, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseInt32>>;
+    public timesheetsCreateSingleTimesheet(request: CSTimesheet, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (request === null || request === undefined) {
             throw new Error('Required parameter request was null or undefined when calling timesheetsCreateSingleTimesheet.');
         }
@@ -112,7 +112,7 @@ export class TimesheetsService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CsApiApiResponseInt32>(`${this.basePath}/api/Timesheets/CreateSingleTimesheet`,
+        return this.httpClient.put<CSApiResponseInt32>(`${this.basePath}/api/Timesheets/CreateSingleTimesheet`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -131,9 +131,9 @@ export class TimesheetsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public timesheetsDeleteTimesheet(timesheetId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseBoolean>;
-    public timesheetsDeleteTimesheet(timesheetId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseBoolean>>;
-    public timesheetsDeleteTimesheet(timesheetId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseBoolean>>;
+    public timesheetsDeleteTimesheet(timesheetId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseBoolean>;
+    public timesheetsDeleteTimesheet(timesheetId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseBoolean>>;
+    public timesheetsDeleteTimesheet(timesheetId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseBoolean>>;
     public timesheetsDeleteTimesheet(timesheetId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (timesheetId === null || timesheetId === undefined) {
             throw new Error('Required parameter timesheetId was null or undefined when calling timesheetsDeleteTimesheet.');
@@ -169,7 +169,7 @@ export class TimesheetsService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.delete<CsApiApiResponseBoolean>(`${this.basePath}/api/Timesheets/DeleteTimesheet`,
+        return this.httpClient.delete<CSApiResponseBoolean>(`${this.basePath}/api/Timesheets/DeleteTimesheet`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -189,9 +189,9 @@ export class TimesheetsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public timesheetsGetTimesheets(startDate: Date, endDate: Date, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseListTimesheet>;
-    public timesheetsGetTimesheets(startDate: Date, endDate: Date, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseListTimesheet>>;
-    public timesheetsGetTimesheets(startDate: Date, endDate: Date, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseListTimesheet>>;
+    public timesheetsGetTimesheets(startDate: Date, endDate: Date, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseListTimesheet>;
+    public timesheetsGetTimesheets(startDate: Date, endDate: Date, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListTimesheet>>;
+    public timesheetsGetTimesheets(startDate: Date, endDate: Date, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListTimesheet>>;
     public timesheetsGetTimesheets(startDate: Date, endDate: Date, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling timesheetsGetTimesheets.');
@@ -233,7 +233,7 @@ export class TimesheetsService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseListTimesheet>(`${this.basePath}/api/Timesheets/GetTimesheets`,
+        return this.httpClient.get<CSApiResponseListTimesheet>(`${this.basePath}/api/Timesheets/GetTimesheets`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -252,10 +252,10 @@ export class TimesheetsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public timesheetsUpdateTimesheets(request: CsApiBatchUpdateTimesheetRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseListInt32>;
-    public timesheetsUpdateTimesheets(request: CsApiBatchUpdateTimesheetRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseListInt32>>;
-    public timesheetsUpdateTimesheets(request: CsApiBatchUpdateTimesheetRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseListInt32>>;
-    public timesheetsUpdateTimesheets(request: CsApiBatchUpdateTimesheetRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public timesheetsUpdateTimesheets(request: CSBatchUpdateTimesheetRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseListInt32>;
+    public timesheetsUpdateTimesheets(request: CSBatchUpdateTimesheetRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListInt32>>;
+    public timesheetsUpdateTimesheets(request: CSBatchUpdateTimesheetRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListInt32>>;
+    public timesheetsUpdateTimesheets(request: CSBatchUpdateTimesheetRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (request === null || request === undefined) {
             throw new Error('Required parameter request was null or undefined when calling timesheetsUpdateTimesheets.');
         }
@@ -295,7 +295,7 @@ export class TimesheetsService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CsApiApiResponseListInt32>(`${this.basePath}/api/Timesheets/UpdateTimesheets`,
+        return this.httpClient.post<CSApiResponseListInt32>(`${this.basePath}/api/Timesheets/UpdateTimesheets`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

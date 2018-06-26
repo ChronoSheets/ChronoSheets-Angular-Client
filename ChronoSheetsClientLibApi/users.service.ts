@@ -18,12 +18,12 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
-import { CsApiCsApiApiResponseInsertUserResponse } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseInsertUserResponse';
-import { CsApiCsApiApiResponseListUserForManagement } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseListUserForManagement';
-import { CsApiCsApiApiResponseUpdateUserResponse } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseUpdateUserResponse';
-import { CsApiCsApiApiResponseUserForManagement } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseUserForManagement';
-import { CsApiCsApiInsertUserRequest } from '../ChronoSheetsClientLibModel/csApiCsApiInsertUserRequest';
-import { CsApiCsApiUpdateUserRequest } from '../ChronoSheetsClientLibModel/csApiCsApiUpdateUserRequest';
+import { CSCSApiResponseInsertUserResponse } from '../ChronoSheetsClientLibModel/cSCSApiResponseInsertUserResponse';
+import { CSCSApiResponseListUserForManagement } from '../ChronoSheetsClientLibModel/cSCSApiResponseListUserForManagement';
+import { CSCSApiResponseUpdateUserResponse } from '../ChronoSheetsClientLibModel/cSCSApiResponseUpdateUserResponse';
+import { CSCSApiResponseUserForManagement } from '../ChronoSheetsClientLibModel/cSCSApiResponseUserForManagement';
+import { CSCSInsertUserRequest } from '../ChronoSheetsClientLibModel/cSCSInsertUserRequest';
+import { CSCSUpdateUserRequest } from '../ChronoSheetsClientLibModel/cSCSUpdateUserRequest';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -69,10 +69,10 @@ export class UsersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public usersCreateTimesheetUser(request: CsApiInsertUserRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseInsertUserResponse>;
-    public usersCreateTimesheetUser(request: CsApiInsertUserRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseInsertUserResponse>>;
-    public usersCreateTimesheetUser(request: CsApiInsertUserRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseInsertUserResponse>>;
-    public usersCreateTimesheetUser(request: CsApiInsertUserRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public usersCreateTimesheetUser(request: CSInsertUserRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseInsertUserResponse>;
+    public usersCreateTimesheetUser(request: CSInsertUserRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseInsertUserResponse>>;
+    public usersCreateTimesheetUser(request: CSInsertUserRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseInsertUserResponse>>;
+    public usersCreateTimesheetUser(request: CSInsertUserRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (request === null || request === undefined) {
             throw new Error('Required parameter request was null or undefined when calling usersCreateTimesheetUser.');
         }
@@ -112,7 +112,7 @@ export class UsersService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CsApiApiResponseInsertUserResponse>(`${this.basePath}/api/Users/CreateTimesheetUser`,
+        return this.httpClient.put<CSApiResponseInsertUserResponse>(`${this.basePath}/api/Users/CreateTimesheetUser`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -131,9 +131,9 @@ export class UsersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public usersGetTimesheetUser(userId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseUserForManagement>;
-    public usersGetTimesheetUser(userId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseUserForManagement>>;
-    public usersGetTimesheetUser(userId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseUserForManagement>>;
+    public usersGetTimesheetUser(userId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseUserForManagement>;
+    public usersGetTimesheetUser(userId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseUserForManagement>>;
+    public usersGetTimesheetUser(userId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseUserForManagement>>;
     public usersGetTimesheetUser(userId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (userId === null || userId === undefined) {
             throw new Error('Required parameter userId was null or undefined when calling usersGetTimesheetUser.');
@@ -169,7 +169,7 @@ export class UsersService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseUserForManagement>(`${this.basePath}/api/Users/GetTimesheetUser`,
+        return this.httpClient.get<CSApiResponseUserForManagement>(`${this.basePath}/api/Users/GetTimesheetUser`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -187,9 +187,9 @@ export class UsersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public usersGetTimesheetUsers(xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseListUserForManagement>;
-    public usersGetTimesheetUsers(xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseListUserForManagement>>;
-    public usersGetTimesheetUsers(xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseListUserForManagement>>;
+    public usersGetTimesheetUsers(xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseListUserForManagement>;
+    public usersGetTimesheetUsers(xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListUserForManagement>>;
+    public usersGetTimesheetUsers(xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListUserForManagement>>;
     public usersGetTimesheetUsers(xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling usersGetTimesheetUsers.');
@@ -217,7 +217,7 @@ export class UsersService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseListUserForManagement>(`${this.basePath}/api/Users/GetTimesheetUsers`,
+        return this.httpClient.get<CSApiResponseListUserForManagement>(`${this.basePath}/api/Users/GetTimesheetUsers`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -235,10 +235,10 @@ export class UsersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public usersUpdateTimesheetUser(request: CsApiUpdateUserRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseUpdateUserResponse>;
-    public usersUpdateTimesheetUser(request: CsApiUpdateUserRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseUpdateUserResponse>>;
-    public usersUpdateTimesheetUser(request: CsApiUpdateUserRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseUpdateUserResponse>>;
-    public usersUpdateTimesheetUser(request: CsApiUpdateUserRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public usersUpdateTimesheetUser(request: CSUpdateUserRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseUpdateUserResponse>;
+    public usersUpdateTimesheetUser(request: CSUpdateUserRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseUpdateUserResponse>>;
+    public usersUpdateTimesheetUser(request: CSUpdateUserRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseUpdateUserResponse>>;
+    public usersUpdateTimesheetUser(request: CSUpdateUserRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (request === null || request === undefined) {
             throw new Error('Required parameter request was null or undefined when calling usersUpdateTimesheetUser.');
         }
@@ -278,7 +278,7 @@ export class UsersService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CsApiApiResponseUpdateUserResponse>(`${this.basePath}/api/Users/UpdateTimesheetUser`,
+        return this.httpClient.post<CSApiResponseUpdateUserResponse>(`${this.basePath}/api/Users/UpdateTimesheetUser`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

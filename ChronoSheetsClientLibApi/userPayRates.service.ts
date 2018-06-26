@@ -18,9 +18,9 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
-import { CsApiCsApiApiResponseInt32 } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseInt32';
-import { CsApiCsApiApiResponseListUserHourlyRate } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseListUserHourlyRate';
-import { CsApiCsApiInsertUserHourlyRateRequest } from '../ChronoSheetsClientLibModel/csApiCsApiInsertUserHourlyRateRequest';
+import { CSCSApiResponseInt32 } from '../ChronoSheetsClientLibModel/cSCSApiResponseInt32';
+import { CSCSApiResponseListUserHourlyRate } from '../ChronoSheetsClientLibModel/cSCSApiResponseListUserHourlyRate';
+import { CSCSInsertUserHourlyRateRequest } from '../ChronoSheetsClientLibModel/cSCSInsertUserHourlyRateRequest';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -66,10 +66,10 @@ export class UserPayRatesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public userPayRatesCreatePayRate(request: CsApiInsertUserHourlyRateRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseInt32>;
-    public userPayRatesCreatePayRate(request: CsApiInsertUserHourlyRateRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseInt32>>;
-    public userPayRatesCreatePayRate(request: CsApiInsertUserHourlyRateRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseInt32>>;
-    public userPayRatesCreatePayRate(request: CsApiInsertUserHourlyRateRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public userPayRatesCreatePayRate(request: CSInsertUserHourlyRateRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseInt32>;
+    public userPayRatesCreatePayRate(request: CSInsertUserHourlyRateRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseInt32>>;
+    public userPayRatesCreatePayRate(request: CSInsertUserHourlyRateRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseInt32>>;
+    public userPayRatesCreatePayRate(request: CSInsertUserHourlyRateRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (request === null || request === undefined) {
             throw new Error('Required parameter request was null or undefined when calling userPayRatesCreatePayRate.');
         }
@@ -109,7 +109,7 @@ export class UserPayRatesService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CsApiApiResponseInt32>(`${this.basePath}/api/UserPayRates/CreatePayRate`,
+        return this.httpClient.put<CSApiResponseInt32>(`${this.basePath}/api/UserPayRates/CreatePayRate`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -128,9 +128,9 @@ export class UserPayRatesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public userPayRatesGetPayRates(userId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseListUserHourlyRate>;
-    public userPayRatesGetPayRates(userId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseListUserHourlyRate>>;
-    public userPayRatesGetPayRates(userId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseListUserHourlyRate>>;
+    public userPayRatesGetPayRates(userId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseListUserHourlyRate>;
+    public userPayRatesGetPayRates(userId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListUserHourlyRate>>;
+    public userPayRatesGetPayRates(userId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListUserHourlyRate>>;
     public userPayRatesGetPayRates(userId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (userId === null || userId === undefined) {
             throw new Error('Required parameter userId was null or undefined when calling userPayRatesGetPayRates.');
@@ -166,7 +166,7 @@ export class UserPayRatesService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseListUserHourlyRate>(`${this.basePath}/api/UserPayRates/GetPayRates`,
+        return this.httpClient.get<CSApiResponseListUserHourlyRate>(`${this.basePath}/api/UserPayRates/GetPayRates`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,

@@ -18,12 +18,12 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
-import { CsApiCsApiApiResponseBoolean } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseBoolean';
-import { CsApiCsApiApiResponseFleetVehicle } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseFleetVehicle';
-import { CsApiCsApiApiResponseInt32 } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseInt32';
-import { CsApiCsApiApiResponseListFleetVehicle } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseListFleetVehicle';
-import { CsApiCsApiInsertVehicleRequest } from '../ChronoSheetsClientLibModel/csApiCsApiInsertVehicleRequest';
-import { CsApiCsApiSaveVehicleRequest } from '../ChronoSheetsClientLibModel/csApiCsApiSaveVehicleRequest';
+import { CSCSApiResponseBoolean } from '../ChronoSheetsClientLibModel/cSCSApiResponseBoolean';
+import { CSCSApiResponseFleetVehicle } from '../ChronoSheetsClientLibModel/cSCSApiResponseFleetVehicle';
+import { CSCSApiResponseInt32 } from '../ChronoSheetsClientLibModel/cSCSApiResponseInt32';
+import { CSCSApiResponseListFleetVehicle } from '../ChronoSheetsClientLibModel/cSCSApiResponseListFleetVehicle';
+import { CSCSInsertVehicleRequest } from '../ChronoSheetsClientLibModel/cSCSInsertVehicleRequest';
+import { CSCSSaveVehicleRequest } from '../ChronoSheetsClientLibModel/cSCSSaveVehicleRequest';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -69,10 +69,10 @@ export class FleetService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public fleetCreateVehicle(request: CsApiInsertVehicleRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseInt32>;
-    public fleetCreateVehicle(request: CsApiInsertVehicleRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseInt32>>;
-    public fleetCreateVehicle(request: CsApiInsertVehicleRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseInt32>>;
-    public fleetCreateVehicle(request: CsApiInsertVehicleRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public fleetCreateVehicle(request: CSInsertVehicleRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseInt32>;
+    public fleetCreateVehicle(request: CSInsertVehicleRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseInt32>>;
+    public fleetCreateVehicle(request: CSInsertVehicleRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseInt32>>;
+    public fleetCreateVehicle(request: CSInsertVehicleRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (request === null || request === undefined) {
             throw new Error('Required parameter request was null or undefined when calling fleetCreateVehicle.');
         }
@@ -112,7 +112,7 @@ export class FleetService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CsApiApiResponseInt32>(`${this.basePath}/api/Fleet/CreateVehicle`,
+        return this.httpClient.put<CSApiResponseInt32>(`${this.basePath}/api/Fleet/CreateVehicle`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -131,9 +131,9 @@ export class FleetService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public fleetGetVehicleById(vehicleId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseFleetVehicle>;
-    public fleetGetVehicleById(vehicleId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseFleetVehicle>>;
-    public fleetGetVehicleById(vehicleId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseFleetVehicle>>;
+    public fleetGetVehicleById(vehicleId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseFleetVehicle>;
+    public fleetGetVehicleById(vehicleId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseFleetVehicle>>;
+    public fleetGetVehicleById(vehicleId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseFleetVehicle>>;
     public fleetGetVehicleById(vehicleId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (vehicleId === null || vehicleId === undefined) {
             throw new Error('Required parameter vehicleId was null or undefined when calling fleetGetVehicleById.');
@@ -169,7 +169,7 @@ export class FleetService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseFleetVehicle>(`${this.basePath}/api/Fleet/GetVehicleById`,
+        return this.httpClient.get<CSApiResponseFleetVehicle>(`${this.basePath}/api/Fleet/GetVehicleById`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -188,9 +188,9 @@ export class FleetService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public fleetGetVehicles(includeDeleted: boolean, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseListFleetVehicle>;
-    public fleetGetVehicles(includeDeleted: boolean, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseListFleetVehicle>>;
-    public fleetGetVehicles(includeDeleted: boolean, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseListFleetVehicle>>;
+    public fleetGetVehicles(includeDeleted: boolean, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseListFleetVehicle>;
+    public fleetGetVehicles(includeDeleted: boolean, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListFleetVehicle>>;
+    public fleetGetVehicles(includeDeleted: boolean, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListFleetVehicle>>;
     public fleetGetVehicles(includeDeleted: boolean, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (includeDeleted === null || includeDeleted === undefined) {
             throw new Error('Required parameter includeDeleted was null or undefined when calling fleetGetVehicles.');
@@ -226,7 +226,7 @@ export class FleetService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseListFleetVehicle>(`${this.basePath}/api/Fleet/GetVehicles`,
+        return this.httpClient.get<CSApiResponseListFleetVehicle>(`${this.basePath}/api/Fleet/GetVehicles`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -245,10 +245,10 @@ export class FleetService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public fleetUpdateVehicle(request: CsApiSaveVehicleRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseBoolean>;
-    public fleetUpdateVehicle(request: CsApiSaveVehicleRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseBoolean>>;
-    public fleetUpdateVehicle(request: CsApiSaveVehicleRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseBoolean>>;
-    public fleetUpdateVehicle(request: CsApiSaveVehicleRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public fleetUpdateVehicle(request: CSSaveVehicleRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseBoolean>;
+    public fleetUpdateVehicle(request: CSSaveVehicleRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseBoolean>>;
+    public fleetUpdateVehicle(request: CSSaveVehicleRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseBoolean>>;
+    public fleetUpdateVehicle(request: CSSaveVehicleRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (request === null || request === undefined) {
             throw new Error('Required parameter request was null or undefined when calling fleetUpdateVehicle.');
         }
@@ -288,7 +288,7 @@ export class FleetService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CsApiApiResponseBoolean>(`${this.basePath}/api/Fleet/UpdateVehicle`,
+        return this.httpClient.post<CSApiResponseBoolean>(`${this.basePath}/api/Fleet/UpdateVehicle`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

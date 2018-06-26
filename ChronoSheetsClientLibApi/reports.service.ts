@@ -18,13 +18,13 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
-import { CsApiCsApiApiResponseCombinedReportsData } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseCombinedReportsData';
-import { CsApiCsApiApiResponseForPaginatedListOrgReportTimesheetFileAttachment } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseForPaginatedListOrgReportTimesheetFileAttachment';
-import { CsApiCsApiApiResponseForPaginatedListOrgReportTrip } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseForPaginatedListOrgReportTrip';
-import { CsApiCsApiApiResponseForPaginatedListRawReportItem } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseForPaginatedListRawReportItem';
-import { CsApiCsApiApiResponseListJobSeriesReportItem } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseListJobSeriesReportItem';
-import { CsApiCsApiApiResponseListProjectCostingReportItem } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseListProjectCostingReportItem';
-import { CsApiCsApiApiResponseTrip } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseTrip';
+import { CSCSApiResponseCombinedReportsData } from '../ChronoSheetsClientLibModel/cSCSApiResponseCombinedReportsData';
+import { CSCSApiResponseForPaginatedListOrgReportTimesheetFileAttachment } from '../ChronoSheetsClientLibModel/cSCSApiResponseForPaginatedListOrgReportTimesheetFileAttachment';
+import { CSCSApiResponseForPaginatedListOrgReportTrip } from '../ChronoSheetsClientLibModel/cSCSApiResponseForPaginatedListOrgReportTrip';
+import { CSCSApiResponseForPaginatedListRawReportItem } from '../ChronoSheetsClientLibModel/cSCSApiResponseForPaginatedListRawReportItem';
+import { CSCSApiResponseListJobSeriesReportItem } from '../ChronoSheetsClientLibModel/cSCSApiResponseListJobSeriesReportItem';
+import { CSCSApiResponseListProjectCostingReportItem } from '../ChronoSheetsClientLibModel/cSCSApiResponseListProjectCostingReportItem';
+import { CSCSApiResponseTrip } from '../ChronoSheetsClientLibModel/cSCSApiResponseTrip';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -72,9 +72,9 @@ export class ReportsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseCombinedReportsData>;
-    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseCombinedReportsData>>;
-    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseCombinedReportsData>>;
+    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseCombinedReportsData>;
+    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseCombinedReportsData>>;
+    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseCombinedReportsData>>;
     public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling reportsGetAllChartsDataAdmin.');
@@ -122,7 +122,7 @@ export class ReportsService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseCombinedReportsData>(`${this.basePath}/api/Reports/GetAllChartsDataAdmin`,
+        return this.httpClient.get<CSApiResponseCombinedReportsData>(`${this.basePath}/api/Reports/GetAllChartsDataAdmin`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -142,9 +142,9 @@ export class ReportsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public reportsGetAllChartsDataUser(startDate: Date, endDate: Date, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseCombinedReportsData>;
-    public reportsGetAllChartsDataUser(startDate: Date, endDate: Date, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseCombinedReportsData>>;
-    public reportsGetAllChartsDataUser(startDate: Date, endDate: Date, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseCombinedReportsData>>;
+    public reportsGetAllChartsDataUser(startDate: Date, endDate: Date, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseCombinedReportsData>;
+    public reportsGetAllChartsDataUser(startDate: Date, endDate: Date, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseCombinedReportsData>>;
+    public reportsGetAllChartsDataUser(startDate: Date, endDate: Date, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseCombinedReportsData>>;
     public reportsGetAllChartsDataUser(startDate: Date, endDate: Date, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling reportsGetAllChartsDataUser.');
@@ -186,7 +186,7 @@ export class ReportsService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseCombinedReportsData>(`${this.basePath}/api/Reports/GetAllChartsDataUser`,
+        return this.httpClient.get<CSApiResponseCombinedReportsData>(`${this.basePath}/api/Reports/GetAllChartsDataUser`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -205,9 +205,9 @@ export class ReportsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public reportsGetOrgTripById(tripId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseTrip>;
-    public reportsGetOrgTripById(tripId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseTrip>>;
-    public reportsGetOrgTripById(tripId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseTrip>>;
+    public reportsGetOrgTripById(tripId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseTrip>;
+    public reportsGetOrgTripById(tripId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseTrip>>;
+    public reportsGetOrgTripById(tripId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseTrip>>;
     public reportsGetOrgTripById(tripId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (tripId === null || tripId === undefined) {
             throw new Error('Required parameter tripId was null or undefined when calling reportsGetOrgTripById.');
@@ -243,7 +243,7 @@ export class ReportsService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseTrip>(`${this.basePath}/api/Reports/GetOrgTripById`,
+        return this.httpClient.get<CSApiResponseTrip>(`${this.basePath}/api/Reports/GetOrgTripById`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -266,9 +266,9 @@ export class ReportsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public reportsGetOrganisationTimesheetFileAttachments(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseForPaginatedListOrgReportTimesheetFileAttachment>;
-    public reportsGetOrganisationTimesheetFileAttachments(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseForPaginatedListOrgReportTimesheetFileAttachment>>;
-    public reportsGetOrganisationTimesheetFileAttachments(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseForPaginatedListOrgReportTimesheetFileAttachment>>;
+    public reportsGetOrganisationTimesheetFileAttachments(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment>;
+    public reportsGetOrganisationTimesheetFileAttachments(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment>>;
+    public reportsGetOrganisationTimesheetFileAttachments(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment>>;
     public reportsGetOrganisationTimesheetFileAttachments(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling reportsGetOrganisationTimesheetFileAttachments.');
@@ -328,7 +328,7 @@ export class ReportsService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseForPaginatedListOrgReportTimesheetFileAttachment>(`${this.basePath}/api/Reports/GetOrganisationTimesheetFileAttachments`,
+        return this.httpClient.get<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment>(`${this.basePath}/api/Reports/GetOrganisationTimesheetFileAttachments`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -351,9 +351,9 @@ export class ReportsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public reportsGetOrganisationTrips(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseForPaginatedListOrgReportTrip>;
-    public reportsGetOrganisationTrips(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseForPaginatedListOrgReportTrip>>;
-    public reportsGetOrganisationTrips(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseForPaginatedListOrgReportTrip>>;
+    public reportsGetOrganisationTrips(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseForPaginatedListOrgReportTrip>;
+    public reportsGetOrganisationTrips(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedListOrgReportTrip>>;
+    public reportsGetOrganisationTrips(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedListOrgReportTrip>>;
     public reportsGetOrganisationTrips(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling reportsGetOrganisationTrips.');
@@ -413,7 +413,7 @@ export class ReportsService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseForPaginatedListOrgReportTrip>(`${this.basePath}/api/Reports/GetOrganisationTrips`,
+        return this.httpClient.get<CSApiResponseForPaginatedListOrgReportTrip>(`${this.basePath}/api/Reports/GetOrganisationTrips`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -438,9 +438,9 @@ export class ReportsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, userIds: string, sort: string, order: string, skip: number, take: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseForPaginatedListRawReportItem>;
-    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, userIds: string, sort: string, order: string, skip: number, take: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseForPaginatedListRawReportItem>>;
-    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, userIds: string, sort: string, order: string, skip: number, take: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseForPaginatedListRawReportItem>>;
+    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, userIds: string, sort: string, order: string, skip: number, take: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseForPaginatedListRawReportItem>;
+    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, userIds: string, sort: string, order: string, skip: number, take: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedListRawReportItem>>;
+    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, userIds: string, sort: string, order: string, skip: number, take: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedListRawReportItem>>;
     public reportsGetRawDataAdmin(startDate: Date, endDate: Date, userIds: string, sort: string, order: string, skip: number, take: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling reportsGetRawDataAdmin.');
@@ -512,7 +512,7 @@ export class ReportsService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseForPaginatedListRawReportItem>(`${this.basePath}/api/Reports/GetRawDataAdmin`,
+        return this.httpClient.get<CSApiResponseForPaginatedListRawReportItem>(`${this.basePath}/api/Reports/GetRawDataAdmin`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -533,9 +533,9 @@ export class ReportsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public reportsProjectCostingsAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseListProjectCostingReportItem>;
-    public reportsProjectCostingsAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseListProjectCostingReportItem>>;
-    public reportsProjectCostingsAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseListProjectCostingReportItem>>;
+    public reportsProjectCostingsAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseListProjectCostingReportItem>;
+    public reportsProjectCostingsAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListProjectCostingReportItem>>;
+    public reportsProjectCostingsAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListProjectCostingReportItem>>;
     public reportsProjectCostingsAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling reportsProjectCostingsAdmin.');
@@ -583,7 +583,7 @@ export class ReportsService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseListProjectCostingReportItem>(`${this.basePath}/api/Reports/ProjectCostingsAdmin`,
+        return this.httpClient.get<CSApiResponseListProjectCostingReportItem>(`${this.basePath}/api/Reports/ProjectCostingsAdmin`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -603,9 +603,9 @@ export class ReportsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public reportsUserJobsOverTime(startDate: Date, endDate: Date, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseListJobSeriesReportItem>;
-    public reportsUserJobsOverTime(startDate: Date, endDate: Date, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseListJobSeriesReportItem>>;
-    public reportsUserJobsOverTime(startDate: Date, endDate: Date, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseListJobSeriesReportItem>>;
+    public reportsUserJobsOverTime(startDate: Date, endDate: Date, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseListJobSeriesReportItem>;
+    public reportsUserJobsOverTime(startDate: Date, endDate: Date, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListJobSeriesReportItem>>;
+    public reportsUserJobsOverTime(startDate: Date, endDate: Date, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListJobSeriesReportItem>>;
     public reportsUserJobsOverTime(startDate: Date, endDate: Date, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling reportsUserJobsOverTime.');
@@ -647,7 +647,7 @@ export class ReportsService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseListJobSeriesReportItem>(`${this.basePath}/api/Reports/UserJobsOverTime`,
+        return this.httpClient.get<CSApiResponseListJobSeriesReportItem>(`${this.basePath}/api/Reports/UserJobsOverTime`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,

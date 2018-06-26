@@ -18,12 +18,12 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
-import { CsApiCsApiApiResponseBoolean } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseBoolean';
-import { CsApiCsApiApiResponseInt32 } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseInt32';
-import { CsApiCsApiApiResponseListProject } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseListProject';
-import { CsApiCsApiApiResponseProject } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseProject';
-import { CsApiCsApiInsertProjectRequest } from '../ChronoSheetsClientLibModel/csApiCsApiInsertProjectRequest';
-import { CsApiCsApiUpdateProjectRequest } from '../ChronoSheetsClientLibModel/csApiCsApiUpdateProjectRequest';
+import { CSCSApiResponseBoolean } from '../ChronoSheetsClientLibModel/cSCSApiResponseBoolean';
+import { CSCSApiResponseInt32 } from '../ChronoSheetsClientLibModel/cSCSApiResponseInt32';
+import { CSCSApiResponseListProject } from '../ChronoSheetsClientLibModel/cSCSApiResponseListProject';
+import { CSCSApiResponseProject } from '../ChronoSheetsClientLibModel/cSCSApiResponseProject';
+import { CSCSInsertProjectRequest } from '../ChronoSheetsClientLibModel/cSCSInsertProjectRequest';
+import { CSCSUpdateProjectRequest } from '../ChronoSheetsClientLibModel/cSCSUpdateProjectRequest';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -69,10 +69,10 @@ export class ProjectsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public projectsCreateProject(request: CsApiInsertProjectRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseInt32>;
-    public projectsCreateProject(request: CsApiInsertProjectRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseInt32>>;
-    public projectsCreateProject(request: CsApiInsertProjectRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseInt32>>;
-    public projectsCreateProject(request: CsApiInsertProjectRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public projectsCreateProject(request: CSInsertProjectRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseInt32>;
+    public projectsCreateProject(request: CSInsertProjectRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseInt32>>;
+    public projectsCreateProject(request: CSInsertProjectRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseInt32>>;
+    public projectsCreateProject(request: CSInsertProjectRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (request === null || request === undefined) {
             throw new Error('Required parameter request was null or undefined when calling projectsCreateProject.');
         }
@@ -112,7 +112,7 @@ export class ProjectsService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CsApiApiResponseInt32>(`${this.basePath}/api/Projects/CreateProject`,
+        return this.httpClient.put<CSApiResponseInt32>(`${this.basePath}/api/Projects/CreateProject`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -131,9 +131,9 @@ export class ProjectsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public projectsGetProjectById(projectId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseProject>;
-    public projectsGetProjectById(projectId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseProject>>;
-    public projectsGetProjectById(projectId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseProject>>;
+    public projectsGetProjectById(projectId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseProject>;
+    public projectsGetProjectById(projectId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseProject>>;
+    public projectsGetProjectById(projectId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseProject>>;
     public projectsGetProjectById(projectId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (projectId === null || projectId === undefined) {
             throw new Error('Required parameter projectId was null or undefined when calling projectsGetProjectById.');
@@ -169,7 +169,7 @@ export class ProjectsService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseProject>(`${this.basePath}/api/Projects/GetProjectById`,
+        return this.httpClient.get<CSApiResponseProject>(`${this.basePath}/api/Projects/GetProjectById`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -188,9 +188,9 @@ export class ProjectsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public projectsGetProjectsForClient(clientId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseListProject>;
-    public projectsGetProjectsForClient(clientId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseListProject>>;
-    public projectsGetProjectsForClient(clientId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseListProject>>;
+    public projectsGetProjectsForClient(clientId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseListProject>;
+    public projectsGetProjectsForClient(clientId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListProject>>;
+    public projectsGetProjectsForClient(clientId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListProject>>;
     public projectsGetProjectsForClient(clientId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (clientId === null || clientId === undefined) {
             throw new Error('Required parameter clientId was null or undefined when calling projectsGetProjectsForClient.');
@@ -226,7 +226,7 @@ export class ProjectsService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseListProject>(`${this.basePath}/api/Projects/GetProjectsForClient`,
+        return this.httpClient.get<CSApiResponseListProject>(`${this.basePath}/api/Projects/GetProjectsForClient`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -245,10 +245,10 @@ export class ProjectsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public projectsUpdateProject(request: CsApiUpdateProjectRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseBoolean>;
-    public projectsUpdateProject(request: CsApiUpdateProjectRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseBoolean>>;
-    public projectsUpdateProject(request: CsApiUpdateProjectRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseBoolean>>;
-    public projectsUpdateProject(request: CsApiUpdateProjectRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public projectsUpdateProject(request: CSUpdateProjectRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseBoolean>;
+    public projectsUpdateProject(request: CSUpdateProjectRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseBoolean>>;
+    public projectsUpdateProject(request: CSUpdateProjectRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseBoolean>>;
+    public projectsUpdateProject(request: CSUpdateProjectRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (request === null || request === undefined) {
             throw new Error('Required parameter request was null or undefined when calling projectsUpdateProject.');
         }
@@ -288,7 +288,7 @@ export class ProjectsService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CsApiApiResponseBoolean>(`${this.basePath}/api/Projects/UpdateProject`,
+        return this.httpClient.post<CSApiResponseBoolean>(`${this.basePath}/api/Projects/UpdateProject`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

@@ -18,9 +18,9 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
-import { CsApiCsApiApiResponseBoolean } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseBoolean';
-import { CsApiCsApiApiResponseListUsualHoursDay } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseListUsualHoursDay';
-import { CsApiCsApiSetUsualHoursRequest } from '../ChronoSheetsClientLibModel/csApiCsApiSetUsualHoursRequest';
+import { CSCSApiResponseBoolean } from '../ChronoSheetsClientLibModel/cSCSApiResponseBoolean';
+import { CSCSApiResponseListUsualHoursDay } from '../ChronoSheetsClientLibModel/cSCSApiResponseListUsualHoursDay';
+import { CSCSSetUsualHoursRequest } from '../ChronoSheetsClientLibModel/cSCSSetUsualHoursRequest';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -66,9 +66,9 @@ export class UsualHoursService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public usualHoursGetUsualHours(userId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseListUsualHoursDay>;
-    public usualHoursGetUsualHours(userId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseListUsualHoursDay>>;
-    public usualHoursGetUsualHours(userId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseListUsualHoursDay>>;
+    public usualHoursGetUsualHours(userId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseListUsualHoursDay>;
+    public usualHoursGetUsualHours(userId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListUsualHoursDay>>;
+    public usualHoursGetUsualHours(userId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListUsualHoursDay>>;
     public usualHoursGetUsualHours(userId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (userId === null || userId === undefined) {
             throw new Error('Required parameter userId was null or undefined when calling usualHoursGetUsualHours.');
@@ -104,7 +104,7 @@ export class UsualHoursService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseListUsualHoursDay>(`${this.basePath}/api/UsualHours/GetUsualHours`,
+        return this.httpClient.get<CSApiResponseListUsualHoursDay>(`${this.basePath}/api/UsualHours/GetUsualHours`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -123,10 +123,10 @@ export class UsualHoursService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public usualHoursSetUsualHours(request: CsApiSetUsualHoursRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseBoolean>;
-    public usualHoursSetUsualHours(request: CsApiSetUsualHoursRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseBoolean>>;
-    public usualHoursSetUsualHours(request: CsApiSetUsualHoursRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseBoolean>>;
-    public usualHoursSetUsualHours(request: CsApiSetUsualHoursRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public usualHoursSetUsualHours(request: CSSetUsualHoursRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseBoolean>;
+    public usualHoursSetUsualHours(request: CSSetUsualHoursRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseBoolean>>;
+    public usualHoursSetUsualHours(request: CSSetUsualHoursRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseBoolean>>;
+    public usualHoursSetUsualHours(request: CSSetUsualHoursRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (request === null || request === undefined) {
             throw new Error('Required parameter request was null or undefined when calling usualHoursSetUsualHours.');
         }
@@ -166,7 +166,7 @@ export class UsualHoursService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CsApiApiResponseBoolean>(`${this.basePath}/api/UsualHours/SetUsualHours`,
+        return this.httpClient.post<CSApiResponseBoolean>(`${this.basePath}/api/UsualHours/SetUsualHours`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

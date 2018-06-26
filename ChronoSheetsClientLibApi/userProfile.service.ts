@@ -18,12 +18,12 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
-import { CsApiCsApiApiResponseBoolean } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseBoolean';
-import { CsApiCsApiApiResponseDoLoginResponse } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseDoLoginResponse';
-import { CsApiCsApiApiResponseSignupResponse } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseSignupResponse';
-import { CsApiCsApiApiResponseUserProfile } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseUserProfile';
-import { CsApiCsApiDoLoginRequest } from '../ChronoSheetsClientLibModel/csApiCsApiDoLoginRequest';
-import { CsApiCsApiUpdateMyProfileRequest } from '../ChronoSheetsClientLibModel/csApiCsApiUpdateMyProfileRequest';
+import { CSCSApiResponseBoolean } from '../ChronoSheetsClientLibModel/cSCSApiResponseBoolean';
+import { CSCSApiResponseDoLoginResponse } from '../ChronoSheetsClientLibModel/cSCSApiResponseDoLoginResponse';
+import { CSCSApiResponseSignupResponse } from '../ChronoSheetsClientLibModel/cSCSApiResponseSignupResponse';
+import { CSCSApiResponseUserProfile } from '../ChronoSheetsClientLibModel/cSCSApiResponseUserProfile';
+import { CSCSDoLoginRequest } from '../ChronoSheetsClientLibModel/cSCSDoLoginRequest';
+import { CSCSUpdateMyProfileRequest } from '../ChronoSheetsClientLibModel/cSCSUpdateMyProfileRequest';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -68,10 +68,10 @@ export class UserProfileService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public userProfileDoLogin(request: CsApiDoLoginRequest, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseDoLoginResponse>;
-    public userProfileDoLogin(request: CsApiDoLoginRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseDoLoginResponse>>;
-    public userProfileDoLogin(request: CsApiDoLoginRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseDoLoginResponse>>;
-    public userProfileDoLogin(request: CsApiDoLoginRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public userProfileDoLogin(request: CSDoLoginRequest, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseDoLoginResponse>;
+    public userProfileDoLogin(request: CSDoLoginRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseDoLoginResponse>>;
+    public userProfileDoLogin(request: CSDoLoginRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseDoLoginResponse>>;
+    public userProfileDoLogin(request: CSDoLoginRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (request === null || request === undefined) {
             throw new Error('Required parameter request was null or undefined when calling userProfileDoLogin.');
         }
@@ -105,7 +105,7 @@ export class UserProfileService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CsApiApiResponseDoLoginResponse>(`${this.basePath}/api/UserProfile/DoLogin`,
+        return this.httpClient.post<CSApiResponseDoLoginResponse>(`${this.basePath}/api/UserProfile/DoLogin`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -123,9 +123,9 @@ export class UserProfileService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public userProfileDoLogout(xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseBoolean>;
-    public userProfileDoLogout(xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseBoolean>>;
-    public userProfileDoLogout(xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseBoolean>>;
+    public userProfileDoLogout(xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseBoolean>;
+    public userProfileDoLogout(xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseBoolean>>;
+    public userProfileDoLogout(xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseBoolean>>;
     public userProfileDoLogout(xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling userProfileDoLogout.');
@@ -153,7 +153,7 @@ export class UserProfileService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.delete<CsApiApiResponseBoolean>(`${this.basePath}/api/UserProfile/DoLogout`,
+        return this.httpClient.delete<CSApiResponseBoolean>(`${this.basePath}/api/UserProfile/DoLogout`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -170,9 +170,9 @@ export class UserProfileService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public userProfileGetMyProfile(xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseUserProfile>;
-    public userProfileGetMyProfile(xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseUserProfile>>;
-    public userProfileGetMyProfile(xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseUserProfile>>;
+    public userProfileGetMyProfile(xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseUserProfile>;
+    public userProfileGetMyProfile(xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseUserProfile>>;
+    public userProfileGetMyProfile(xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseUserProfile>>;
     public userProfileGetMyProfile(xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling userProfileGetMyProfile.');
@@ -200,7 +200,7 @@ export class UserProfileService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseUserProfile>(`${this.basePath}/api/UserProfile/GetMyProfile`,
+        return this.httpClient.get<CSApiResponseUserProfile>(`${this.basePath}/api/UserProfile/GetMyProfile`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -217,9 +217,9 @@ export class UserProfileService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public userProfileKeepSessionAlive(xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseBoolean>;
-    public userProfileKeepSessionAlive(xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseBoolean>>;
-    public userProfileKeepSessionAlive(xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseBoolean>>;
+    public userProfileKeepSessionAlive(xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseBoolean>;
+    public userProfileKeepSessionAlive(xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseBoolean>>;
+    public userProfileKeepSessionAlive(xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseBoolean>>;
     public userProfileKeepSessionAlive(xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling userProfileKeepSessionAlive.');
@@ -247,7 +247,7 @@ export class UserProfileService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseBoolean>(`${this.basePath}/api/UserProfile/KeepSessionAlive`,
+        return this.httpClient.get<CSApiResponseBoolean>(`${this.basePath}/api/UserProfile/KeepSessionAlive`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -265,10 +265,10 @@ export class UserProfileService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public userProfileUpdateMyProfile(request: CsApiUpdateMyProfileRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseSignupResponse>;
-    public userProfileUpdateMyProfile(request: CsApiUpdateMyProfileRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseSignupResponse>>;
-    public userProfileUpdateMyProfile(request: CsApiUpdateMyProfileRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseSignupResponse>>;
-    public userProfileUpdateMyProfile(request: CsApiUpdateMyProfileRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public userProfileUpdateMyProfile(request: CSUpdateMyProfileRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseSignupResponse>;
+    public userProfileUpdateMyProfile(request: CSUpdateMyProfileRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseSignupResponse>>;
+    public userProfileUpdateMyProfile(request: CSUpdateMyProfileRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseSignupResponse>>;
+    public userProfileUpdateMyProfile(request: CSUpdateMyProfileRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (request === null || request === undefined) {
             throw new Error('Required parameter request was null or undefined when calling userProfileUpdateMyProfile.');
         }
@@ -308,7 +308,7 @@ export class UserProfileService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CsApiApiResponseSignupResponse>(`${this.basePath}/api/UserProfile/UpdateMyProfile`,
+        return this.httpClient.post<CSApiResponseSignupResponse>(`${this.basePath}/api/UserProfile/UpdateMyProfile`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

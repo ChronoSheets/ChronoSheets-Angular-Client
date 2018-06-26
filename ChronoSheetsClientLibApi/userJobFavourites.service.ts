@@ -18,10 +18,10 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
-import { CsApiCsApiApiResponseBoolean } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseBoolean';
-import { CsApiCsApiApiResponseInt32 } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseInt32';
-import { CsApiCsApiApiResponseListUserJobFavourite } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseListUserJobFavourite';
-import { CsApiCsApiInsertUserJobFavouriteRequest } from '../ChronoSheetsClientLibModel/csApiCsApiInsertUserJobFavouriteRequest';
+import { CSCSApiResponseBoolean } from '../ChronoSheetsClientLibModel/cSCSApiResponseBoolean';
+import { CSCSApiResponseInt32 } from '../ChronoSheetsClientLibModel/cSCSApiResponseInt32';
+import { CSCSApiResponseListUserJobFavourite } from '../ChronoSheetsClientLibModel/cSCSApiResponseListUserJobFavourite';
+import { CSCSInsertUserJobFavouriteRequest } from '../ChronoSheetsClientLibModel/cSCSInsertUserJobFavouriteRequest';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -67,10 +67,10 @@ export class UserJobFavouritesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public userJobFavouritesCreateJobFavourite(request: CsApiInsertUserJobFavouriteRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseInt32>;
-    public userJobFavouritesCreateJobFavourite(request: CsApiInsertUserJobFavouriteRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseInt32>>;
-    public userJobFavouritesCreateJobFavourite(request: CsApiInsertUserJobFavouriteRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseInt32>>;
-    public userJobFavouritesCreateJobFavourite(request: CsApiInsertUserJobFavouriteRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public userJobFavouritesCreateJobFavourite(request: CSInsertUserJobFavouriteRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseInt32>;
+    public userJobFavouritesCreateJobFavourite(request: CSInsertUserJobFavouriteRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseInt32>>;
+    public userJobFavouritesCreateJobFavourite(request: CSInsertUserJobFavouriteRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseInt32>>;
+    public userJobFavouritesCreateJobFavourite(request: CSInsertUserJobFavouriteRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (request === null || request === undefined) {
             throw new Error('Required parameter request was null or undefined when calling userJobFavouritesCreateJobFavourite.');
         }
@@ -110,7 +110,7 @@ export class UserJobFavouritesService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CsApiApiResponseInt32>(`${this.basePath}/api/UserJobFavourites/CreateJobFavourite`,
+        return this.httpClient.put<CSApiResponseInt32>(`${this.basePath}/api/UserJobFavourites/CreateJobFavourite`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -129,9 +129,9 @@ export class UserJobFavouritesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public userJobFavouritesDeleteJobFavourite(jobId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseBoolean>;
-    public userJobFavouritesDeleteJobFavourite(jobId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseBoolean>>;
-    public userJobFavouritesDeleteJobFavourite(jobId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseBoolean>>;
+    public userJobFavouritesDeleteJobFavourite(jobId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseBoolean>;
+    public userJobFavouritesDeleteJobFavourite(jobId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseBoolean>>;
+    public userJobFavouritesDeleteJobFavourite(jobId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseBoolean>>;
     public userJobFavouritesDeleteJobFavourite(jobId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (jobId === null || jobId === undefined) {
             throw new Error('Required parameter jobId was null or undefined when calling userJobFavouritesDeleteJobFavourite.');
@@ -167,7 +167,7 @@ export class UserJobFavouritesService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.delete<CsApiApiResponseBoolean>(`${this.basePath}/api/UserJobFavourites/DeleteJobFavourite`,
+        return this.httpClient.delete<CSApiResponseBoolean>(`${this.basePath}/api/UserJobFavourites/DeleteJobFavourite`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -185,9 +185,9 @@ export class UserJobFavouritesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public userJobFavouritesGetJobFavourites(xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseListUserJobFavourite>;
-    public userJobFavouritesGetJobFavourites(xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseListUserJobFavourite>>;
-    public userJobFavouritesGetJobFavourites(xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseListUserJobFavourite>>;
+    public userJobFavouritesGetJobFavourites(xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseListUserJobFavourite>;
+    public userJobFavouritesGetJobFavourites(xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListUserJobFavourite>>;
+    public userJobFavouritesGetJobFavourites(xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListUserJobFavourite>>;
     public userJobFavouritesGetJobFavourites(xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling userJobFavouritesGetJobFavourites.');
@@ -215,7 +215,7 @@ export class UserJobFavouritesService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseListUserJobFavourite>(`${this.basePath}/api/UserJobFavourites/GetJobFavourites`,
+        return this.httpClient.get<CSApiResponseListUserJobFavourite>(`${this.basePath}/api/UserJobFavourites/GetJobFavourites`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,

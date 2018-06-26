@@ -18,12 +18,12 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
-import { CsApiCsApiApiResponseBoolean } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseBoolean';
-import { CsApiCsApiApiResponseClient } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseClient';
-import { CsApiCsApiApiResponseInt32 } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseInt32';
-import { CsApiCsApiApiResponseListClient } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseListClient';
-import { CsApiCsApiInsertClientRequest } from '../ChronoSheetsClientLibModel/csApiCsApiInsertClientRequest';
-import { CsApiCsApiSaveClientRequest } from '../ChronoSheetsClientLibModel/csApiCsApiSaveClientRequest';
+import { CSCSApiResponseBoolean } from '../ChronoSheetsClientLibModel/cSCSApiResponseBoolean';
+import { CSCSApiResponseClient } from '../ChronoSheetsClientLibModel/cSCSApiResponseClient';
+import { CSCSApiResponseInt32 } from '../ChronoSheetsClientLibModel/cSCSApiResponseInt32';
+import { CSCSApiResponseListClient } from '../ChronoSheetsClientLibModel/cSCSApiResponseListClient';
+import { CSCSInsertClientRequest } from '../ChronoSheetsClientLibModel/cSCSInsertClientRequest';
+import { CSCSSaveClientRequest } from '../ChronoSheetsClientLibModel/cSCSSaveClientRequest';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -69,10 +69,10 @@ export class ClientsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public clientsCreateClient(request: CsApiInsertClientRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseInt32>;
-    public clientsCreateClient(request: CsApiInsertClientRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseInt32>>;
-    public clientsCreateClient(request: CsApiInsertClientRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseInt32>>;
-    public clientsCreateClient(request: CsApiInsertClientRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public clientsCreateClient(request: CSInsertClientRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseInt32>;
+    public clientsCreateClient(request: CSInsertClientRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseInt32>>;
+    public clientsCreateClient(request: CSInsertClientRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseInt32>>;
+    public clientsCreateClient(request: CSInsertClientRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (request === null || request === undefined) {
             throw new Error('Required parameter request was null or undefined when calling clientsCreateClient.');
         }
@@ -112,7 +112,7 @@ export class ClientsService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CsApiApiResponseInt32>(`${this.basePath}/api/Clients/CreateClient`,
+        return this.httpClient.put<CSApiResponseInt32>(`${this.basePath}/api/Clients/CreateClient`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -131,9 +131,9 @@ export class ClientsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public clientsGetClient(clientId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseClient>;
-    public clientsGetClient(clientId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseClient>>;
-    public clientsGetClient(clientId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseClient>>;
+    public clientsGetClient(clientId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseClient>;
+    public clientsGetClient(clientId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseClient>>;
+    public clientsGetClient(clientId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseClient>>;
     public clientsGetClient(clientId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (clientId === null || clientId === undefined) {
             throw new Error('Required parameter clientId was null or undefined when calling clientsGetClient.');
@@ -169,7 +169,7 @@ export class ClientsService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseClient>(`${this.basePath}/api/Clients/GetClient`,
+        return this.httpClient.get<CSApiResponseClient>(`${this.basePath}/api/Clients/GetClient`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -187,9 +187,9 @@ export class ClientsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public clientsGetClients(xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseListClient>;
-    public clientsGetClients(xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseListClient>>;
-    public clientsGetClients(xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseListClient>>;
+    public clientsGetClients(xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseListClient>;
+    public clientsGetClients(xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListClient>>;
+    public clientsGetClients(xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListClient>>;
     public clientsGetClients(xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling clientsGetClients.');
@@ -217,7 +217,7 @@ export class ClientsService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseListClient>(`${this.basePath}/api/Clients/GetClients`,
+        return this.httpClient.get<CSApiResponseListClient>(`${this.basePath}/api/Clients/GetClients`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -235,10 +235,10 @@ export class ClientsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public clientsUpdateClient(request: CsApiSaveClientRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseBoolean>;
-    public clientsUpdateClient(request: CsApiSaveClientRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseBoolean>>;
-    public clientsUpdateClient(request: CsApiSaveClientRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseBoolean>>;
-    public clientsUpdateClient(request: CsApiSaveClientRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public clientsUpdateClient(request: CSSaveClientRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseBoolean>;
+    public clientsUpdateClient(request: CSSaveClientRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseBoolean>>;
+    public clientsUpdateClient(request: CSSaveClientRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseBoolean>>;
+    public clientsUpdateClient(request: CSSaveClientRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (request === null || request === undefined) {
             throw new Error('Required parameter request was null or undefined when calling clientsUpdateClient.');
         }
@@ -278,7 +278,7 @@ export class ClientsService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CsApiApiResponseBoolean>(`${this.basePath}/api/Clients/UpdateClient`,
+        return this.httpClient.post<CSApiResponseBoolean>(`${this.basePath}/api/Clients/UpdateClient`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

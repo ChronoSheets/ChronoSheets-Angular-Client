@@ -18,12 +18,12 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
-import { CsApiCsApiApiResponseBoolean } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseBoolean';
-import { CsApiCsApiApiResponseInt32 } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseInt32';
-import { CsApiCsApiApiResponseListTimesheetTask } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseListTimesheetTask';
-import { CsApiCsApiApiResponseTimesheetTask } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseTimesheetTask';
-import { CsApiCsApiInsertTaskRequest } from '../ChronoSheetsClientLibModel/csApiCsApiInsertTaskRequest';
-import { CsApiCsApiUpdateTaskRequest } from '../ChronoSheetsClientLibModel/csApiCsApiUpdateTaskRequest';
+import { CSCSApiResponseBoolean } from '../ChronoSheetsClientLibModel/cSCSApiResponseBoolean';
+import { CSCSApiResponseInt32 } from '../ChronoSheetsClientLibModel/cSCSApiResponseInt32';
+import { CSCSApiResponseListTimesheetTask } from '../ChronoSheetsClientLibModel/cSCSApiResponseListTimesheetTask';
+import { CSCSApiResponseTimesheetTask } from '../ChronoSheetsClientLibModel/cSCSApiResponseTimesheetTask';
+import { CSCSInsertTaskRequest } from '../ChronoSheetsClientLibModel/cSCSInsertTaskRequest';
+import { CSCSUpdateTaskRequest } from '../ChronoSheetsClientLibModel/cSCSUpdateTaskRequest';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -69,10 +69,10 @@ export class TasksService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public tasksCreateTask(request: CsApiInsertTaskRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseInt32>;
-    public tasksCreateTask(request: CsApiInsertTaskRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseInt32>>;
-    public tasksCreateTask(request: CsApiInsertTaskRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseInt32>>;
-    public tasksCreateTask(request: CsApiInsertTaskRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public tasksCreateTask(request: CSInsertTaskRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseInt32>;
+    public tasksCreateTask(request: CSInsertTaskRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseInt32>>;
+    public tasksCreateTask(request: CSInsertTaskRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseInt32>>;
+    public tasksCreateTask(request: CSInsertTaskRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (request === null || request === undefined) {
             throw new Error('Required parameter request was null or undefined when calling tasksCreateTask.');
         }
@@ -112,7 +112,7 @@ export class TasksService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CsApiApiResponseInt32>(`${this.basePath}/api/Tasks/CreateTask`,
+        return this.httpClient.put<CSApiResponseInt32>(`${this.basePath}/api/Tasks/CreateTask`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -131,9 +131,9 @@ export class TasksService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public tasksDeleteTask(taskId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseBoolean>;
-    public tasksDeleteTask(taskId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseBoolean>>;
-    public tasksDeleteTask(taskId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseBoolean>>;
+    public tasksDeleteTask(taskId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseBoolean>;
+    public tasksDeleteTask(taskId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseBoolean>>;
+    public tasksDeleteTask(taskId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseBoolean>>;
     public tasksDeleteTask(taskId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (taskId === null || taskId === undefined) {
             throw new Error('Required parameter taskId was null or undefined when calling tasksDeleteTask.');
@@ -169,7 +169,7 @@ export class TasksService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.delete<CsApiApiResponseBoolean>(`${this.basePath}/api/Tasks/DeleteTask`,
+        return this.httpClient.delete<CSApiResponseBoolean>(`${this.basePath}/api/Tasks/DeleteTask`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -188,9 +188,9 @@ export class TasksService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public tasksGetTaskById(taskId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseTimesheetTask>;
-    public tasksGetTaskById(taskId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseTimesheetTask>>;
-    public tasksGetTaskById(taskId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseTimesheetTask>>;
+    public tasksGetTaskById(taskId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseTimesheetTask>;
+    public tasksGetTaskById(taskId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseTimesheetTask>>;
+    public tasksGetTaskById(taskId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseTimesheetTask>>;
     public tasksGetTaskById(taskId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (taskId === null || taskId === undefined) {
             throw new Error('Required parameter taskId was null or undefined when calling tasksGetTaskById.');
@@ -226,7 +226,7 @@ export class TasksService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseTimesheetTask>(`${this.basePath}/api/Tasks/GetTaskById`,
+        return this.httpClient.get<CSApiResponseTimesheetTask>(`${this.basePath}/api/Tasks/GetTaskById`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -244,9 +244,9 @@ export class TasksService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public tasksGetTasks(xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseListTimesheetTask>;
-    public tasksGetTasks(xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseListTimesheetTask>>;
-    public tasksGetTasks(xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseListTimesheetTask>>;
+    public tasksGetTasks(xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseListTimesheetTask>;
+    public tasksGetTasks(xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListTimesheetTask>>;
+    public tasksGetTasks(xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListTimesheetTask>>;
     public tasksGetTasks(xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling tasksGetTasks.');
@@ -274,7 +274,7 @@ export class TasksService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseListTimesheetTask>(`${this.basePath}/api/Tasks/GetTasks`,
+        return this.httpClient.get<CSApiResponseListTimesheetTask>(`${this.basePath}/api/Tasks/GetTasks`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -292,9 +292,9 @@ export class TasksService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public tasksGetTasksForJob(jobId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseListTimesheetTask>;
-    public tasksGetTasksForJob(jobId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseListTimesheetTask>>;
-    public tasksGetTasksForJob(jobId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseListTimesheetTask>>;
+    public tasksGetTasksForJob(jobId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseListTimesheetTask>;
+    public tasksGetTasksForJob(jobId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListTimesheetTask>>;
+    public tasksGetTasksForJob(jobId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListTimesheetTask>>;
     public tasksGetTasksForJob(jobId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (jobId === null || jobId === undefined) {
             throw new Error('Required parameter jobId was null or undefined when calling tasksGetTasksForJob.');
@@ -330,7 +330,7 @@ export class TasksService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseListTimesheetTask>(`${this.basePath}/api/Tasks/GetTasksForJob`,
+        return this.httpClient.get<CSApiResponseListTimesheetTask>(`${this.basePath}/api/Tasks/GetTasksForJob`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -349,10 +349,10 @@ export class TasksService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public tasksUpdateTask(request: CsApiUpdateTaskRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseBoolean>;
-    public tasksUpdateTask(request: CsApiUpdateTaskRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseBoolean>>;
-    public tasksUpdateTask(request: CsApiUpdateTaskRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseBoolean>>;
-    public tasksUpdateTask(request: CsApiUpdateTaskRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public tasksUpdateTask(request: CSUpdateTaskRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseBoolean>;
+    public tasksUpdateTask(request: CSUpdateTaskRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseBoolean>>;
+    public tasksUpdateTask(request: CSUpdateTaskRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseBoolean>>;
+    public tasksUpdateTask(request: CSUpdateTaskRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (request === null || request === undefined) {
             throw new Error('Required parameter request was null or undefined when calling tasksUpdateTask.');
         }
@@ -392,7 +392,7 @@ export class TasksService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CsApiApiResponseBoolean>(`${this.basePath}/api/Tasks/UpdateTask`,
+        return this.httpClient.post<CSApiResponseBoolean>(`${this.basePath}/api/Tasks/UpdateTask`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

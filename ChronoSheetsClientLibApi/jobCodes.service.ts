@@ -18,12 +18,12 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
-import { CsApiCsApiApiResponseBoolean } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseBoolean';
-import { CsApiCsApiApiResponseInt32 } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseInt32';
-import { CsApiCsApiApiResponseJobCode } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseJobCode';
-import { CsApiCsApiApiResponseListJobCode } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseListJobCode';
-import { CsApiCsApiInsertJobCodeRequest } from '../ChronoSheetsClientLibModel/csApiCsApiInsertJobCodeRequest';
-import { CsApiCsApiUpdateJobCodeRequest } from '../ChronoSheetsClientLibModel/csApiCsApiUpdateJobCodeRequest';
+import { CSCSApiResponseBoolean } from '../ChronoSheetsClientLibModel/cSCSApiResponseBoolean';
+import { CSCSApiResponseInt32 } from '../ChronoSheetsClientLibModel/cSCSApiResponseInt32';
+import { CSCSApiResponseJobCode } from '../ChronoSheetsClientLibModel/cSCSApiResponseJobCode';
+import { CSCSApiResponseListJobCode } from '../ChronoSheetsClientLibModel/cSCSApiResponseListJobCode';
+import { CSCSInsertJobCodeRequest } from '../ChronoSheetsClientLibModel/cSCSInsertJobCodeRequest';
+import { CSCSUpdateJobCodeRequest } from '../ChronoSheetsClientLibModel/cSCSUpdateJobCodeRequest';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -69,10 +69,10 @@ export class JobCodesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public jobCodesCreateJobCode(request: CsApiInsertJobCodeRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseInt32>;
-    public jobCodesCreateJobCode(request: CsApiInsertJobCodeRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseInt32>>;
-    public jobCodesCreateJobCode(request: CsApiInsertJobCodeRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseInt32>>;
-    public jobCodesCreateJobCode(request: CsApiInsertJobCodeRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public jobCodesCreateJobCode(request: CSInsertJobCodeRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseInt32>;
+    public jobCodesCreateJobCode(request: CSInsertJobCodeRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseInt32>>;
+    public jobCodesCreateJobCode(request: CSInsertJobCodeRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseInt32>>;
+    public jobCodesCreateJobCode(request: CSInsertJobCodeRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (request === null || request === undefined) {
             throw new Error('Required parameter request was null or undefined when calling jobCodesCreateJobCode.');
         }
@@ -112,7 +112,7 @@ export class JobCodesService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CsApiApiResponseInt32>(`${this.basePath}/api/JobCodes/CreateJobCode`,
+        return this.httpClient.put<CSApiResponseInt32>(`${this.basePath}/api/JobCodes/CreateJobCode`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -131,9 +131,9 @@ export class JobCodesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public jobCodesDeleteJobCode(jobCodeId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseBoolean>;
-    public jobCodesDeleteJobCode(jobCodeId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseBoolean>>;
-    public jobCodesDeleteJobCode(jobCodeId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseBoolean>>;
+    public jobCodesDeleteJobCode(jobCodeId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseBoolean>;
+    public jobCodesDeleteJobCode(jobCodeId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseBoolean>>;
+    public jobCodesDeleteJobCode(jobCodeId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseBoolean>>;
     public jobCodesDeleteJobCode(jobCodeId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (jobCodeId === null || jobCodeId === undefined) {
             throw new Error('Required parameter jobCodeId was null or undefined when calling jobCodesDeleteJobCode.');
@@ -169,7 +169,7 @@ export class JobCodesService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.delete<CsApiApiResponseBoolean>(`${this.basePath}/api/JobCodes/DeleteJobCode`,
+        return this.httpClient.delete<CSApiResponseBoolean>(`${this.basePath}/api/JobCodes/DeleteJobCode`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -188,9 +188,9 @@ export class JobCodesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public jobCodesGetJobCodeById(jobCodeId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseJobCode>;
-    public jobCodesGetJobCodeById(jobCodeId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseJobCode>>;
-    public jobCodesGetJobCodeById(jobCodeId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseJobCode>>;
+    public jobCodesGetJobCodeById(jobCodeId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseJobCode>;
+    public jobCodesGetJobCodeById(jobCodeId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseJobCode>>;
+    public jobCodesGetJobCodeById(jobCodeId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseJobCode>>;
     public jobCodesGetJobCodeById(jobCodeId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (jobCodeId === null || jobCodeId === undefined) {
             throw new Error('Required parameter jobCodeId was null or undefined when calling jobCodesGetJobCodeById.');
@@ -226,7 +226,7 @@ export class JobCodesService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseJobCode>(`${this.basePath}/api/JobCodes/GetJobCodeById`,
+        return this.httpClient.get<CSApiResponseJobCode>(`${this.basePath}/api/JobCodes/GetJobCodeById`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -244,9 +244,9 @@ export class JobCodesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public jobCodesGetJobCodes(xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseListJobCode>;
-    public jobCodesGetJobCodes(xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseListJobCode>>;
-    public jobCodesGetJobCodes(xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseListJobCode>>;
+    public jobCodesGetJobCodes(xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseListJobCode>;
+    public jobCodesGetJobCodes(xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListJobCode>>;
+    public jobCodesGetJobCodes(xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListJobCode>>;
     public jobCodesGetJobCodes(xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling jobCodesGetJobCodes.');
@@ -274,7 +274,7 @@ export class JobCodesService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseListJobCode>(`${this.basePath}/api/JobCodes/GetJobCodes`,
+        return this.httpClient.get<CSApiResponseListJobCode>(`${this.basePath}/api/JobCodes/GetJobCodes`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -292,10 +292,10 @@ export class JobCodesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public jobCodesUpdateJobCode(request: CsApiUpdateJobCodeRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseBoolean>;
-    public jobCodesUpdateJobCode(request: CsApiUpdateJobCodeRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseBoolean>>;
-    public jobCodesUpdateJobCode(request: CsApiUpdateJobCodeRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseBoolean>>;
-    public jobCodesUpdateJobCode(request: CsApiUpdateJobCodeRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public jobCodesUpdateJobCode(request: CSUpdateJobCodeRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseBoolean>;
+    public jobCodesUpdateJobCode(request: CSUpdateJobCodeRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseBoolean>>;
+    public jobCodesUpdateJobCode(request: CSUpdateJobCodeRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseBoolean>>;
+    public jobCodesUpdateJobCode(request: CSUpdateJobCodeRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (request === null || request === undefined) {
             throw new Error('Required parameter request was null or undefined when calling jobCodesUpdateJobCode.');
         }
@@ -335,7 +335,7 @@ export class JobCodesService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CsApiApiResponseBoolean>(`${this.basePath}/api/JobCodes/UpdateJobCode`,
+        return this.httpClient.post<CSApiResponseBoolean>(`${this.basePath}/api/JobCodes/UpdateJobCode`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

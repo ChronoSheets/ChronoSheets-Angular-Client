@@ -18,12 +18,12 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
-import { CsApiCsApiApiResponseBoolean } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseBoolean';
-import { CsApiCsApiApiResponseInt32 } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseInt32';
-import { CsApiCsApiApiResponseListOrganisationGroup } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseListOrganisationGroup';
-import { CsApiCsApiApiResponseOrganisationGroup } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseOrganisationGroup';
-import { CsApiCsApiInsertOrganisationGroupRequest } from '../ChronoSheetsClientLibModel/csApiCsApiInsertOrganisationGroupRequest';
-import { CsApiCsApiSaveOrganisationGroupRequest } from '../ChronoSheetsClientLibModel/csApiCsApiSaveOrganisationGroupRequest';
+import { CSCSApiResponseBoolean } from '../ChronoSheetsClientLibModel/cSCSApiResponseBoolean';
+import { CSCSApiResponseInt32 } from '../ChronoSheetsClientLibModel/cSCSApiResponseInt32';
+import { CSCSApiResponseListOrganisationGroup } from '../ChronoSheetsClientLibModel/cSCSApiResponseListOrganisationGroup';
+import { CSCSApiResponseOrganisationGroup } from '../ChronoSheetsClientLibModel/cSCSApiResponseOrganisationGroup';
+import { CSCSInsertOrganisationGroupRequest } from '../ChronoSheetsClientLibModel/cSCSInsertOrganisationGroupRequest';
+import { CSCSSaveOrganisationGroupRequest } from '../ChronoSheetsClientLibModel/cSCSSaveOrganisationGroupRequest';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -69,10 +69,10 @@ export class OrganisationGroupsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public organisationGroupsCreateOrganisationGroup(request: CsApiInsertOrganisationGroupRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseInt32>;
-    public organisationGroupsCreateOrganisationGroup(request: CsApiInsertOrganisationGroupRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseInt32>>;
-    public organisationGroupsCreateOrganisationGroup(request: CsApiInsertOrganisationGroupRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseInt32>>;
-    public organisationGroupsCreateOrganisationGroup(request: CsApiInsertOrganisationGroupRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public organisationGroupsCreateOrganisationGroup(request: CSInsertOrganisationGroupRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseInt32>;
+    public organisationGroupsCreateOrganisationGroup(request: CSInsertOrganisationGroupRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseInt32>>;
+    public organisationGroupsCreateOrganisationGroup(request: CSInsertOrganisationGroupRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseInt32>>;
+    public organisationGroupsCreateOrganisationGroup(request: CSInsertOrganisationGroupRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (request === null || request === undefined) {
             throw new Error('Required parameter request was null or undefined when calling organisationGroupsCreateOrganisationGroup.');
         }
@@ -112,7 +112,7 @@ export class OrganisationGroupsService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CsApiApiResponseInt32>(`${this.basePath}/api/OrganisationGroups/CreateOrganisationGroup`,
+        return this.httpClient.put<CSApiResponseInt32>(`${this.basePath}/api/OrganisationGroups/CreateOrganisationGroup`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -131,9 +131,9 @@ export class OrganisationGroupsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public organisationGroupsGetOrganisationGroup(organisationGroupId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseOrganisationGroup>;
-    public organisationGroupsGetOrganisationGroup(organisationGroupId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseOrganisationGroup>>;
-    public organisationGroupsGetOrganisationGroup(organisationGroupId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseOrganisationGroup>>;
+    public organisationGroupsGetOrganisationGroup(organisationGroupId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseOrganisationGroup>;
+    public organisationGroupsGetOrganisationGroup(organisationGroupId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseOrganisationGroup>>;
+    public organisationGroupsGetOrganisationGroup(organisationGroupId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseOrganisationGroup>>;
     public organisationGroupsGetOrganisationGroup(organisationGroupId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (organisationGroupId === null || organisationGroupId === undefined) {
             throw new Error('Required parameter organisationGroupId was null or undefined when calling organisationGroupsGetOrganisationGroup.');
@@ -169,7 +169,7 @@ export class OrganisationGroupsService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseOrganisationGroup>(`${this.basePath}/api/OrganisationGroups/GetOrganisationGroup`,
+        return this.httpClient.get<CSApiResponseOrganisationGroup>(`${this.basePath}/api/OrganisationGroups/GetOrganisationGroup`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -187,9 +187,9 @@ export class OrganisationGroupsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public organisationGroupsGetOrganisationGroups(xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseListOrganisationGroup>;
-    public organisationGroupsGetOrganisationGroups(xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseListOrganisationGroup>>;
-    public organisationGroupsGetOrganisationGroups(xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseListOrganisationGroup>>;
+    public organisationGroupsGetOrganisationGroups(xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseListOrganisationGroup>;
+    public organisationGroupsGetOrganisationGroups(xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListOrganisationGroup>>;
+    public organisationGroupsGetOrganisationGroups(xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListOrganisationGroup>>;
     public organisationGroupsGetOrganisationGroups(xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling organisationGroupsGetOrganisationGroups.');
@@ -217,7 +217,7 @@ export class OrganisationGroupsService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseListOrganisationGroup>(`${this.basePath}/api/OrganisationGroups/GetOrganisationGroups`,
+        return this.httpClient.get<CSApiResponseListOrganisationGroup>(`${this.basePath}/api/OrganisationGroups/GetOrganisationGroups`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -235,9 +235,9 @@ export class OrganisationGroupsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public organisationGroupsGetOrganisationGroupsForJob(jobId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseListOrganisationGroup>;
-    public organisationGroupsGetOrganisationGroupsForJob(jobId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseListOrganisationGroup>>;
-    public organisationGroupsGetOrganisationGroupsForJob(jobId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseListOrganisationGroup>>;
+    public organisationGroupsGetOrganisationGroupsForJob(jobId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseListOrganisationGroup>;
+    public organisationGroupsGetOrganisationGroupsForJob(jobId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListOrganisationGroup>>;
+    public organisationGroupsGetOrganisationGroupsForJob(jobId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListOrganisationGroup>>;
     public organisationGroupsGetOrganisationGroupsForJob(jobId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (jobId === null || jobId === undefined) {
             throw new Error('Required parameter jobId was null or undefined when calling organisationGroupsGetOrganisationGroupsForJob.');
@@ -273,7 +273,7 @@ export class OrganisationGroupsService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseListOrganisationGroup>(`${this.basePath}/api/OrganisationGroups/GetOrganisationGroupsForJob`,
+        return this.httpClient.get<CSApiResponseListOrganisationGroup>(`${this.basePath}/api/OrganisationGroups/GetOrganisationGroupsForJob`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -292,9 +292,9 @@ export class OrganisationGroupsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public organisationGroupsGetOrganisationGroupsForVehicle(vehicleId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseListOrganisationGroup>;
-    public organisationGroupsGetOrganisationGroupsForVehicle(vehicleId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseListOrganisationGroup>>;
-    public organisationGroupsGetOrganisationGroupsForVehicle(vehicleId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseListOrganisationGroup>>;
+    public organisationGroupsGetOrganisationGroupsForVehicle(vehicleId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseListOrganisationGroup>;
+    public organisationGroupsGetOrganisationGroupsForVehicle(vehicleId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListOrganisationGroup>>;
+    public organisationGroupsGetOrganisationGroupsForVehicle(vehicleId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListOrganisationGroup>>;
     public organisationGroupsGetOrganisationGroupsForVehicle(vehicleId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (vehicleId === null || vehicleId === undefined) {
             throw new Error('Required parameter vehicleId was null or undefined when calling organisationGroupsGetOrganisationGroupsForVehicle.');
@@ -330,7 +330,7 @@ export class OrganisationGroupsService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseListOrganisationGroup>(`${this.basePath}/api/OrganisationGroups/GetOrganisationGroupsForVehicle`,
+        return this.httpClient.get<CSApiResponseListOrganisationGroup>(`${this.basePath}/api/OrganisationGroups/GetOrganisationGroupsForVehicle`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -349,10 +349,10 @@ export class OrganisationGroupsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public organisationGroupsUpdateOrganisationGroup(request: CsApiSaveOrganisationGroupRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseBoolean>;
-    public organisationGroupsUpdateOrganisationGroup(request: CsApiSaveOrganisationGroupRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseBoolean>>;
-    public organisationGroupsUpdateOrganisationGroup(request: CsApiSaveOrganisationGroupRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseBoolean>>;
-    public organisationGroupsUpdateOrganisationGroup(request: CsApiSaveOrganisationGroupRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public organisationGroupsUpdateOrganisationGroup(request: CSSaveOrganisationGroupRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseBoolean>;
+    public organisationGroupsUpdateOrganisationGroup(request: CSSaveOrganisationGroupRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseBoolean>>;
+    public organisationGroupsUpdateOrganisationGroup(request: CSSaveOrganisationGroupRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseBoolean>>;
+    public organisationGroupsUpdateOrganisationGroup(request: CSSaveOrganisationGroupRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (request === null || request === undefined) {
             throw new Error('Required parameter request was null or undefined when calling organisationGroupsUpdateOrganisationGroup.');
         }
@@ -392,7 +392,7 @@ export class OrganisationGroupsService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CsApiApiResponseBoolean>(`${this.basePath}/api/OrganisationGroups/UpdateOrganisationGroup`,
+        return this.httpClient.post<CSApiResponseBoolean>(`${this.basePath}/api/OrganisationGroups/UpdateOrganisationGroup`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

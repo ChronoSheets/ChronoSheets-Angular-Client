@@ -18,9 +18,9 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
-import { CsApiCsApiApiResponseOrganisation } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseOrganisation';
-import { CsApiCsApiApiResponseUpdateOrganisationResponse } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseUpdateOrganisationResponse';
-import { CsApiCsApiUpdateOrganisationRequest } from '../ChronoSheetsClientLibModel/csApiCsApiUpdateOrganisationRequest';
+import { CSCSApiResponseOrganisation } from '../ChronoSheetsClientLibModel/cSCSApiResponseOrganisation';
+import { CSCSApiResponseUpdateOrganisationResponse } from '../ChronoSheetsClientLibModel/cSCSApiResponseUpdateOrganisationResponse';
+import { CSCSUpdateOrganisationRequest } from '../ChronoSheetsClientLibModel/cSCSUpdateOrganisationRequest';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -65,9 +65,9 @@ export class OrganisationService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public organisationGetOrganisation(xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseOrganisation>;
-    public organisationGetOrganisation(xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseOrganisation>>;
-    public organisationGetOrganisation(xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseOrganisation>>;
+    public organisationGetOrganisation(xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseOrganisation>;
+    public organisationGetOrganisation(xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseOrganisation>>;
+    public organisationGetOrganisation(xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseOrganisation>>;
     public organisationGetOrganisation(xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling organisationGetOrganisation.');
@@ -95,7 +95,7 @@ export class OrganisationService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseOrganisation>(`${this.basePath}/api/Organisation/GetOrganisation`,
+        return this.httpClient.get<CSApiResponseOrganisation>(`${this.basePath}/api/Organisation/GetOrganisation`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -113,10 +113,10 @@ export class OrganisationService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public organisationUpdateOrganisation(request: CsApiUpdateOrganisationRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseUpdateOrganisationResponse>;
-    public organisationUpdateOrganisation(request: CsApiUpdateOrganisationRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseUpdateOrganisationResponse>>;
-    public organisationUpdateOrganisation(request: CsApiUpdateOrganisationRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseUpdateOrganisationResponse>>;
-    public organisationUpdateOrganisation(request: CsApiUpdateOrganisationRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public organisationUpdateOrganisation(request: CSUpdateOrganisationRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseUpdateOrganisationResponse>;
+    public organisationUpdateOrganisation(request: CSUpdateOrganisationRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseUpdateOrganisationResponse>>;
+    public organisationUpdateOrganisation(request: CSUpdateOrganisationRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseUpdateOrganisationResponse>>;
+    public organisationUpdateOrganisation(request: CSUpdateOrganisationRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (request === null || request === undefined) {
             throw new Error('Required parameter request was null or undefined when calling organisationUpdateOrganisation.');
         }
@@ -156,7 +156,7 @@ export class OrganisationService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CsApiApiResponseUpdateOrganisationResponse>(`${this.basePath}/api/Organisation/UpdateOrganisation`,
+        return this.httpClient.post<CSApiResponseUpdateOrganisationResponse>(`${this.basePath}/api/Organisation/UpdateOrganisation`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

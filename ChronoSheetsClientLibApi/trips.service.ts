@@ -18,10 +18,10 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
-import { CsApiCsApiApiResponseForPaginatedListTrip } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseForPaginatedListTrip';
-import { CsApiCsApiApiResponseInt32 } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseInt32';
-import { CsApiCsApiApiResponseTrip } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseTrip';
-import { CsApiCsApiCreateTripRequest } from '../ChronoSheetsClientLibModel/csApiCsApiCreateTripRequest';
+import { CSCSApiResponseForPaginatedListTrip } from '../ChronoSheetsClientLibModel/cSCSApiResponseForPaginatedListTrip';
+import { CSCSApiResponseInt32 } from '../ChronoSheetsClientLibModel/cSCSApiResponseInt32';
+import { CSCSApiResponseTrip } from '../ChronoSheetsClientLibModel/cSCSApiResponseTrip';
+import { CSCSCreateTripRequest } from '../ChronoSheetsClientLibModel/cSCSCreateTripRequest';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -67,10 +67,10 @@ export class TripsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public tripsCreateTrip(request: CsApiCreateTripRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseInt32>;
-    public tripsCreateTrip(request: CsApiCreateTripRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseInt32>>;
-    public tripsCreateTrip(request: CsApiCreateTripRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseInt32>>;
-    public tripsCreateTrip(request: CsApiCreateTripRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public tripsCreateTrip(request: CSCreateTripRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseInt32>;
+    public tripsCreateTrip(request: CSCreateTripRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseInt32>>;
+    public tripsCreateTrip(request: CSCreateTripRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseInt32>>;
+    public tripsCreateTrip(request: CSCreateTripRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (request === null || request === undefined) {
             throw new Error('Required parameter request was null or undefined when calling tripsCreateTrip.');
         }
@@ -110,7 +110,7 @@ export class TripsService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CsApiApiResponseInt32>(`${this.basePath}/api/Trips/CreateTrip`,
+        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/api/Trips/CreateTrip`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -129,9 +129,9 @@ export class TripsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public tripsGetMyTripById(tripId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseTrip>;
-    public tripsGetMyTripById(tripId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseTrip>>;
-    public tripsGetMyTripById(tripId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseTrip>>;
+    public tripsGetMyTripById(tripId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseTrip>;
+    public tripsGetMyTripById(tripId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseTrip>>;
+    public tripsGetMyTripById(tripId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseTrip>>;
     public tripsGetMyTripById(tripId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (tripId === null || tripId === undefined) {
             throw new Error('Required parameter tripId was null or undefined when calling tripsGetMyTripById.');
@@ -167,7 +167,7 @@ export class TripsService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseTrip>(`${this.basePath}/api/Trips/GetMyTripById`,
+        return this.httpClient.get<CSApiResponseTrip>(`${this.basePath}/api/Trips/GetMyTripById`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -190,9 +190,9 @@ export class TripsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public tripsGetMyTrips(startDate: Date, endDate: Date, skip: number, take: number, vehicleId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseForPaginatedListTrip>;
-    public tripsGetMyTrips(startDate: Date, endDate: Date, skip: number, take: number, vehicleId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseForPaginatedListTrip>>;
-    public tripsGetMyTrips(startDate: Date, endDate: Date, skip: number, take: number, vehicleId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseForPaginatedListTrip>>;
+    public tripsGetMyTrips(startDate: Date, endDate: Date, skip: number, take: number, vehicleId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseForPaginatedListTrip>;
+    public tripsGetMyTrips(startDate: Date, endDate: Date, skip: number, take: number, vehicleId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedListTrip>>;
+    public tripsGetMyTrips(startDate: Date, endDate: Date, skip: number, take: number, vehicleId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedListTrip>>;
     public tripsGetMyTrips(startDate: Date, endDate: Date, skip: number, take: number, vehicleId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling tripsGetMyTrips.');
@@ -252,7 +252,7 @@ export class TripsService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseForPaginatedListTrip>(`${this.basePath}/api/Trips/GetMyTrips`,
+        return this.httpClient.get<CSApiResponseForPaginatedListTrip>(`${this.basePath}/api/Trips/GetMyTrips`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,

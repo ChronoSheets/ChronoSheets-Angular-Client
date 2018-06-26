@@ -18,7 +18,7 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
-import { CsApiCsApiApiResponseListAggregateJobCode } from '../ChronoSheetsClientLibModel/csApiCsApiApiResponseListAggregateJobCode';
+import { CSCSApiResponseListAggregateJobCode } from '../ChronoSheetsClientLibModel/cSCSApiResponseListAggregateJobCode';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -63,9 +63,9 @@ export class AggregateJobTasksService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public aggregateJobTasksGetAggregateJobTasks(xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CsApiApiResponseListAggregateJobCode>;
-    public aggregateJobTasksGetAggregateJobTasks(xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CsApiApiResponseListAggregateJobCode>>;
-    public aggregateJobTasksGetAggregateJobTasks(xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CsApiApiResponseListAggregateJobCode>>;
+    public aggregateJobTasksGetAggregateJobTasks(xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseListAggregateJobCode>;
+    public aggregateJobTasksGetAggregateJobTasks(xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListAggregateJobCode>>;
+    public aggregateJobTasksGetAggregateJobTasks(xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListAggregateJobCode>>;
     public aggregateJobTasksGetAggregateJobTasks(xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling aggregateJobTasksGetAggregateJobTasks.');
@@ -93,7 +93,7 @@ export class AggregateJobTasksService {
         let consumes: string[] = [
         ];
 
-        return this.httpClient.get<CsApiApiResponseListAggregateJobCode>(`${this.basePath}/api/AggregateJobTasks/GetAggregateJobTasks`,
+        return this.httpClient.get<CSApiResponseListAggregateJobCode>(`${this.basePath}/api/AggregateJobTasks/GetAggregateJobTasks`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
