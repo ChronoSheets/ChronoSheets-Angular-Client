@@ -59,9 +59,9 @@ export class OrganisationGroupUsersService {
 
 
     /**
-     * Get a collection of organisation group users that belong to an organisation group
+     * Get a collection of organisation group users that belong to an organisation group.  Requires the &#39;ManageOrganisationGroups&#39; or &#39;ManageOrganisationUsers&#39; permissions.
      * 
-     * @param orgGroupId 
+     * @param orgGroupId An OrganisatioGroup Id
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -118,7 +118,7 @@ export class OrganisationGroupUsersService {
     /**
      * Set the users who belong to an organisation group
      * 
-     * @param request 
+     * @param request A request object specifying which users belong to an organisation group.  Make sure to specify the OrganisationGroup Id in the request object so that ChronoSheets knows which OrganisationGroup to update
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.

@@ -11,7 +11,7 @@
  */
 
 
-export interface CSSignupResponse {
+export interface CSUpdateProfileResponse {
     organisationId?: number;
     userId?: number;
     validationErrors?: Array<string>;

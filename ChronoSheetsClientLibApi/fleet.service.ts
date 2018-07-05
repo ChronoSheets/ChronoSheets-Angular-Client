@@ -62,9 +62,9 @@ export class FleetService {
 
 
     /**
-     * Create a vehicle
+     * Create a vehicle.  Requires the &#39;ManageFleet&#39; permission.
      * 
-     * @param request 
+     * @param request An Insert Vehicle Request object containing values for the new Vehicle to create
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -126,7 +126,7 @@ export class FleetService {
     /**
      * Get a particular vehicle
      * 
-     * @param vehicleId The ID of the vehicle you want to get
+     * @param vehicleId The ID of the Vehicle you want to get
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -183,7 +183,7 @@ export class FleetService {
     /**
      * Get a collection of vehicles that are under your organisation
      * 
-     * @param includeDeleted 
+     * @param includeDeleted Whether or not to include deleted vehicles
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -238,9 +238,9 @@ export class FleetService {
     }
 
     /**
-     * Update a vehicle
+     * Update a vehicle.  Requires the &#39;ManageFleet&#39; permission.
      * 
-     * @param request 
+     * @param request A Save Vehicle Request object containing updated fields.  Make sure to specify the Vehicle Id in the request object so that ChronoSheets knows which Vehicle to update
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.

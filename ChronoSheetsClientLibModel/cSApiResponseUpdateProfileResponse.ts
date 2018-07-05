@@ -9,15 +9,15 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { CSSignupResponse } from './cSCSSignupResponse';
+import { CSUpdateProfileResponse } from './cSCSUpdateProfileResponse';
 
 
-export interface CSApiResponseSignupResponse {
-    data?: CSSignupResponse;
-    status?: CSApiResponseSignupResponse.CSStatusEnum;
+export interface CSApiResponseUpdateProfileResponse {
+    data?: CSUpdateProfileResponse;
+    status?: CSApiResponseUpdateProfileResponse.CSStatusEnum;
     message?: string;
 }
-export namespace CSApiResponseSignupResponse {
+export namespace CSApiResponseUpdateProfileResponse {
     export type CSStatusEnum = 'Succeeded' | 'FatalException' | 'GeneralError' | 'ValidationError' | 'UnAuthorized' | 'SessionExpired';
     export const CSStatusEnum = {
         Succeeded: 'Succeeded' as CSStatusEnum,

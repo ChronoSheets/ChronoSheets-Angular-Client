@@ -62,9 +62,9 @@ export class OrganisationGroupsService {
 
 
     /**
-     * Create an organisation group
+     * Create an organisation group.  Requires the &#39;ManageOrganisationGroups&#39; permissions.
      * 
-     * @param request 
+     * @param request An Insert OrganisationGroup Request object containing values for the new OrganisationGroup to create
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -124,9 +124,9 @@ export class OrganisationGroupsService {
     }
 
     /**
-     * Get a particular organisation group
+     * Get a particular organisation group.  Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageJobsAndTask&#39;, &#39;ManageClientsAndProjects&#39; or &#39;ManageOrganisationUsers&#39; permissions.
      * 
-     * @param organisationGroupId The ID of the organisation group you want to get
+     * @param organisationGroupId The ID of the OrganisationGroup you want to get
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -181,7 +181,7 @@ export class OrganisationGroupsService {
     }
 
     /**
-     * Get a collection of organisation groups that are under your organisation
+     * Get a collection of organisation groups that are under your organisation.  Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageJobsAndTask&#39;, &#39;ManageClientsAndProjects&#39; or &#39;ManageOrganisationUsers&#39; permissions.
      * 
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -228,7 +228,7 @@ export class OrganisationGroupsService {
     }
 
     /**
-     * Get org groups for a particular job
+     * Get org groups for a particular job.  Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageJobsAndTask&#39;, &#39;ManageClientsAndProjects&#39; or &#39;ManageOrganisationUsers&#39; permissions.
      * 
      * @param jobId The ID of the job
      * @param xChronosheetsAuth The ChronoSheets Auth Token
@@ -285,7 +285,7 @@ export class OrganisationGroupsService {
     }
 
     /**
-     * Get org groups for a particular vehicle
+     * Get org groups for a particular vehicle.  Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageFleet&#39; or &#39;ManageOrganisationUsers&#39; permissions.
      * 
      * @param vehicleId The ID of the vehicle
      * @param xChronosheetsAuth The ChronoSheets Auth Token
@@ -342,9 +342,9 @@ export class OrganisationGroupsService {
     }
 
     /**
-     * Update an organisation group
+     * Update an organisation group.  Requires the &#39;ManageOrganisationGroups&#39; permissions.
      * 
-     * @param request 
+     * @param request A Save OrganisationGroup Request object containing updated fields.  Make sure to specify the OrganisationGroup Id in the request object so that ChronoSheets knows which OrganisationGroup to update
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.

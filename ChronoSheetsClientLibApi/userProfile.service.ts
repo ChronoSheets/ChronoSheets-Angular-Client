@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs/Observab
 
 import { CSCSApiResponseBoolean } from '../ChronoSheetsClientLibModel/cSCSApiResponseBoolean';
 import { CSCSApiResponseDoLoginResponse } from '../ChronoSheetsClientLibModel/cSCSApiResponseDoLoginResponse';
-import { CSCSApiResponseSignupResponse } from '../ChronoSheetsClientLibModel/cSCSApiResponseSignupResponse';
+import { CSCSApiResponseUpdateProfileResponse } from '../ChronoSheetsClientLibModel/cSCSApiResponseUpdateProfileResponse';
 import { CSCSApiResponseUserProfile } from '../ChronoSheetsClientLibModel/cSCSApiResponseUserProfile';
 import { CSCSDoLoginRequest } from '../ChronoSheetsClientLibModel/cSCSDoLoginRequest';
 import { CSCSUpdateMyProfileRequest } from '../ChronoSheetsClientLibModel/cSCSUpdateMyProfileRequest';
@@ -265,9 +265,9 @@ export class UserProfileService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public userProfileUpdateMyProfile(request: CSUpdateMyProfileRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseSignupResponse>;
-    public userProfileUpdateMyProfile(request: CSUpdateMyProfileRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseSignupResponse>>;
-    public userProfileUpdateMyProfile(request: CSUpdateMyProfileRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseSignupResponse>>;
+    public userProfileUpdateMyProfile(request: CSUpdateMyProfileRequest, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseUpdateProfileResponse>;
+    public userProfileUpdateMyProfile(request: CSUpdateMyProfileRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseUpdateProfileResponse>>;
+    public userProfileUpdateMyProfile(request: CSUpdateMyProfileRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseUpdateProfileResponse>>;
     public userProfileUpdateMyProfile(request: CSUpdateMyProfileRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (request === null || request === undefined) {
             throw new Error('Required parameter request was null or undefined when calling userProfileUpdateMyProfile.');
@@ -308,7 +308,7 @@ export class UserProfileService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CSApiResponseSignupResponse>(`${this.basePath}/api/UserProfile/UpdateMyProfile`,
+        return this.httpClient.post<CSApiResponseUpdateProfileResponse>(`${this.basePath}/api/UserProfile/UpdateMyProfile`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

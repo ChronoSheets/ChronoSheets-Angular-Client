@@ -62,9 +62,9 @@ export class ClientsService {
 
 
     /**
-     * Create a client
+     * Create a client.  Requires the &#39;ManageClientsAndProjects&#39; permission.
      * 
-     * @param request 
+     * @param request An Insert Client Request object containing values for the new Client to create
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -124,9 +124,9 @@ export class ClientsService {
     }
 
     /**
-     * Get a particular client
+     * Get a particular client.  Requires the &#39;ManageClientsAndProjects&#39; or &#39;ManageJobsAndTask&#39; permissions.
      * 
-     * @param clientId The ID of the client you want to get
+     * @param clientId The ID of the Client you want to get
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -181,7 +181,7 @@ export class ClientsService {
     }
 
     /**
-     * Get a collection of clients that are under your organisation
+     * Get a collection of clients that are under your organisation.  Requires the &#39;ManageClientsAndProjects&#39; or &#39;ManageJobsAndTask&#39; permissions.
      * 
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -228,9 +228,9 @@ export class ClientsService {
     }
 
     /**
-     * Update a client
+     * Update a client.  Requires the &#39;ManageClientsAndProjects&#39; permission.
      * 
-     * @param request 
+     * @param request A Save Client Request object containing updated fields.  Make sure to specify the Client Id in the request object so that ChronoSheets knows which Client to update
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
