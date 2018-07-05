@@ -67,7 +67,7 @@ export class ReportsService {
      * 
      * @param startDate The start date for the date range.  Report data in the response is after this date
      * @param endDate The end date for the date range.  Report data in the response is before this date
-     * @param userIds The Ids of the users, if you want to filter the report data to particular users
+     * @param userIds A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -261,7 +261,7 @@ export class ReportsService {
      * @param endDate The end date for the date range.  Report data in the response is before this date
      * @param skip Skip this many items
      * @param take Take this many items
-     * @param userIds The Ids of the users, if you want to filter the report data to particular users
+     * @param userIds A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -346,7 +346,7 @@ export class ReportsService {
      * @param endDate The end date for the date range.  Report data in the response is before this date
      * @param skip Skip this many items
      * @param take Take this many items
-     * @param userIds The Ids of the users, if you want to filter the report data to particular users
+     * @param userIds A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -429,7 +429,7 @@ export class ReportsService {
      * 
      * @param startDate The start date for the date range.  Report data in the response is after this date
      * @param endDate The end date for the date range.  Report data in the response is before this date
-     * @param userIds The Ids of the users, if you want to filter the report data to particular users
+     * @param userIds A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
      * @param sort Decide which column to sort on
      * @param order Decide which direction to sort the column
      * @param skip Skip this many rows
@@ -528,7 +528,7 @@ export class ReportsService {
      * 
      * @param startDate The start date for the date range.  Report data in the response is after this date
      * @param endDate The end date for the date range.  Report data in the response is before this date
-     * @param userIds The Ids of the users, if you want to filter the report data to particular users
+     * @param userIds A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
