@@ -62,9 +62,9 @@ export class ProjectsService {
 
 
     /**
-     * Create a project
+     * Create a project.  Requires the &#39;ManageClientsAndProjects&#39; permission.
      * 
-     * @param request 
+     * @param request An Insert Project Request object containing values for the new Project to create
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -124,9 +124,9 @@ export class ProjectsService {
     }
 
     /**
-     * Get project by Id
+     * Get a project by its Id.  Requires the &#39;ManageClientsAndProjects&#39; or &#39;ManageJobsAndTask&#39; permissions.
      * 
-     * @param projectId The ID of the project
+     * @param projectId The ID of the Project you want to get
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -181,7 +181,7 @@ export class ProjectsService {
     }
 
     /**
-     * Get projects for a particular client
+     * Get projects for a particular client.  Requires the &#39;ManageClientsAndProjects&#39; or &#39;ManageJobsAndTask&#39; permissions.
      * 
      * @param clientId The ID of the client
      * @param xChronosheetsAuth The ChronoSheets Auth Token
@@ -238,9 +238,9 @@ export class ProjectsService {
     }
 
     /**
-     * Update a project
+     * Update a project.  Requires the &#39;ManageClientsAndProjects&#39; permission.
      * 
-     * @param request 
+     * @param request An Update Project Request object containing updated fields.  Make sure to specify the Project Id in the request object so that ChronoSheets knows which Project to update
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.

@@ -63,11 +63,11 @@ export class ReportsService {
 
 
     /**
-     * Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects)
+     * Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects).  These are the organisation wide reports, with data from potentially all employees.  Requires the &#39;ReportAdmin&#39; permission.
      * 
-     * @param startDate 
-     * @param endDate 
-     * @param userIds 
+     * @param startDate The start date for the date range.  Report data in the response is after this date
+     * @param endDate The end date for the date range.  Report data in the response is before this date
+     * @param userIds The Ids of the users, if you want to filter the report data to particular users
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -134,10 +134,10 @@ export class ReportsService {
     }
 
     /**
-     * Get Consolidated User Reports Data (Jobs and Tasks)
+     * Get Consolidated User Reports Data (Jobs, Tasks, Clients and Projects).  These are the user&#39;s own reports.  Requires the &#39;ViewOwnReports&#39; permission.
      * 
-     * @param startDate 
-     * @param endDate 
+     * @param startDate The start date for the date range.  Report data in the response is after this date
+     * @param endDate The end date for the date range.  Report data in the response is before this date
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -198,9 +198,9 @@ export class ReportsService {
     }
 
     /**
-     * Get trip by Id, for reporting purposes
+     * Get trip by Id, for reporting purposes.  Requires the &#39;ReportAdmin&#39; permission.
      * 
-     * @param tripId The ID of the trip
+     * @param tripId The ID of the Trip you want to get
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -255,13 +255,13 @@ export class ReportsService {
     }
 
     /**
-     * Reports on Organisation timesheet file attachments
+     * Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records.  Requires the &#39;ReportAdmin&#39; permission.
      * 
-     * @param startDate 
-     * @param endDate 
-     * @param skip 
-     * @param take 
-     * @param userIds 
+     * @param startDate The start date for the date range.  Report data in the response is after this date
+     * @param endDate The end date for the date range.  Report data in the response is before this date
+     * @param skip Skip this many items
+     * @param take Take this many items
+     * @param userIds The Ids of the users, if you want to filter the report data to particular users
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -340,13 +340,13 @@ export class ReportsService {
     }
 
     /**
-     * Reports on Organisation trips (GPS tracking from whole organisation)
+     * Reports on Organisation trips (GPS tracking from whole organisation).  Requires the &#39;ReportAdmin&#39; permission.
      * 
-     * @param startDate 
-     * @param endDate 
-     * @param skip 
-     * @param take 
-     * @param userIds 
+     * @param startDate The start date for the date range.  Report data in the response is after this date
+     * @param endDate The end date for the date range.  Report data in the response is before this date
+     * @param skip Skip this many items
+     * @param take Take this many items
+     * @param userIds The Ids of the users, if you want to filter the report data to particular users
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -425,15 +425,15 @@ export class ReportsService {
     }
 
     /**
-     * Get Timesheets Raw Data
+     * Get Timesheets Raw Data.  This data details each timesheet record.  These are the organisation wide timesheet records, with data from potentially all employees.  Requires the &#39;ReportAdmin&#39; permission.
      * 
-     * @param startDate 
-     * @param endDate 
-     * @param userIds 
-     * @param sort 
-     * @param order 
-     * @param skip 
-     * @param take 
+     * @param startDate The start date for the date range.  Report data in the response is after this date
+     * @param endDate The end date for the date range.  Report data in the response is before this date
+     * @param userIds The Ids of the users, if you want to filter the report data to particular users
+     * @param sort Decide which column to sort on
+     * @param order Decide which direction to sort the column
+     * @param skip Skip this many rows
+     * @param take Take this many rows
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -524,11 +524,11 @@ export class ReportsService {
     }
 
     /**
-     * Gets project cost estimations VS actual cost for date range and users
+     * Gets project cost estimations VS actual cost for date range and users.  Requires the &#39;ReportAdmin&#39; permission.
      * 
-     * @param startDate 
-     * @param endDate 
-     * @param userIds 
+     * @param startDate The start date for the date range.  Report data in the response is after this date
+     * @param endDate The end date for the date range.  Report data in the response is before this date
+     * @param userIds The Ids of the users, if you want to filter the report data to particular users
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -595,10 +595,10 @@ export class ReportsService {
     }
 
     /**
-     * Timeseries jobs data for the logged in user
+     * Timeseries jobs data for the logged in user.  Requires the &#39;ViewOwnReports&#39; or &#39;SubmitTimesheets&#39;.
      * 
-     * @param startDate 
-     * @param endDate 
+     * @param startDate The start date for the date range.  Report data in the response is after this date
+     * @param endDate The end date for the date range.  Report data in the response is before this date
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
