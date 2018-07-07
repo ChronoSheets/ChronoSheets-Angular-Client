@@ -59,9 +59,9 @@ export class UserPayRatesService {
 
 
     /**
-     * Create a new pay rate for a particular user, archiving the previous pay rate
+     * Create a new pay rate for a particular user, archiving the previous pay rate.    Requires the &#39;ManageOrganisationUsers&#39; permission.
      * 
-     * @param request 
+     * @param request An Insert UserHourlyRate Request object containing values for the new UserHourlyRate to create
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -121,9 +121,9 @@ export class UserPayRatesService {
     }
 
     /**
-     * Get a collection of pay rates for a particular user, specified by user id
+     * Get a collection of pay rates for a particular user, specified by user id.    Requires the &#39;ManageOrganisationUsers&#39; permission.
      * 
-     * @param userId 
+     * @param userId The ID of the User for which you want to get UserHourlyRate objects
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.

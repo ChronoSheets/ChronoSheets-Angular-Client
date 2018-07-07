@@ -62,9 +62,9 @@ export class TasksService {
 
 
     /**
-     * Create a task
+     * Create a task.    Requires the &#39;ManageJobsAndTask&#39; permission.
      * 
-     * @param request 
+     * @param request An Insert Task Request object containing values for the new Task to create
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -124,9 +124,9 @@ export class TasksService {
     }
 
     /**
-     * Delete a task
+     * Delete a task.    Requires the &#39;ManageJobsAndTask&#39; permission.
      * 
-     * @param taskId 
+     * @param taskId The ID of the Task you want to delete
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -181,9 +181,9 @@ export class TasksService {
     }
 
     /**
-     * Get a particular task by id
+     * Get a particular task by Id.   Requires the &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTask&#39; permissions.
      * 
-     * @param taskId 
+     * @param taskId The ID of the TimesheetTask you want to get
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -238,7 +238,7 @@ export class TasksService {
     }
 
     /**
-     * Get tasks in your organisation
+     * Get tasks in your organisation.   Requires the &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTask&#39; permissions.
      * 
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -285,7 +285,7 @@ export class TasksService {
     }
 
     /**
-     * Get tasks for a particular job
+     * Get a collection of tasks for a particular Job, specified by JobId.    Requires the &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTask&#39; permissions.
      * 
      * @param jobId The ID of the job
      * @param xChronosheetsAuth The ChronoSheets Auth Token
@@ -342,9 +342,9 @@ export class TasksService {
     }
 
     /**
-     * Update a task
+     * Update a task.    Requires the &#39;ManageJobsAndTask&#39; permission.
      * 
-     * @param request 
+     * @param request An Update Task Request object containing updated fields.  Make sure to specify the Task Id in the request object so that ChronoSheets knows which Task to update
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.

@@ -59,9 +59,9 @@ export class UsualHoursService {
 
 
     /**
-     * Get usual hours (rostered hours) for an employee
+     * Get usual hours (rostered hours) for an employee.  Requires the &#39;ManageOrganisationUsers&#39; or &#39;ManageOrganisationUsers&#39; permissions.
      * 
-     * @param userId 
+     * @param userId The ID of the User for which you want to get UsualHours for
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -116,9 +116,9 @@ export class UsualHoursService {
     }
 
     /**
-     * Set usual hours (rostered hours) for an employee
+     * Set usual hours (rostered hours) for an employee.  Requires the &#39;ManageOrganisationUsers&#39; or &#39;ManageOrganisationUsers&#39; permissions.
      * 
-     * @param request 
+     * @param request A Set UsualHours Request object containing updated data.  Make sure to specify the Day types in the request object so that ChronoSheets knows which Days to update
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.

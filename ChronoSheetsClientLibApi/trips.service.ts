@@ -60,9 +60,9 @@ export class TripsService {
 
 
     /**
-     * Create a new trip.  Important: create a timesheet record before calling this, passing in the new timesheet record id as a reference.
+     * Create a new trip.  Important: create a timesheet record before calling this, passing in the new timesheet record id as a reference.    Requires the &#39;SubmitTimesheets&#39; permission.
      * 
-     * @param request The create trip request
+     * @param request A Create Trip Request object containing values for the new Trip to create
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -122,9 +122,9 @@ export class TripsService {
     }
 
     /**
-     * Get trip by Id
+     * Get trip by Id.    Requires the &#39;ViewMyTrips&#39; permission.
      * 
-     * @param tripId The ID of the trip
+     * @param tripId The ID of the Trip you want to get
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -179,13 +179,13 @@ export class TripsService {
     }
 
     /**
-     * Get my trips
+     * Get my trips.  Get the GPS trips you&#39;ve recorded and submitted.    Requires the &#39;ViewMyTrips&#39; permission.
      * 
-     * @param startDate 
-     * @param endDate 
-     * @param skip 
-     * @param take 
-     * @param vehicleId 
+     * @param startDate The Start date of the date range.  Trips after this date will be obtained.
+     * @param endDate The End date of the date range.  Trips before this date will be obtained.
+     * @param skip Skip this many Trips
+     * @param take Take this many Trips
+     * @param vehicleId Filter by a particular Vehicle (get trips made with a particular vehicle), specified by VehicleId
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.

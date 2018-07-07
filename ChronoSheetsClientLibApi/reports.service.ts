@@ -63,7 +63,7 @@ export class ReportsService {
 
 
     /**
-     * Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects).  These are the organisation wide reports, with data from potentially all employees.  Requires the &#39;ReportAdmin&#39; permission.
+     * Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects).  These are the organisation wide reports, with data from potentially all employees.    Requires the &#39;ReportAdmin&#39; permission.
      * 
      * @param startDate The start date for the date range.  Report data in the response is after this date
      * @param endDate The end date for the date range.  Report data in the response is before this date
@@ -134,7 +134,7 @@ export class ReportsService {
     }
 
     /**
-     * Get Consolidated User Reports Data (Jobs, Tasks, Clients and Projects).  These are the user&#39;s own reports.  Requires the &#39;ViewOwnReports&#39; permission.
+     * Get Consolidated User Reports Data (Jobs, Tasks, Clients and Projects).  These are the user&#39;s own reports.    Requires the &#39;ViewOwnReports&#39; permission.
      * 
      * @param startDate The start date for the date range.  Report data in the response is after this date
      * @param endDate The end date for the date range.  Report data in the response is before this date
@@ -198,7 +198,7 @@ export class ReportsService {
     }
 
     /**
-     * Get trip by Id, for reporting purposes.  Requires the &#39;ReportAdmin&#39; permission.
+     * Get trip by Id, for reporting purposes.    Requires the &#39;ReportAdmin&#39; permission.
      * 
      * @param tripId The ID of the Trip you want to get
      * @param xChronosheetsAuth The ChronoSheets Auth Token
@@ -255,7 +255,7 @@ export class ReportsService {
     }
 
     /**
-     * Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records.  Requires the &#39;ReportAdmin&#39; permission.
+     * Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records.    Requires the &#39;ReportAdmin&#39; permission.
      * 
      * @param startDate The start date for the date range.  Report data in the response is after this date
      * @param endDate The end date for the date range.  Report data in the response is before this date
@@ -340,7 +340,7 @@ export class ReportsService {
     }
 
     /**
-     * Reports on Organisation trips (GPS tracking from whole organisation).  Requires the &#39;ReportAdmin&#39; permission.
+     * Reports on Organisation trips (GPS tracking from whole organisation).    Requires the &#39;ReportAdmin&#39; permission.
      * 
      * @param startDate The start date for the date range.  Report data in the response is after this date
      * @param endDate The end date for the date range.  Report data in the response is before this date
@@ -425,7 +425,7 @@ export class ReportsService {
     }
 
     /**
-     * Get Timesheets Raw Data.  This data details each timesheet record.  These are the organisation wide timesheet records, with data from potentially all employees.  Requires the &#39;ReportAdmin&#39; permission.
+     * Get Timesheets Raw Data.  This data details each timesheet record.  These are the organisation wide timesheet records, with data from potentially all employees.    Requires the &#39;ReportAdmin&#39; permission.
      * 
      * @param startDate The start date for the date range.  Report data in the response is after this date
      * @param endDate The end date for the date range.  Report data in the response is before this date
@@ -524,7 +524,7 @@ export class ReportsService {
     }
 
     /**
-     * Gets project cost estimations VS actual cost for date range and users.  Requires the &#39;ReportAdmin&#39; permission.
+     * Gets project cost estimations VS actual cost for date range and users.    Requires the &#39;ReportAdmin&#39; permission.
      * 
      * @param startDate The start date for the date range.  Report data in the response is after this date
      * @param endDate The end date for the date range.  Report data in the response is before this date
@@ -595,7 +595,7 @@ export class ReportsService {
     }
 
     /**
-     * Timeseries jobs data for the logged in user.  Requires the &#39;ViewOwnReports&#39; or &#39;SubmitTimesheets&#39;.
+     * Timeseries jobs data for the logged in user.    Requires the &#39;ViewOwnReports&#39; or &#39;SubmitTimesheets&#39;.
      * 
      * @param startDate The start date for the date range.  Report data in the response is after this date
      * @param endDate The end date for the date range.  Report data in the response is before this date

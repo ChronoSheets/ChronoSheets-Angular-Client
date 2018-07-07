@@ -60,9 +60,9 @@ export class UserJobFavouritesService {
 
 
     /**
-     * Create a job favourite
+     * Create a job favourite.    Requires the &#39;SubmitTimesheets&#39; permission.
      * 
-     * @param request 
+     * @param request An Insert UserJobFavourite Request object containing values for the new UserJobFavourite to create
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -122,9 +122,9 @@ export class UserJobFavouritesService {
     }
 
     /**
-     * Delete a job favourite
+     * Delete a job favourite.    Requires the &#39;SubmitTimesheets&#39; permission.
      * 
-     * @param jobId The ID of the Job
+     * @param jobId The ID of the Job for the Job Favourite you want to delete.
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -179,7 +179,7 @@ export class UserJobFavouritesService {
     }
 
     /**
-     * Get your job favourites
+     * Get your job favourites.    Requires the &#39;SubmitTimesheets&#39; permission.
      * 
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.

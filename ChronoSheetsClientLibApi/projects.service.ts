@@ -62,7 +62,7 @@ export class ProjectsService {
 
 
     /**
-     * Create a project.  Requires the &#39;ManageClientsAndProjects&#39; permission.
+     * Create a project.    Requires the &#39;ManageClientsAndProjects&#39; permission.
      * 
      * @param request An Insert Project Request object containing values for the new Project to create
      * @param xChronosheetsAuth The ChronoSheets Auth Token
@@ -124,7 +124,7 @@ export class ProjectsService {
     }
 
     /**
-     * Get a project by its Id.  Requires the &#39;ManageClientsAndProjects&#39; or &#39;ManageJobsAndTask&#39; permissions.
+     * Get a project by its Id.    Requires the &#39;ManageClientsAndProjects&#39; or &#39;ManageJobsAndTask&#39; permissions.
      * 
      * @param projectId The ID of the Project you want to get
      * @param xChronosheetsAuth The ChronoSheets Auth Token
@@ -181,7 +181,7 @@ export class ProjectsService {
     }
 
     /**
-     * Get projects for a particular client.  Requires the &#39;ManageClientsAndProjects&#39; or &#39;ManageJobsAndTask&#39; permissions.
+     * Get projects for a particular client.    Requires the &#39;ManageClientsAndProjects&#39; or &#39;ManageJobsAndTask&#39; permissions.
      * 
      * @param clientId The ID of the client
      * @param xChronosheetsAuth The ChronoSheets Auth Token
@@ -238,7 +238,7 @@ export class ProjectsService {
     }
 
     /**
-     * Update a project.  Requires the &#39;ManageClientsAndProjects&#39; permission.
+     * Update a project.    Requires the &#39;ManageClientsAndProjects&#39; permission.
      * 
      * @param request An Update Project Request object containing updated fields.  Make sure to specify the Project Id in the request object so that ChronoSheets knows which Project to update
      * @param xChronosheetsAuth The ChronoSheets Auth Token

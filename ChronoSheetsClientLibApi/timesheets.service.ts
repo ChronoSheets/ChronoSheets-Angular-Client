@@ -62,9 +62,9 @@ export class TimesheetsService {
 
 
     /**
-     * Inserts a single timesheet record
+     * Inserts a single timesheet record.    Requires the &#39;SubmitTimesheets&#39; permission.
      * 
-     * @param request The timesheet request object
+     * @param request A Timesheet Request object containing values for the new Timesheet to create
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -124,9 +124,9 @@ export class TimesheetsService {
     }
 
     /**
-     * Delete a timesheet
+     * Delete a timesheet.    Requires the &#39;SubmitTimesheets&#39; permission.
      * 
-     * @param timesheetId The ID of the timesheet to delete
+     * @param timesheetId The ID of the Timesheet you want to delete
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -181,7 +181,7 @@ export class TimesheetsService {
     }
 
     /**
-     * Get timesheets between start and end dates
+     * Get timesheets between start and end dates.  Note: the date range cannot exceed 24 hours.  This method is generally used to get timesheets for a particular day.    Requires the &#39;SubmitTimesheets&#39; permission.
      * 
      * @param startDate The start date of the date range
      * @param endDate The end date of the date range
@@ -245,9 +245,9 @@ export class TimesheetsService {
     }
 
     /**
-     * Batch update timesheets
+     * Batch update timesheets.    Requires the &#39;SubmitTimesheets&#39; permission.
      * 
-     * @param request The batch update timesheets request
+     * @param request A BatchUpdateTimesheet Request object containing values for the new Timesheets to create
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.

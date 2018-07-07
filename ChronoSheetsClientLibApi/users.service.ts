@@ -62,9 +62,9 @@ export class UsersService {
 
 
     /**
-     * Create a user in your organisation
+     * Create a user account in your organisation.  Requires the &#39;ManageOrganisationUsers&#39; permission.
      * 
-     * @param request 
+     * @param request An Insert User Request object containing values for the new User to create
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -124,9 +124,9 @@ export class UsersService {
     }
 
     /**
-     * Get a particular user in your organisation
+     * Get a particular user in your organisation.  Requires the &#39;ManageOrganisationUsers&#39; or &#39;ManageOrganisationGroups&#39; permissions.
      * 
-     * @param userId 
+     * @param userId The User ID of the UserForManagement you want to get
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -181,7 +181,7 @@ export class UsersService {
     }
 
     /**
-     * Get users for your organisation
+     * Get users accounts in your organisation.  Requires the &#39;ManageOrganisationUsers&#39; or &#39;ManageOrganisationGroups&#39; permissions.
      * 
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -228,9 +228,9 @@ export class UsersService {
     }
 
     /**
-     * Update a user
+     * Update a user account.  Requires the &#39;ManageOrganisationUsers&#39; permission.
      * 
-     * @param request 
+     * @param request A Update User Request object containing updated fields.  Make sure to specify the User Id in the request object so that ChronoSheets knows which User to update
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.

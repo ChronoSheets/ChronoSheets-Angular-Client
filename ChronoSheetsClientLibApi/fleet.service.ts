@@ -62,7 +62,7 @@ export class FleetService {
 
 
     /**
-     * Create a vehicle.  Requires the &#39;ManageFleet&#39; permission.
+     * Create a vehicle.    Requires the &#39;ManageFleet&#39; permission.
      * 
      * @param request An Insert Vehicle Request object containing values for the new Vehicle to create
      * @param xChronosheetsAuth The ChronoSheets Auth Token
@@ -124,7 +124,7 @@ export class FleetService {
     }
 
     /**
-     * Get a particular vehicle
+     * Get a particular vehicle.  Does not require any special permission.
      * 
      * @param vehicleId The ID of the Vehicle you want to get
      * @param xChronosheetsAuth The ChronoSheets Auth Token
@@ -181,7 +181,7 @@ export class FleetService {
     }
 
     /**
-     * Get a collection of vehicles that are under your organisation
+     * Get a collection of vehicles that are under your organisation.    Does not require any special permission.
      * 
      * @param includeDeleted Whether or not to include deleted vehicles
      * @param xChronosheetsAuth The ChronoSheets Auth Token
@@ -238,7 +238,7 @@ export class FleetService {
     }
 
     /**
-     * Update a vehicle.  Requires the &#39;ManageFleet&#39; permission.
+     * Update a vehicle.    Requires the &#39;ManageFleet&#39; permission.
      * 
      * @param request A Save Vehicle Request object containing updated fields.  Make sure to specify the Vehicle Id in the request object so that ChronoSheets knows which Vehicle to update
      * @param xChronosheetsAuth The ChronoSheets Auth Token

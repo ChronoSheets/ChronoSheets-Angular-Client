@@ -59,7 +59,7 @@ export class OrganisationService {
 
 
     /**
-     * Get your organisation.  Requires &#39;OrganisationAdmin&#39; permission.
+     * Get your organisation.    Requires &#39;OrganisationAdmin&#39; permission.
      * 
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -106,7 +106,7 @@ export class OrganisationService {
     }
 
     /**
-     * Update an organisation.  Requires &#39;OrganisationAdmin&#39; permission.
+     * Update an organisation.    Requires &#39;OrganisationAdmin&#39; permission.
      * 
      * @param request An Update Organsation Request object containing updated fields.  Make sure to specify the Organsation Id in the request object so that ChronoSheets knows which Organsation to update
      * @param xChronosheetsAuth The ChronoSheets Auth Token
