@@ -110,7 +110,7 @@ export class TripsService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/api/Trips/CreateTrip`,
+        return this.httpClient.put<CSApiResponseInt32>(`${this.basePath}/api/Trips/CreateTrip`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

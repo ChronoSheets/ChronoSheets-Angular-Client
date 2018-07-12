@@ -112,7 +112,7 @@ export class UsersService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CSApiResponseInsertUserResponse>(`${this.basePath}/api/Users/CreateTimesheetUser`,
+        return this.httpClient.post<CSApiResponseInsertUserResponse>(`${this.basePath}/api/Users/CreateTimesheetUser`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -278,7 +278,7 @@ export class UsersService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CSApiResponseUpdateUserResponse>(`${this.basePath}/api/Users/UpdateTimesheetUser`,
+        return this.httpClient.put<CSApiResponseUpdateUserResponse>(`${this.basePath}/api/Users/UpdateTimesheetUser`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

@@ -112,7 +112,7 @@ export class FleetService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CSApiResponseInt32>(`${this.basePath}/api/Fleet/CreateVehicle`,
+        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/api/Fleet/CreateVehicle`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -288,7 +288,7 @@ export class FleetService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CSApiResponseBoolean>(`${this.basePath}/api/Fleet/UpdateVehicle`,
+        return this.httpClient.put<CSApiResponseBoolean>(`${this.basePath}/api/Fleet/UpdateVehicle`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

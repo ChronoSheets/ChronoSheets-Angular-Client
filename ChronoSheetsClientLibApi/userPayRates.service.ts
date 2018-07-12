@@ -109,7 +109,7 @@ export class UserPayRatesService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CSApiResponseInt32>(`${this.basePath}/api/UserPayRates/CreatePayRate`,
+        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/api/UserPayRates/CreatePayRate`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

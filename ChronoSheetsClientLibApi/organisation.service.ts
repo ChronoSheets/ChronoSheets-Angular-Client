@@ -156,7 +156,7 @@ export class OrganisationService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CSApiResponseUpdateOrganisationResponse>(`${this.basePath}/api/Organisation/UpdateOrganisation`,
+        return this.httpClient.put<CSApiResponseUpdateOrganisationResponse>(`${this.basePath}/api/Organisation/UpdateOrganisation`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

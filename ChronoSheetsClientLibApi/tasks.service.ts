@@ -112,7 +112,7 @@ export class TasksService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CSApiResponseInt32>(`${this.basePath}/api/Tasks/CreateTask`,
+        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/api/Tasks/CreateTask`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -392,7 +392,7 @@ export class TasksService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CSApiResponseBoolean>(`${this.basePath}/api/Tasks/UpdateTask`,
+        return this.httpClient.put<CSApiResponseBoolean>(`${this.basePath}/api/Tasks/UpdateTask`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

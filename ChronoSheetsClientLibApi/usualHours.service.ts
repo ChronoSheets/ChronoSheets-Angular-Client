@@ -166,7 +166,7 @@ export class UsualHoursService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CSApiResponseBoolean>(`${this.basePath}/api/UsualHours/SetUsualHours`,
+        return this.httpClient.put<CSApiResponseBoolean>(`${this.basePath}/api/UsualHours/SetUsualHours`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

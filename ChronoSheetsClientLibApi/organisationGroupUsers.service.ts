@@ -166,7 +166,7 @@ export class OrganisationGroupUsersService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CSApiResponseBoolean>(`${this.basePath}/api/OrganisationGroupUsers/UpdateOrganisationGroupUsers`,
+        return this.httpClient.put<CSApiResponseBoolean>(`${this.basePath}/api/OrganisationGroupUsers/UpdateOrganisationGroupUsers`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

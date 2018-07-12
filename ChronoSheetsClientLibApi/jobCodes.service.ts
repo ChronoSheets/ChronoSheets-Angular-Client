@@ -112,7 +112,7 @@ export class JobCodesService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CSApiResponseInt32>(`${this.basePath}/api/JobCodes/CreateJobCode`,
+        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/api/JobCodes/CreateJobCode`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -335,7 +335,7 @@ export class JobCodesService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CSApiResponseBoolean>(`${this.basePath}/api/JobCodes/UpdateJobCode`,
+        return this.httpClient.put<CSApiResponseBoolean>(`${this.basePath}/api/JobCodes/UpdateJobCode`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

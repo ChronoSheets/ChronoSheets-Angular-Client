@@ -110,7 +110,7 @@ export class UserJobFavouritesService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CSApiResponseInt32>(`${this.basePath}/api/UserJobFavourites/CreateJobFavourite`,
+        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/api/UserJobFavourites/CreateJobFavourite`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

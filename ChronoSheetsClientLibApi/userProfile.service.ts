@@ -105,7 +105,7 @@ export class UserProfileService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CSApiResponseDoLoginResponse>(`${this.basePath}/api/UserProfile/DoLogin`,
+        return this.httpClient.put<CSApiResponseDoLoginResponse>(`${this.basePath}/api/UserProfile/DoLogin`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -308,7 +308,7 @@ export class UserProfileService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CSApiResponseUpdateProfileResponse>(`${this.basePath}/api/UserProfile/UpdateMyProfile`,
+        return this.httpClient.put<CSApiResponseUpdateProfileResponse>(`${this.basePath}/api/UserProfile/UpdateMyProfile`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

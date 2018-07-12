@@ -112,7 +112,7 @@ export class TimesheetsService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CSApiResponseInt32>(`${this.basePath}/api/Timesheets/CreateSingleTimesheet`,
+        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/api/Timesheets/CreateSingleTimesheet`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -295,7 +295,7 @@ export class TimesheetsService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CSApiResponseListInt32>(`${this.basePath}/api/Timesheets/UpdateTimesheets`,
+        return this.httpClient.put<CSApiResponseListInt32>(`${this.basePath}/api/Timesheets/UpdateTimesheets`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

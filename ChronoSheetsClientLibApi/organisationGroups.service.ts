@@ -112,7 +112,7 @@ export class OrganisationGroupsService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CSApiResponseInt32>(`${this.basePath}/api/OrganisationGroups/CreateOrganisationGroup`,
+        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/api/OrganisationGroups/CreateOrganisationGroup`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -392,7 +392,7 @@ export class OrganisationGroupsService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CSApiResponseBoolean>(`${this.basePath}/api/OrganisationGroups/UpdateOrganisationGroup`,
+        return this.httpClient.put<CSApiResponseBoolean>(`${this.basePath}/api/OrganisationGroups/UpdateOrganisationGroup`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

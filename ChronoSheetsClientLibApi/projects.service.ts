@@ -112,7 +112,7 @@ export class ProjectsService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CSApiResponseInt32>(`${this.basePath}/api/Projects/CreateProject`,
+        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/api/Projects/CreateProject`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -288,7 +288,7 @@ export class ProjectsService {
             headers = headers.set("Content-Type", httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CSApiResponseBoolean>(`${this.basePath}/api/Projects/UpdateProject`,
+        return this.httpClient.put<CSApiResponseBoolean>(`${this.basePath}/api/Projects/UpdateProject`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
