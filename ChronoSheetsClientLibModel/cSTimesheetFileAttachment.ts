@@ -11,11 +11,7 @@
  */
 
 
-export interface CSOrgReportTimesheetFileAttachment {
-    username?: string;
-    emailAddress?: string;
-    firstName?: string;
-    lastName?: string;
+export interface CSTimesheetFileAttachment {
     timesheetId?: number;
     documentS3SignedUrl?: string;
     imageLargeS3SignedUrl?: string;
@@ -26,8 +22,8 @@ export interface CSOrgReportTimesheetFileAttachment {
     fileAttachmentId?: number;
     userId?: number;
     orgId?: number;
-    mobilePlatform?: CSOrgReportTimesheetFileAttachment.CSMobilePlatformEnum;
-    attachmentType?: CSOrgReportTimesheetFileAttachment.CSAttachmentTypeEnum;
+    mobilePlatform?: CSTimesheetFileAttachment.CSMobilePlatformEnum;
+    attachmentType?: CSTimesheetFileAttachment.CSAttachmentTypeEnum;
     notes?: string;
     nonImageFilePath?: string;
     imageLargeFilePath?: string;
@@ -40,7 +36,7 @@ export interface CSOrgReportTimesheetFileAttachment {
     dateImageCaptured?: Date;
     storageAllocationBytes?: number;
 }
-export namespace CSOrgReportTimesheetFileAttachment {
+export namespace CSTimesheetFileAttachment {
     export type CSMobilePlatformEnum = 'Unknown' | 'iOS' | 'Android';
     export const CSMobilePlatformEnum = {
         Unknown: 'Unknown' as CSMobilePlatformEnum,

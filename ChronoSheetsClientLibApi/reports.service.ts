@@ -20,8 +20,10 @@ import { Observable }                                        from 'rxjs/Observab
 
 import { CSCSApiResponseCombinedReportsData } from '../ChronoSheetsClientLibModel/cSCSApiResponseCombinedReportsData';
 import { CSCSApiResponseForPaginatedListOrgReportTimesheetFileAttachment } from '../ChronoSheetsClientLibModel/cSCSApiResponseForPaginatedListOrgReportTimesheetFileAttachment';
+import { CSCSApiResponseForPaginatedListOrgReportTranscript } from '../ChronoSheetsClientLibModel/cSCSApiResponseForPaginatedListOrgReportTranscript';
 import { CSCSApiResponseForPaginatedListOrgReportTrip } from '../ChronoSheetsClientLibModel/cSCSApiResponseForPaginatedListOrgReportTrip';
 import { CSCSApiResponseForPaginatedListRawReportItem } from '../ChronoSheetsClientLibModel/cSCSApiResponseForPaginatedListRawReportItem';
+import { CSCSApiResponseListFleetSummaryReportItem } from '../ChronoSheetsClientLibModel/cSCSApiResponseListFleetSummaryReportItem';
 import { CSCSApiResponseListJobSeriesReportItem } from '../ChronoSheetsClientLibModel/cSCSApiResponseListJobSeriesReportItem';
 import { CSCSApiResponseListProjectCostingReportItem } from '../ChronoSheetsClientLibModel/cSCSApiResponseListProjectCostingReportItem';
 import { CSCSApiResponseTrip } from '../ChronoSheetsClientLibModel/cSCSApiResponseTrip';
@@ -198,6 +200,77 @@ export class ReportsService {
     }
 
     /**
+     * Gets a summary report, which includes total distance travelled and total running costs, for vehicles within your organisation  Requires the &#39;ReportAdmin&#39; permission.
+     * 
+     * @param startDate The start date for the date range.  Report data in the response is after this date
+     * @param endDate The end date for the date range.  Report data in the response is before this date
+     * @param userIds A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
+     * @param xChronosheetsAuth The ChronoSheets Auth Token
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public reportsGetFleetSummaryAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseListFleetSummaryReportItem>;
+    public reportsGetFleetSummaryAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListFleetSummaryReportItem>>;
+    public reportsGetFleetSummaryAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListFleetSummaryReportItem>>;
+    public reportsGetFleetSummaryAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (startDate === null || startDate === undefined) {
+            throw new Error('Required parameter startDate was null or undefined when calling reportsGetFleetSummaryAdmin.');
+        }
+        if (endDate === null || endDate === undefined) {
+            throw new Error('Required parameter endDate was null or undefined when calling reportsGetFleetSummaryAdmin.');
+        }
+        if (userIds === null || userIds === undefined) {
+            throw new Error('Required parameter userIds was null or undefined when calling reportsGetFleetSummaryAdmin.');
+        }
+        if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
+            throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling reportsGetFleetSummaryAdmin.');
+        }
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (startDate !== undefined) {
+            queryParameters = queryParameters.set('StartDate', <any>startDate.toISOString());
+        }
+        if (endDate !== undefined) {
+            queryParameters = queryParameters.set('EndDate', <any>endDate.toISOString());
+        }
+        if (userIds !== undefined) {
+            queryParameters = queryParameters.set('UserIds', <any>userIds);
+        }
+
+        let headers = this.defaultHeaders;
+        if (xChronosheetsAuth !== undefined && xChronosheetsAuth !== null) {
+            headers = headers.set('x-chronosheets-auth', String(xChronosheetsAuth));
+        }
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json',
+            'text/json',
+            'application/xml',
+            'text/xml',
+            'multipart/form-data'
+        ];
+        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set("Accept", httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        return this.httpClient.get<CSApiResponseListFleetSummaryReportItem>(`${this.basePath}/api/Reports/GetFleetSummaryAdmin`,
+            {
+                params: queryParameters,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
      * Get trip by Id, for reporting purposes.    Requires the &#39;ReportAdmin&#39; permission.
      * 
      * @param tripId The ID of the Trip you want to get
@@ -255,7 +328,7 @@ export class ReportsService {
     }
 
     /**
-     * Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records.    Requires the &#39;ReportAdmin&#39; permission.
+     * Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records)  Requires the &#39;ReportAdmin&#39; permission.
      * 
      * @param startDate The start date for the date range.  Report data in the response is after this date
      * @param endDate The end date for the date range.  Report data in the response is before this date
@@ -329,6 +402,98 @@ export class ReportsService {
         ];
 
         return this.httpClient.get<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment>(`${this.basePath}/api/Reports/GetOrganisationTimesheetFileAttachments`,
+            {
+                params: queryParameters,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * Reports on Organisation transcripts (When an audio file is attached, it will be automatically transcribed, these are the transcriptions)    Requires the &#39;ReportAdmin&#39; permission.
+     * 
+     * @param startDate The start date for the date range.  Report data in the response is after this date
+     * @param endDate The end date for the date range.  Report data in the response is before this date
+     * @param skip Skip this many items
+     * @param take Take this many items
+     * @param userIds A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
+     * @param keywords Search the transcripts by keyword(s)
+     * @param xChronosheetsAuth The ChronoSheets Auth Token
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public reportsGetOrganisationTranscripts(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, keywords: string, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseForPaginatedListOrgReportTranscript>;
+    public reportsGetOrganisationTranscripts(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, keywords: string, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedListOrgReportTranscript>>;
+    public reportsGetOrganisationTranscripts(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, keywords: string, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedListOrgReportTranscript>>;
+    public reportsGetOrganisationTranscripts(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, keywords: string, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (startDate === null || startDate === undefined) {
+            throw new Error('Required parameter startDate was null or undefined when calling reportsGetOrganisationTranscripts.');
+        }
+        if (endDate === null || endDate === undefined) {
+            throw new Error('Required parameter endDate was null or undefined when calling reportsGetOrganisationTranscripts.');
+        }
+        if (skip === null || skip === undefined) {
+            throw new Error('Required parameter skip was null or undefined when calling reportsGetOrganisationTranscripts.');
+        }
+        if (take === null || take === undefined) {
+            throw new Error('Required parameter take was null or undefined when calling reportsGetOrganisationTranscripts.');
+        }
+        if (userIds === null || userIds === undefined) {
+            throw new Error('Required parameter userIds was null or undefined when calling reportsGetOrganisationTranscripts.');
+        }
+        if (keywords === null || keywords === undefined) {
+            throw new Error('Required parameter keywords was null or undefined when calling reportsGetOrganisationTranscripts.');
+        }
+        if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
+            throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling reportsGetOrganisationTranscripts.');
+        }
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (startDate !== undefined) {
+            queryParameters = queryParameters.set('StartDate', <any>startDate.toISOString());
+        }
+        if (endDate !== undefined) {
+            queryParameters = queryParameters.set('EndDate', <any>endDate.toISOString());
+        }
+        if (skip !== undefined) {
+            queryParameters = queryParameters.set('Skip', <any>skip);
+        }
+        if (take !== undefined) {
+            queryParameters = queryParameters.set('Take', <any>take);
+        }
+        if (userIds !== undefined) {
+            queryParameters = queryParameters.set('UserIds', <any>userIds);
+        }
+        if (keywords !== undefined) {
+            queryParameters = queryParameters.set('Keywords', <any>keywords);
+        }
+
+        let headers = this.defaultHeaders;
+        if (xChronosheetsAuth !== undefined && xChronosheetsAuth !== null) {
+            headers = headers.set('x-chronosheets-auth', String(xChronosheetsAuth));
+        }
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json',
+            'text/json',
+            'application/xml',
+            'text/xml',
+            'multipart/form-data'
+        ];
+        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set("Accept", httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        return this.httpClient.get<CSApiResponseForPaginatedListOrgReportTranscript>(`${this.basePath}/api/Reports/GetOrganisationTranscripts`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,

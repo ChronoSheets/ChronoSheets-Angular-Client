@@ -11,7 +11,16 @@
  */
 
 
-export interface CSOrgReportTimesheetFileAttachment {
+export interface CSOrgReportTranscript {
+    finishedJob?: boolean;
+    completedProcessing?: Date;
+    created?: Date;
+    startedProcessing?: Date;
+    transcriptionId?: number;
+    jobName?: string;
+    contents?: string;
+    mediaType?: CSOrgReportTranscript.CSMediaTypeEnum;
+    transcriptionStatus?: CSOrgReportTranscript.CSTranscriptionStatusEnum;
     username?: string;
     emailAddress?: string;
     firstName?: string;
@@ -26,8 +35,8 @@ export interface CSOrgReportTimesheetFileAttachment {
     fileAttachmentId?: number;
     userId?: number;
     orgId?: number;
-    mobilePlatform?: CSOrgReportTimesheetFileAttachment.CSMobilePlatformEnum;
-    attachmentType?: CSOrgReportTimesheetFileAttachment.CSAttachmentTypeEnum;
+    mobilePlatform?: CSOrgReportTranscript.CSMobilePlatformEnum;
+    attachmentType?: CSOrgReportTranscript.CSAttachmentTypeEnum;
     notes?: string;
     nonImageFilePath?: string;
     imageLargeFilePath?: string;
@@ -40,7 +49,22 @@ export interface CSOrgReportTimesheetFileAttachment {
     dateImageCaptured?: Date;
     storageAllocationBytes?: number;
 }
-export namespace CSOrgReportTimesheetFileAttachment {
+export namespace CSOrgReportTranscript {
+    export type CSMediaTypeEnum = 'Other' | 'Mp3' | 'Mp4' | 'Wav' | 'Flac';
+    export const CSMediaTypeEnum = {
+        Other: 'Other' as CSMediaTypeEnum,
+        Mp3: 'Mp3' as CSMediaTypeEnum,
+        Mp4: 'Mp4' as CSMediaTypeEnum,
+        Wav: 'Wav' as CSMediaTypeEnum,
+        Flac: 'Flac' as CSMediaTypeEnum
+    }
+    export type CSTranscriptionStatusEnum = 'Saved' | 'Processing' | 'Completed' | 'FailedWithError';
+    export const CSTranscriptionStatusEnum = {
+        Saved: 'Saved' as CSTranscriptionStatusEnum,
+        Processing: 'Processing' as CSTranscriptionStatusEnum,
+        Completed: 'Completed' as CSTranscriptionStatusEnum,
+        FailedWithError: 'FailedWithError' as CSTranscriptionStatusEnum
+    }
     export type CSMobilePlatformEnum = 'Unknown' | 'iOS' | 'Android';
     export const CSMobilePlatformEnum = {
         Unknown: 'Unknown' as CSMobilePlatformEnum,

@@ -9,15 +9,23 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { CSAggregateProject } from './cSCSAggregateProject';
 
 
-export interface CSProjectCostingReportItem {
-    projectId?: number;
-    projectName?: string;
-    clientId?: number;
+export interface CSAggregateClient {
+    clientProjects?: Array<CSAggregateProject>;
+    id?: number;
     organisationId?: number;
     clientName?: string;
-    estimatedCost?: number;
-    actualCostFiltered?: number;
-    actualCost?: number;
+    clientAddressLine1?: string;
+    clientAddressLine2?: string;
+    clientSuburb?: string;
+    clientState?: string;
+    clientPostCode?: string;
+    personOfContact?: string;
+    clientPhoneNumber?: string;
+    clientMobileNumber?: string;
+    clientEmailAddress?: string;
+    clientWebURL?: string;
+    projectCount?: number;
 }

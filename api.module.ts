@@ -3,8 +3,10 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Configuration } from './configuration';
 
+import { AggregateClientProjectsService } from './ChronoSheetsClientLibApi/aggregateClientProjects.service';
 import { AggregateJobTasksService } from './ChronoSheetsClientLibApi/aggregateJobTasks.service';
 import { ClientsService } from './ChronoSheetsClientLibApi/clients.service';
+import { FileAttachmentsService } from './ChronoSheetsClientLibApi/fileAttachments.service';
 import { FleetService } from './ChronoSheetsClientLibApi/fleet.service';
 import { JobCodesService } from './ChronoSheetsClientLibApi/jobCodes.service';
 import { OrganisationService } from './ChronoSheetsClientLibApi/organisation.service';
@@ -14,6 +16,7 @@ import { ProjectsService } from './ChronoSheetsClientLibApi/projects.service';
 import { ReportsService } from './ChronoSheetsClientLibApi/reports.service';
 import { TasksService } from './ChronoSheetsClientLibApi/tasks.service';
 import { TimesheetsService } from './ChronoSheetsClientLibApi/timesheets.service';
+import { TranscriptsService } from './ChronoSheetsClientLibApi/transcripts.service';
 import { TripsService } from './ChronoSheetsClientLibApi/trips.service';
 import { UserJobFavouritesService } from './ChronoSheetsClientLibApi/userJobFavourites.service';
 import { UserPayRatesService } from './ChronoSheetsClientLibApi/userPayRates.service';
@@ -26,8 +29,10 @@ import { UsualHoursService } from './ChronoSheetsClientLibApi/usualHours.service
   declarations: [],
   exports:      [],
   providers: [
+    AggregateClientProjectsService,
     AggregateJobTasksService,
     ClientsService,
+    FileAttachmentsService,
     FleetService,
     JobCodesService,
     OrganisationService,
@@ -37,6 +42,7 @@ import { UsualHoursService } from './ChronoSheetsClientLibApi/usualHours.service
     ReportsService,
     TasksService,
     TimesheetsService,
+    TranscriptsService,
     TripsService,
     UserJobFavouritesService,
     UserPayRatesService,

@@ -11,13 +11,12 @@
  */
 
 
-export interface CSProjectCostingReportItem {
-    projectId?: number;
-    projectName?: string;
+export interface CSAggregateProject {
+    id?: number;
     clientId?: number;
     organisationId?: number;
-    clientName?: string;
-    estimatedCost?: number;
-    actualCostFiltered?: number;
-    actualCost?: number;
+    projectName?: string;
+    costEstimation?: number;
+    startDate?: Date;
+    endDate?: Date;
 }

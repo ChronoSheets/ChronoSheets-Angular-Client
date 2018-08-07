@@ -11,13 +11,19 @@
  */
 
 
-export interface CSProjectCostingReportItem {
-    projectId?: number;
-    projectName?: string;
-    clientId?: number;
+export interface CSFleetSummaryReportItem {
+    totalDistanceMetersFiltered?: number;
+    totalDistanceMeters?: number;
+    totalRunningCostDollarsFiltered?: number;
+    totalRunningCostDollars?: number;
+    id?: number;
     organisationId?: number;
-    clientName?: string;
-    estimatedCost?: number;
-    actualCostFiltered?: number;
-    actualCost?: number;
+    name?: string;
+    costPerKilometer?: number;
+    make?: string;
+    model?: string;
+    year?: string;
+    licencePlateNumber?: string;
+    isDeleted?: boolean;
+    permittedEmployees?: Array<number>;
 }
