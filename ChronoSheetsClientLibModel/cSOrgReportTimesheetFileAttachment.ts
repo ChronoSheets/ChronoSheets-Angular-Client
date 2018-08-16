@@ -39,6 +39,7 @@ export interface CSOrgReportTimesheetFileAttachment {
     dateUploaded?: Date;
     dateImageCaptured?: Date;
     storageAllocationBytes?: number;
+    audioDurationSeconds?: number;
 }
 export namespace CSOrgReportTimesheetFileAttachment {
     export type CSMobilePlatformEnum = 'Unknown' | 'iOS' | 'Android';

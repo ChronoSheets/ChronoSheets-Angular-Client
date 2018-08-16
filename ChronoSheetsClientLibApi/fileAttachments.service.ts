@@ -18,6 +18,7 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
+import { CSCSApiResponseBoolean } from '../ChronoSheetsClientLibModel/cSCSApiResponseBoolean';
 import { CSCSApiResponseForPaginatedListTimesheetFileAttachment } from '../ChronoSheetsClientLibModel/cSCSApiResponseForPaginatedListTimesheetFileAttachment';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -55,6 +56,63 @@ export class FileAttachmentsService {
         return false;
     }
 
+
+    /**
+     * Delete a particular timesheet file attachment
+     * 
+     * @param fileAttachmentId The Id of the file attachment to delete
+     * @param xChronosheetsAuth The ChronoSheets Auth Token
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public fileAttachmentsDeleteTimesheetFileAttachment(fileAttachmentId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseBoolean>;
+    public fileAttachmentsDeleteTimesheetFileAttachment(fileAttachmentId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseBoolean>>;
+    public fileAttachmentsDeleteTimesheetFileAttachment(fileAttachmentId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseBoolean>>;
+    public fileAttachmentsDeleteTimesheetFileAttachment(fileAttachmentId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (fileAttachmentId === null || fileAttachmentId === undefined) {
+            throw new Error('Required parameter fileAttachmentId was null or undefined when calling fileAttachmentsDeleteTimesheetFileAttachment.');
+        }
+        if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
+            throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling fileAttachmentsDeleteTimesheetFileAttachment.');
+        }
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (fileAttachmentId !== undefined) {
+            queryParameters = queryParameters.set('FileAttachmentId', <any>fileAttachmentId);
+        }
+
+        let headers = this.defaultHeaders;
+        if (xChronosheetsAuth !== undefined && xChronosheetsAuth !== null) {
+            headers = headers.set('x-chronosheets-auth', String(xChronosheetsAuth));
+        }
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json',
+            'text/json',
+            'application/xml',
+            'text/xml',
+            'multipart/form-data'
+        ];
+        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set("Accept", httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        return this.httpClient.delete<CSApiResponseBoolean>(`${this.basePath}/api/FileAttachments/DeleteTimesheetFileAttachment`,
+            {
+                params: queryParameters,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
 
     /**
      * Get my file attachments.  Get files you&#39;ve attached to timesheets.

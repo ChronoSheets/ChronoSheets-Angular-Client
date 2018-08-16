@@ -9,24 +9,9 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { CSOrganisationPricingPlan } from './cSCSOrganisationPricingPlan';
 
 
-export interface CSOrganisation {
-    id?: number;
-    name?: string;
-    addressLine01?: string;
-    addressLine02?: string;
-    suburb?: string;
-    state?: string;
-    postcode?: string;
-    country?: string;
-    phone?: string;
-    emailAddress?: string;
-    timezone?: string;
-    subscriptionCustomerId?: string;
-    signupToken?: string;
-    subscriptionCycleStart?: Date;
-    subscriptionCycleEnd?: Date;
-    pricingPlans?: Array<CSOrganisationPricingPlan>;
+export interface CSOrganisationPricingPlan {
+    planId?: string;
+    quantity?: number;
 }

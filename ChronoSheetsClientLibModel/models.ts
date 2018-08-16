@@ -72,6 +72,7 @@ export * from './cSOrgReportTranscript';
 export * from './cSOrgReportTrip';
 export * from './cSOrganisation';
 export * from './cSOrganisationGroup';
+export * from './cSOrganisationPricingPlan';
 export * from './cSProject';
 export * from './cSProjectCostingReportItem';
 export * from './cSProjectSeriesReportItem';

@@ -35,6 +35,7 @@ export interface CSTimesheetFileAttachment {
     dateUploaded?: Date;
     dateImageCaptured?: Date;
     storageAllocationBytes?: number;
+    audioDurationSeconds?: number;
 }
 export namespace CSTimesheetFileAttachment {
     export type CSMobilePlatformEnum = 'Unknown' | 'iOS' | 'Android';

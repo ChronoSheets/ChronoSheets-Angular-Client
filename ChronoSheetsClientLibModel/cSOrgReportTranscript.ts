@@ -48,6 +48,7 @@ export interface CSOrgReportTranscript {
     dateUploaded?: Date;
     dateImageCaptured?: Date;
     storageAllocationBytes?: number;
+    audioDurationSeconds?: number;
 }
 export namespace CSOrgReportTranscript {
     export type CSMediaTypeEnum = 'Other' | 'Mp3' | 'Mp4' | 'Wav' | 'Flac';
