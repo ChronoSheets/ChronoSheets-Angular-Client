@@ -183,31 +183,22 @@ export class TripsService {
      * 
      * @param startDate The Start date of the date range.  Trips after this date will be obtained.
      * @param endDate The End date of the date range.  Trips before this date will be obtained.
+     * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param skip Skip this many Trips
      * @param take Take this many Trips
      * @param vehicleId Filter by a particular Vehicle (get trips made with a particular vehicle), specified by VehicleId
-     * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public tripsGetMyTrips(startDate: Date, endDate: Date, skip: number, take: number, vehicleId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseForPaginatedListTrip>;
-    public tripsGetMyTrips(startDate: Date, endDate: Date, skip: number, take: number, vehicleId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedListTrip>>;
-    public tripsGetMyTrips(startDate: Date, endDate: Date, skip: number, take: number, vehicleId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedListTrip>>;
-    public tripsGetMyTrips(startDate: Date, endDate: Date, skip: number, take: number, vehicleId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public tripsGetMyTrips(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, vehicleId?: number, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseForPaginatedListTrip>;
+    public tripsGetMyTrips(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, vehicleId?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedListTrip>>;
+    public tripsGetMyTrips(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, vehicleId?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedListTrip>>;
+    public tripsGetMyTrips(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, vehicleId?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling tripsGetMyTrips.');
         }
         if (endDate === null || endDate === undefined) {
             throw new Error('Required parameter endDate was null or undefined when calling tripsGetMyTrips.');
-        }
-        if (skip === null || skip === undefined) {
-            throw new Error('Required parameter skip was null or undefined when calling tripsGetMyTrips.');
-        }
-        if (take === null || take === undefined) {
-            throw new Error('Required parameter take was null or undefined when calling tripsGetMyTrips.');
-        }
-        if (vehicleId === null || vehicleId === undefined) {
-            throw new Error('Required parameter vehicleId was null or undefined when calling tripsGetMyTrips.');
         }
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling tripsGetMyTrips.');

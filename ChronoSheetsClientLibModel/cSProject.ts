@@ -17,6 +17,7 @@ export interface CSProject {
     organisationId?: number;
     projectName?: string;
     costEstimation?: number;
+    costActual?: number;
     startDate?: Date;
     endDate?: Date;
 }

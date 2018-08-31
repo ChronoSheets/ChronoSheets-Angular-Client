@@ -69,23 +69,20 @@ export class ReportsService {
      * 
      * @param startDate The start date for the date range.  Report data in the response is after this date
      * @param endDate The end date for the date range.  Report data in the response is before this date
-     * @param userIds A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
      * @param xChronosheetsAuth The ChronoSheets Auth Token
+     * @param userIds A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseCombinedReportsData>;
-    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseCombinedReportsData>>;
-    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseCombinedReportsData>>;
-    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseCombinedReportsData>;
+    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseCombinedReportsData>>;
+    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseCombinedReportsData>>;
+    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling reportsGetAllChartsDataAdmin.');
         }
         if (endDate === null || endDate === undefined) {
             throw new Error('Required parameter endDate was null or undefined when calling reportsGetAllChartsDataAdmin.');
-        }
-        if (userIds === null || userIds === undefined) {
-            throw new Error('Required parameter userIds was null or undefined when calling reportsGetAllChartsDataAdmin.');
         }
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling reportsGetAllChartsDataAdmin.');
@@ -204,23 +201,20 @@ export class ReportsService {
      * 
      * @param startDate The start date for the date range.  Report data in the response is after this date
      * @param endDate The end date for the date range.  Report data in the response is before this date
-     * @param userIds A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
      * @param xChronosheetsAuth The ChronoSheets Auth Token
+     * @param userIds A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public reportsGetFleetSummaryAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseListFleetSummaryReportItem>;
-    public reportsGetFleetSummaryAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListFleetSummaryReportItem>>;
-    public reportsGetFleetSummaryAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListFleetSummaryReportItem>>;
-    public reportsGetFleetSummaryAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public reportsGetFleetSummaryAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseListFleetSummaryReportItem>;
+    public reportsGetFleetSummaryAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListFleetSummaryReportItem>>;
+    public reportsGetFleetSummaryAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListFleetSummaryReportItem>>;
+    public reportsGetFleetSummaryAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling reportsGetFleetSummaryAdmin.');
         }
         if (endDate === null || endDate === undefined) {
             throw new Error('Required parameter endDate was null or undefined when calling reportsGetFleetSummaryAdmin.');
-        }
-        if (userIds === null || userIds === undefined) {
-            throw new Error('Required parameter userIds was null or undefined when calling reportsGetFleetSummaryAdmin.');
         }
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling reportsGetFleetSummaryAdmin.');
@@ -332,31 +326,22 @@ export class ReportsService {
      * 
      * @param startDate The start date for the date range.  Report data in the response is after this date
      * @param endDate The end date for the date range.  Report data in the response is before this date
+     * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param skip Skip this many items
      * @param take Take this many items
      * @param userIds A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
-     * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public reportsGetOrganisationTimesheetFileAttachments(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment>;
-    public reportsGetOrganisationTimesheetFileAttachments(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment>>;
-    public reportsGetOrganisationTimesheetFileAttachments(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment>>;
-    public reportsGetOrganisationTimesheetFileAttachments(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public reportsGetOrganisationTimesheetFileAttachments(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, userIds?: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment>;
+    public reportsGetOrganisationTimesheetFileAttachments(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, userIds?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment>>;
+    public reportsGetOrganisationTimesheetFileAttachments(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, userIds?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment>>;
+    public reportsGetOrganisationTimesheetFileAttachments(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, userIds?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling reportsGetOrganisationTimesheetFileAttachments.');
         }
         if (endDate === null || endDate === undefined) {
             throw new Error('Required parameter endDate was null or undefined when calling reportsGetOrganisationTimesheetFileAttachments.');
-        }
-        if (skip === null || skip === undefined) {
-            throw new Error('Required parameter skip was null or undefined when calling reportsGetOrganisationTimesheetFileAttachments.');
-        }
-        if (take === null || take === undefined) {
-            throw new Error('Required parameter take was null or undefined when calling reportsGetOrganisationTimesheetFileAttachments.');
-        }
-        if (userIds === null || userIds === undefined) {
-            throw new Error('Required parameter userIds was null or undefined when calling reportsGetOrganisationTimesheetFileAttachments.');
         }
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling reportsGetOrganisationTimesheetFileAttachments.');
@@ -417,35 +402,23 @@ export class ReportsService {
      * 
      * @param startDate The start date for the date range.  Report data in the response is after this date
      * @param endDate The end date for the date range.  Report data in the response is before this date
+     * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param skip Skip this many items
      * @param take Take this many items
      * @param userIds A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
      * @param keywords Search the transcripts by keyword(s)
-     * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public reportsGetOrganisationTranscripts(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, keywords: string, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseForPaginatedListOrgReportTranscript>;
-    public reportsGetOrganisationTranscripts(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, keywords: string, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedListOrgReportTranscript>>;
-    public reportsGetOrganisationTranscripts(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, keywords: string, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedListOrgReportTranscript>>;
-    public reportsGetOrganisationTranscripts(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, keywords: string, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public reportsGetOrganisationTranscripts(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, userIds?: string, keywords?: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseForPaginatedListOrgReportTranscript>;
+    public reportsGetOrganisationTranscripts(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, userIds?: string, keywords?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedListOrgReportTranscript>>;
+    public reportsGetOrganisationTranscripts(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, userIds?: string, keywords?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedListOrgReportTranscript>>;
+    public reportsGetOrganisationTranscripts(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, userIds?: string, keywords?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling reportsGetOrganisationTranscripts.');
         }
         if (endDate === null || endDate === undefined) {
             throw new Error('Required parameter endDate was null or undefined when calling reportsGetOrganisationTranscripts.');
-        }
-        if (skip === null || skip === undefined) {
-            throw new Error('Required parameter skip was null or undefined when calling reportsGetOrganisationTranscripts.');
-        }
-        if (take === null || take === undefined) {
-            throw new Error('Required parameter take was null or undefined when calling reportsGetOrganisationTranscripts.');
-        }
-        if (userIds === null || userIds === undefined) {
-            throw new Error('Required parameter userIds was null or undefined when calling reportsGetOrganisationTranscripts.');
-        }
-        if (keywords === null || keywords === undefined) {
-            throw new Error('Required parameter keywords was null or undefined when calling reportsGetOrganisationTranscripts.');
         }
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling reportsGetOrganisationTranscripts.');
@@ -509,31 +482,22 @@ export class ReportsService {
      * 
      * @param startDate The start date for the date range.  Report data in the response is after this date
      * @param endDate The end date for the date range.  Report data in the response is before this date
+     * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param skip Skip this many items
      * @param take Take this many items
      * @param userIds A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
-     * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public reportsGetOrganisationTrips(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseForPaginatedListOrgReportTrip>;
-    public reportsGetOrganisationTrips(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedListOrgReportTrip>>;
-    public reportsGetOrganisationTrips(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedListOrgReportTrip>>;
-    public reportsGetOrganisationTrips(startDate: Date, endDate: Date, skip: number, take: number, userIds: string, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public reportsGetOrganisationTrips(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, userIds?: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseForPaginatedListOrgReportTrip>;
+    public reportsGetOrganisationTrips(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, userIds?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedListOrgReportTrip>>;
+    public reportsGetOrganisationTrips(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, userIds?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedListOrgReportTrip>>;
+    public reportsGetOrganisationTrips(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, userIds?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling reportsGetOrganisationTrips.');
         }
         if (endDate === null || endDate === undefined) {
             throw new Error('Required parameter endDate was null or undefined when calling reportsGetOrganisationTrips.');
-        }
-        if (skip === null || skip === undefined) {
-            throw new Error('Required parameter skip was null or undefined when calling reportsGetOrganisationTrips.');
-        }
-        if (take === null || take === undefined) {
-            throw new Error('Required parameter take was null or undefined when calling reportsGetOrganisationTrips.');
-        }
-        if (userIds === null || userIds === undefined) {
-            throw new Error('Required parameter userIds was null or undefined when calling reportsGetOrganisationTrips.');
         }
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling reportsGetOrganisationTrips.');
@@ -594,39 +558,24 @@ export class ReportsService {
      * 
      * @param startDate The start date for the date range.  Report data in the response is after this date
      * @param endDate The end date for the date range.  Report data in the response is before this date
+     * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param userIds A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
      * @param sort Decide which column to sort on
      * @param order Decide which direction to sort the column
      * @param skip Skip this many rows
      * @param take Take this many rows
-     * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, userIds: string, sort: string, order: string, skip: number, take: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseForPaginatedListRawReportItem>;
-    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, userIds: string, sort: string, order: string, skip: number, take: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedListRawReportItem>>;
-    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, userIds: string, sort: string, order: string, skip: number, take: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedListRawReportItem>>;
-    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, userIds: string, sort: string, order: string, skip: number, take: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, sort?: string, order?: string, skip?: number, take?: number, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseForPaginatedListRawReportItem>;
+    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, sort?: string, order?: string, skip?: number, take?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedListRawReportItem>>;
+    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, sort?: string, order?: string, skip?: number, take?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedListRawReportItem>>;
+    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, sort?: string, order?: string, skip?: number, take?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling reportsGetRawDataAdmin.');
         }
         if (endDate === null || endDate === undefined) {
             throw new Error('Required parameter endDate was null or undefined when calling reportsGetRawDataAdmin.');
-        }
-        if (userIds === null || userIds === undefined) {
-            throw new Error('Required parameter userIds was null or undefined when calling reportsGetRawDataAdmin.');
-        }
-        if (sort === null || sort === undefined) {
-            throw new Error('Required parameter sort was null or undefined when calling reportsGetRawDataAdmin.');
-        }
-        if (order === null || order === undefined) {
-            throw new Error('Required parameter order was null or undefined when calling reportsGetRawDataAdmin.');
-        }
-        if (skip === null || skip === undefined) {
-            throw new Error('Required parameter skip was null or undefined when calling reportsGetRawDataAdmin.');
-        }
-        if (take === null || take === undefined) {
-            throw new Error('Required parameter take was null or undefined when calling reportsGetRawDataAdmin.');
         }
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling reportsGetRawDataAdmin.');
@@ -693,23 +642,20 @@ export class ReportsService {
      * 
      * @param startDate The start date for the date range.  Report data in the response is after this date
      * @param endDate The end date for the date range.  Report data in the response is before this date
-     * @param userIds A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
      * @param xChronosheetsAuth The ChronoSheets Auth Token
+     * @param userIds A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public reportsProjectCostingsAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseListProjectCostingReportItem>;
-    public reportsProjectCostingsAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListProjectCostingReportItem>>;
-    public reportsProjectCostingsAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListProjectCostingReportItem>>;
-    public reportsProjectCostingsAdmin(startDate: Date, endDate: Date, userIds: string, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public reportsProjectCostingsAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseListProjectCostingReportItem>;
+    public reportsProjectCostingsAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListProjectCostingReportItem>>;
+    public reportsProjectCostingsAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListProjectCostingReportItem>>;
+    public reportsProjectCostingsAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling reportsProjectCostingsAdmin.');
         }
         if (endDate === null || endDate === undefined) {
             throw new Error('Required parameter endDate was null or undefined when calling reportsProjectCostingsAdmin.');
-        }
-        if (userIds === null || userIds === undefined) {
-            throw new Error('Required parameter userIds was null or undefined when calling reportsProjectCostingsAdmin.');
         }
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling reportsProjectCostingsAdmin.');

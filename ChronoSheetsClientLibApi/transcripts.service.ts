@@ -61,31 +61,22 @@ export class TranscriptsService {
      * 
      * @param startDate The Start date of the date range.  Transcripts after this date will be obtained.
      * @param endDate The End date of the date range.  Transcripts before this date will be obtained.
+     * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param skip Skip this many transcripts
      * @param take Take this many transcripts
      * @param keyword Search the text content of the transcript keywords
-     * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public transcriptsGetMyTranscripts(startDate: Date, endDate: Date, skip: number, take: number, keyword: string, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseForPaginatedListOrgReportTranscript>;
-    public transcriptsGetMyTranscripts(startDate: Date, endDate: Date, skip: number, take: number, keyword: string, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedListOrgReportTranscript>>;
-    public transcriptsGetMyTranscripts(startDate: Date, endDate: Date, skip: number, take: number, keyword: string, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedListOrgReportTranscript>>;
-    public transcriptsGetMyTranscripts(startDate: Date, endDate: Date, skip: number, take: number, keyword: string, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public transcriptsGetMyTranscripts(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, keyword?: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseForPaginatedListOrgReportTranscript>;
+    public transcriptsGetMyTranscripts(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, keyword?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedListOrgReportTranscript>>;
+    public transcriptsGetMyTranscripts(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, keyword?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedListOrgReportTranscript>>;
+    public transcriptsGetMyTranscripts(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, keyword?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling transcriptsGetMyTranscripts.');
         }
         if (endDate === null || endDate === undefined) {
             throw new Error('Required parameter endDate was null or undefined when calling transcriptsGetMyTranscripts.');
-        }
-        if (skip === null || skip === undefined) {
-            throw new Error('Required parameter skip was null or undefined when calling transcriptsGetMyTranscripts.');
-        }
-        if (take === null || take === undefined) {
-            throw new Error('Required parameter take was null or undefined when calling transcriptsGetMyTranscripts.');
-        }
-        if (keyword === null || keyword === undefined) {
-            throw new Error('Required parameter keyword was null or undefined when calling transcriptsGetMyTranscripts.');
         }
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling transcriptsGetMyTranscripts.');

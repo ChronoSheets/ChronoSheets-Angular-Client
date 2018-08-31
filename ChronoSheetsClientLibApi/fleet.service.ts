@@ -183,18 +183,15 @@ export class FleetService {
     /**
      * Get a collection of vehicles that are under your organisation.    Does not require any special permission.
      * 
-     * @param includeDeleted Whether or not to include deleted vehicles
      * @param xChronosheetsAuth The ChronoSheets Auth Token
+     * @param includeDeleted Whether or not to include deleted vehicles
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public fleetGetVehicles(includeDeleted: boolean, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseListFleetVehicle>;
-    public fleetGetVehicles(includeDeleted: boolean, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListFleetVehicle>>;
-    public fleetGetVehicles(includeDeleted: boolean, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListFleetVehicle>>;
-    public fleetGetVehicles(includeDeleted: boolean, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-        if (includeDeleted === null || includeDeleted === undefined) {
-            throw new Error('Required parameter includeDeleted was null or undefined when calling fleetGetVehicles.');
-        }
+    public fleetGetVehicles(xChronosheetsAuth: string, includeDeleted?: boolean, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseListFleetVehicle>;
+    public fleetGetVehicles(xChronosheetsAuth: string, includeDeleted?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListFleetVehicle>>;
+    public fleetGetVehicles(xChronosheetsAuth: string, includeDeleted?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListFleetVehicle>>;
+    public fleetGetVehicles(xChronosheetsAuth: string, includeDeleted?: boolean, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling fleetGetVehicles.');
         }
