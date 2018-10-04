@@ -64,7 +64,7 @@ export class ProjectsService {
     /**
      * Create a project.    Requires the &#39;ManageClientsAndProjects&#39; permission.
      * 
-     * @param request An Insert Project Request object containing values for the new Project to create
+     * @param request An Insert Project Request object containing values for the new Project to create.  Make sure to specify a correct Client Id - this will be used to attach the new project under that client.
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.

@@ -26,6 +26,7 @@ export interface CSOrganisation {
     timezone?: string;
     subscriptionCustomerId?: string;
     signupToken?: string;
+    isActive?: boolean;
     subscriptionCycleStart?: Date;
     subscriptionCycleEnd?: Date;
     pricingPlans?: Array<CSOrganisationPricingPlan>;

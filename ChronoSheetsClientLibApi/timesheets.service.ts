@@ -247,7 +247,7 @@ export class TimesheetsService {
     /**
      * Batch update timesheets.    Requires the &#39;SubmitTimesheets&#39; permission.
      * 
-     * @param request A BatchUpdateTimesheet Request object containing values for the new Timesheets to create
+     * @param request A BatchUpdateTimesheet Request object containing values for the new Timesheets to create or update.  If the timesheet Id is specified, then an update will be performed, else the timesheet record will be created.
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
