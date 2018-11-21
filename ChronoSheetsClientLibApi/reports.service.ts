@@ -71,13 +71,14 @@ export class ReportsService {
      * @param endDate The end date for the date range.  Report data in the response is before this date
      * @param xChronosheetsAuth The ChronoSheets Auth Token
      * @param userIds A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
+     * @param forceOnlyThisChart A flag to indicate which report data you require.  Choose a particular set of data, or if you want all data use the &#39;NotForced&#39; option.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseCombinedReportsData>;
-    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseCombinedReportsData>>;
-    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseCombinedReportsData>>;
-    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, forceOnlyThisChart?: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseCombinedReportsData>;
+    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, forceOnlyThisChart?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseCombinedReportsData>>;
+    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, forceOnlyThisChart?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseCombinedReportsData>>;
+    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, forceOnlyThisChart?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling reportsGetAllChartsDataAdmin.');
         }
@@ -97,6 +98,9 @@ export class ReportsService {
         }
         if (userIds !== undefined) {
             queryParameters = queryParameters.set('UserIds', <any>userIds);
+        }
+        if (forceOnlyThisChart !== undefined) {
+            queryParameters = queryParameters.set('ForceOnlyThisChart', <any>forceOnlyThisChart);
         }
 
         let headers = this.defaultHeaders;

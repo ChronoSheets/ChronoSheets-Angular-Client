@@ -12,7 +12,16 @@
 
 
 export interface CSAggregateJobTask {
+    /**
+     * The Id of the task
+     */
     id?: number;
+    /**
+     * The label of the task
+     */
     label?: string;
+    /**
+     * A flag indicating that this task has been marked as deleted
+     */
     isDeleted?: boolean;
 }

@@ -12,11 +12,32 @@
 
 
 export interface CSAggregateProject {
+    /**
+     * The ID of the project
+     */
     id?: number;
+    /**
+     * The ID of the client that this project is assigned to
+     */
     clientId?: number;
+    /**
+     * The ID of your organisation
+     */
     organisationId?: number;
+    /**
+     * The name of the project (can be viewed in PROJECT TIMELINES)
+     */
     projectName?: string;
+    /**
+     * The estimated cost of the project (can be viewed in PROJECT TIMELINES)
+     */
     costEstimation?: number;
+    /**
+     * The start date of the project (can be viewed in PROJECT TIMELINES)
+     */
     startDate?: Date;
+    /**
+     * The end date of the project (can be viewed in PROJECT TIMELINES)
+     */
     endDate?: Date;
 }

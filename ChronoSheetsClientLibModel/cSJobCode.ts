@@ -12,12 +12,36 @@
 
 
 export interface CSJobCode {
+    /**
+     * The ID of the job code (not the code itself)
+     */
     id?: number;
+    /**
+     * The job code itself
+     */
     code?: string;
+    /**
+     * The name of the client
+     */
     client?: string;
+    /**
+     * The ID of the client
+     */
     clientId?: number;
+    /**
+     * The name of the project
+     */
     project?: string;
+    /**
+     * The ID of the project
+     */
     projectId?: number;
+    /**
+     * Your organisation ID
+     */
     organisationId?: number;
+    /**
+     * A flag indicating whether or not the job code has been marked as deleted
+     */
     isDeleted?: boolean;
 }

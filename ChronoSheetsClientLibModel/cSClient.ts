@@ -12,18 +12,60 @@
 
 
 export interface CSClient {
+    /**
+     * The ID of the client
+     */
     id?: number;
+    /**
+     * The ID of your organisation
+     */
     organisationId?: number;
+    /**
+     * The name of the client
+     */
     clientName?: string;
+    /**
+     * The address line 1 of the client
+     */
     clientAddressLine1?: string;
+    /**
+     * The address line 2 of the client
+     */
     clientAddressLine2?: string;
+    /**
+     * The address suburb of the client
+     */
     clientSuburb?: string;
+    /**
+     * The address state of the client
+     */
     clientState?: string;
+    /**
+     * The postcode of the client
+     */
     clientPostCode?: string;
+    /**
+     * The contact person working under the client
+     */
     personOfContact?: string;
+    /**
+     * The phone number of the client
+     */
     clientPhoneNumber?: string;
+    /**
+     * The mobile phone number of the client
+     */
     clientMobileNumber?: string;
+    /**
+     * The email address of the client
+     */
     clientEmailAddress?: string;
+    /**
+     * The website URL of the client
+     */
     clientWebURL?: string;
+    /**
+     * The number of projects under the client
+     */
     projectCount?: number;
 }

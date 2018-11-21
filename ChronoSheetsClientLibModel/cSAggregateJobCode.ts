@@ -13,14 +13,44 @@ import { CSAggregateJobTask } from './cSCSAggregateJobTask';
 
 
 export interface CSAggregateJobCode {
+    /**
+     * The list of available tasks under this job code
+     */
     availableTasks?: Array<CSAggregateJobTask>;
+    /**
+     * The list of employee IDs that are permitted to record timesheets with this job code (empty means everyone)
+     */
     permittedEmployees?: Array<number>;
+    /**
+     * The ID of the job code (not the code itself)
+     */
     id?: number;
+    /**
+     * The job code itself
+     */
     code?: string;
+    /**
+     * The name of the client
+     */
     client?: string;
+    /**
+     * The ID of the client
+     */
     clientId?: number;
+    /**
+     * The name of the project
+     */
     project?: string;
+    /**
+     * The ID of the project
+     */
     projectId?: number;
+    /**
+     * Your organisation ID
+     */
     organisationId?: number;
+    /**
+     * A flag indicating whether or not the job code has been marked as deleted
+     */
     isDeleted?: boolean;
 }
