@@ -19,6 +19,7 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 import { Observable }                                        from 'rxjs/Observable';
 
 import { CSCSApiResponseForPaginatedListOrgReportTranscript } from '../ChronoSheetsClientLibModel/cSCSApiResponseForPaginatedListOrgReportTranscript';
+import { CSCSApiResponseForPaginatedTranscription } from '../ChronoSheetsClientLibModel/cSCSApiResponseForPaginatedTranscription';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -55,6 +56,63 @@ export class TranscriptsService {
         return false;
     }
 
+
+    /**
+     * Get an audio to text transcript for a particular audio file attachment
+     * 
+     * @param fileAttachmentId The ID of the file attachment that has a transcript.  It should be an audio file attachment.
+     * @param xChronosheetsAuth The ChronoSheets Auth Token
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public transcriptsGetMyTranscript(fileAttachmentId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseForPaginatedTranscription>;
+    public transcriptsGetMyTranscript(fileAttachmentId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedTranscription>>;
+    public transcriptsGetMyTranscript(fileAttachmentId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedTranscription>>;
+    public transcriptsGetMyTranscript(fileAttachmentId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (fileAttachmentId === null || fileAttachmentId === undefined) {
+            throw new Error('Required parameter fileAttachmentId was null or undefined when calling transcriptsGetMyTranscript.');
+        }
+        if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
+            throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling transcriptsGetMyTranscript.');
+        }
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (fileAttachmentId !== undefined) {
+            queryParameters = queryParameters.set('FileAttachmentId', <any>fileAttachmentId);
+        }
+
+        let headers = this.defaultHeaders;
+        if (xChronosheetsAuth !== undefined && xChronosheetsAuth !== null) {
+            headers = headers.set('x-chronosheets-auth', String(xChronosheetsAuth));
+        }
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json',
+            'text/json',
+            'application/xml',
+            'text/xml',
+            'multipart/form-data'
+        ];
+        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set("Accept", httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        return this.httpClient.get<CSApiResponseForPaginatedTranscription>(`${this.basePath}/api/Transcripts/GetMyTranscript`,
+            {
+                params: queryParameters,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
 
     /**
      * Get my file transcripts.  Get audio to text transcripts that you&#39;ve created.

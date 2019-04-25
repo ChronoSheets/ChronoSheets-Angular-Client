@@ -27,7 +27,26 @@ export interface CSOrganisation {
     subscriptionCustomerId?: string;
     signupToken?: string;
     isActive?: boolean;
+    stripeCouponCode?: string;
+    subscriptionSource?: CSOrganisation.CSSubscriptionSourceEnum;
+    signUpSource?: CSOrganisation.CSSignUpSourceEnum;
+    mobileSignUpCode?: string;
     subscriptionCycleStart?: Date;
     subscriptionCycleEnd?: Date;
     pricingPlans?: Array<CSOrganisationPricingPlan>;
+}
+export namespace CSOrganisation {
+    export type CSSubscriptionSourceEnum = 'None' | 'Stripe' | 'AppleInApp' | 'GoogleInApp';
+    export const CSSubscriptionSourceEnum = {
+        None: 'None' as CSSubscriptionSourceEnum,
+        Stripe: 'Stripe' as CSSubscriptionSourceEnum,
+        AppleInApp: 'AppleInApp' as CSSubscriptionSourceEnum,
+        GoogleInApp: 'GoogleInApp' as CSSubscriptionSourceEnum
+    }
+    export type CSSignUpSourceEnum = 'Desktop' | 'MobileiOS' | 'MobileAndroid';
+    export const CSSignUpSourceEnum = {
+        Desktop: 'Desktop' as CSSignUpSourceEnum,
+        MobileiOS: 'MobileiOS' as CSSignUpSourceEnum,
+        MobileAndroid: 'MobileAndroid' as CSSignUpSourceEnum
+    }
 }

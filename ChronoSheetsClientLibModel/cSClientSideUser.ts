@@ -24,4 +24,5 @@ export interface CSClientSideUser {
     setupWizardRequired?: boolean;
     isSubscribedToNewsletter?: boolean;
     organisation?: CSOrganisation;
+    isPrimaryAccount?: boolean;
 }

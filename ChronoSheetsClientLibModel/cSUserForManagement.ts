@@ -25,4 +25,5 @@ export interface CSUserForManagement {
     setupWizardRequired?: boolean;
     isSubscribedToNewsletter?: boolean;
     organisation?: CSOrganisation;
+    isPrimaryAccount?: boolean;
 }
