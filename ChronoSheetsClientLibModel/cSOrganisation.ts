@@ -1,6 +1,6 @@
 /**
  * ChronoSheets API
- * <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 5 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>
+ * <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 3 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>
  *
  * OpenAPI spec version: v1
  * 
@@ -12,7 +12,7 @@
 import { CSOrganisationPricingPlan } from './cSCSOrganisationPricingPlan';
 
 
-export interface CSOrganisation {
+export interface CSOrganisation { 
     id?: number;
     name?: string;
     addressLine01?: string;
@@ -42,11 +42,11 @@ export namespace CSOrganisation {
         Stripe: 'Stripe' as CSSubscriptionSourceEnum,
         AppleInApp: 'AppleInApp' as CSSubscriptionSourceEnum,
         GoogleInApp: 'GoogleInApp' as CSSubscriptionSourceEnum
-    }
+    };
     export type CSSignUpSourceEnum = 'Desktop' | 'MobileiOS' | 'MobileAndroid';
     export const CSSignUpSourceEnum = {
         Desktop: 'Desktop' as CSSignUpSourceEnum,
         MobileiOS: 'MobileiOS' as CSSignUpSourceEnum,
         MobileAndroid: 'MobileAndroid' as CSSignUpSourceEnum
-    }
+    };
 }

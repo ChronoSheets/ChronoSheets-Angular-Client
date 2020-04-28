@@ -9,15 +9,15 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { CSProject } from './cSCSProject';
+import { CSTimesheetFileAttachment } from './cSCSTimesheetFileAttachment';
 
 
-export interface CSApiResponseListProject { 
-    data?: Array<CSProject>;
-    status?: CSApiResponseListProject.CSStatusEnum;
+export interface CSApiResponseTimesheetFileAttachment { 
+    data?: CSTimesheetFileAttachment;
+    status?: CSApiResponseTimesheetFileAttachment.CSStatusEnum;
     message?: string;
 }
-export namespace CSApiResponseListProject {
+export namespace CSApiResponseTimesheetFileAttachment {
     export type CSStatusEnum = 'Succeeded' | 'FatalException' | 'GeneralError' | 'ValidationError' | 'UnAuthorized' | 'SessionExpired';
     export const CSStatusEnum = {
         Succeeded: 'Succeeded' as CSStatusEnum,

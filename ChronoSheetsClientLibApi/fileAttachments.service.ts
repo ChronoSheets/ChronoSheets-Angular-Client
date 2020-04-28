@@ -1,6 +1,6 @@
 /**
  * ChronoSheets API
- * <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 5 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>
+ * <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 3 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>
  *
  * OpenAPI spec version: v1
  * 
@@ -20,6 +20,7 @@ import { Observable }                                        from 'rxjs/Observab
 
 import { CSCSApiResponseBoolean } from '../ChronoSheetsClientLibModel/cSCSApiResponseBoolean';
 import { CSCSApiResponseForPaginatedListTimesheetFileAttachment } from '../ChronoSheetsClientLibModel/cSCSApiResponseForPaginatedListTimesheetFileAttachment';
+import { CSCSApiResponseTimesheetFileAttachment } from '../ChronoSheetsClientLibModel/cSCSApiResponseTimesheetFileAttachment';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -48,7 +49,7 @@ export class FileAttachmentsService {
      */
     private canConsumeForm(consumes: string[]): boolean {
         const form = 'multipart/form-data';
-        for (let consume of consumes) {
+        for (const consume of consumes) {
             if (form === consume) {
                 return true;
             }
@@ -58,7 +59,7 @@ export class FileAttachmentsService {
 
 
     /**
-     * Delete a particular timesheet file attachment
+     * Delete a particular timesheet file attachment  Requires the &#39;SubmitTimesheets&#39; permission.
      * 
      * @param fileAttachmentId The Id of the file attachment to delete
      * @param xChronosheetsAuth The ChronoSheets Auth Token
@@ -69,15 +70,17 @@ export class FileAttachmentsService {
     public fileAttachmentsDeleteTimesheetFileAttachment(fileAttachmentId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseBoolean>>;
     public fileAttachmentsDeleteTimesheetFileAttachment(fileAttachmentId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseBoolean>>;
     public fileAttachmentsDeleteTimesheetFileAttachment(fileAttachmentId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (fileAttachmentId === null || fileAttachmentId === undefined) {
             throw new Error('Required parameter fileAttachmentId was null or undefined when calling fileAttachmentsDeleteTimesheetFileAttachment.');
         }
+
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling fileAttachmentsDeleteTimesheetFileAttachment.');
         }
 
         let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (fileAttachmentId !== undefined) {
+        if (fileAttachmentId !== undefined && fileAttachmentId !== null) {
             queryParameters = queryParameters.set('FileAttachmentId', <any>fileAttachmentId);
         }
 
@@ -94,16 +97,75 @@ export class FileAttachmentsService {
             'text/xml',
             'multipart/form-data'
         ];
-        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set("Accept", httpHeaderAcceptSelected);
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
 
         // to determine the Content-Type header
-        let consumes: string[] = [
+        const consumes: string[] = [
         ];
 
         return this.httpClient.delete<CSApiResponseBoolean>(`${this.basePath}/api/FileAttachments/DeleteTimesheetFileAttachment`,
+            {
+                params: queryParameters,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * Get a particular file attachment by ID.  User must own the file attachment for access.
+     * 
+     * @param fileAttachmentId The ID of the file attachment
+     * @param xChronosheetsAuth The ChronoSheets Auth Token
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public fileAttachmentsGetFileAttachmentById(fileAttachmentId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseTimesheetFileAttachment>;
+    public fileAttachmentsGetFileAttachmentById(fileAttachmentId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseTimesheetFileAttachment>>;
+    public fileAttachmentsGetFileAttachmentById(fileAttachmentId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseTimesheetFileAttachment>>;
+    public fileAttachmentsGetFileAttachmentById(fileAttachmentId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (fileAttachmentId === null || fileAttachmentId === undefined) {
+            throw new Error('Required parameter fileAttachmentId was null or undefined when calling fileAttachmentsGetFileAttachmentById.');
+        }
+
+        if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
+            throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling fileAttachmentsGetFileAttachmentById.');
+        }
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (fileAttachmentId !== undefined && fileAttachmentId !== null) {
+            queryParameters = queryParameters.set('FileAttachmentId', <any>fileAttachmentId);
+        }
+
+        let headers = this.defaultHeaders;
+        if (xChronosheetsAuth !== undefined && xChronosheetsAuth !== null) {
+            headers = headers.set('x-chronosheets-auth', String(xChronosheetsAuth));
+        }
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json',
+            'text/json',
+            'application/xml',
+            'text/xml',
+            'multipart/form-data'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<CSApiResponseTimesheetFileAttachment>(`${this.basePath}/api/FileAttachments/GetFileAttachmentById`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -129,27 +191,32 @@ export class FileAttachmentsService {
     public fileAttachmentsGetMyFileAttachments(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedListTimesheetFileAttachment>>;
     public fileAttachmentsGetMyFileAttachments(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedListTimesheetFileAttachment>>;
     public fileAttachmentsGetMyFileAttachments(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling fileAttachmentsGetMyFileAttachments.');
         }
+
         if (endDate === null || endDate === undefined) {
             throw new Error('Required parameter endDate was null or undefined when calling fileAttachmentsGetMyFileAttachments.');
         }
+
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling fileAttachmentsGetMyFileAttachments.');
         }
 
+
+
         let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (startDate !== undefined) {
+        if (startDate !== undefined && startDate !== null) {
             queryParameters = queryParameters.set('StartDate', <any>startDate.toISOString());
         }
-        if (endDate !== undefined) {
+        if (endDate !== undefined && endDate !== null) {
             queryParameters = queryParameters.set('EndDate', <any>endDate.toISOString());
         }
-        if (skip !== undefined) {
+        if (skip !== undefined && skip !== null) {
             queryParameters = queryParameters.set('Skip', <any>skip);
         }
-        if (take !== undefined) {
+        if (take !== undefined && take !== null) {
             queryParameters = queryParameters.set('Take', <any>take);
         }
 
@@ -166,13 +233,13 @@ export class FileAttachmentsService {
             'text/xml',
             'multipart/form-data'
         ];
-        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set("Accept", httpHeaderAcceptSelected);
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
 
         // to determine the Content-Type header
-        let consumes: string[] = [
+        const consumes: string[] = [
         ];
 
         return this.httpClient.get<CSApiResponseForPaginatedListTimesheetFileAttachment>(`${this.basePath}/api/FileAttachments/GetMyFileAttachments`,

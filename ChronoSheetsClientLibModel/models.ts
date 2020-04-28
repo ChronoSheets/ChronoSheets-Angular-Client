@@ -37,6 +37,7 @@ export * from './cSApiResponseListUsualHoursDay';
 export * from './cSApiResponseOrganisation';
 export * from './cSApiResponseOrganisationGroup';
 export * from './cSApiResponseProject';
+export * from './cSApiResponseTimesheetFileAttachment';
 export * from './cSApiResponseTimesheetTask';
 export * from './cSApiResponseTrip';
 export * from './cSApiResponseUpdateOrganisationResponse';

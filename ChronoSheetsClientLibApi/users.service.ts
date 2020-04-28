@@ -1,6 +1,6 @@
 /**
  * ChronoSheets API
- * <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 5 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>
+ * <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 3 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>
  *
  * OpenAPI spec version: v1
  * 
@@ -52,7 +52,7 @@ export class UsersService {
      */
     private canConsumeForm(consumes: string[]): boolean {
         const form = 'multipart/form-data';
-        for (let consume of consumes) {
+        for (const consume of consumes) {
             if (form === consume) {
                 return true;
             }
@@ -73,9 +73,11 @@ export class UsersService {
     public usersCreateTimesheetUser(request: CSInsertUserRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseInsertUserResponse>>;
     public usersCreateTimesheetUser(request: CSInsertUserRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseInsertUserResponse>>;
     public usersCreateTimesheetUser(request: CSInsertUserRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (request === null || request === undefined) {
             throw new Error('Required parameter request was null or undefined when calling usersCreateTimesheetUser.');
         }
+
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling usersCreateTimesheetUser.');
         }
@@ -93,13 +95,13 @@ export class UsersService {
             'text/xml',
             'multipart/form-data'
         ];
-        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set("Accept", httpHeaderAcceptSelected);
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
 
         // to determine the Content-Type header
-        let consumes: string[] = [
+        const consumes: string[] = [
             'application/json',
             'text/json',
             'application/xml',
@@ -107,9 +109,9 @@ export class UsersService {
             'application/x-www-form-urlencoded',
             'multipart/form-data'
         ];
-        let httpContentTypeSelected:string | undefined = this.configuration.selectHeaderContentType(consumes);
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
         if (httpContentTypeSelected != undefined) {
-            headers = headers.set("Content-Type", httpContentTypeSelected);
+            headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
         return this.httpClient.post<CSApiResponseInsertUserResponse>(`${this.basePath}/api/Users/CreateTimesheetUser`,
@@ -135,15 +137,17 @@ export class UsersService {
     public usersGetTimesheetUser(userId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseUserForManagement>>;
     public usersGetTimesheetUser(userId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseUserForManagement>>;
     public usersGetTimesheetUser(userId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (userId === null || userId === undefined) {
             throw new Error('Required parameter userId was null or undefined when calling usersGetTimesheetUser.');
         }
+
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling usersGetTimesheetUser.');
         }
 
         let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (userId !== undefined) {
+        if (userId !== undefined && userId !== null) {
             queryParameters = queryParameters.set('UserId', <any>userId);
         }
 
@@ -160,13 +164,13 @@ export class UsersService {
             'text/xml',
             'multipart/form-data'
         ];
-        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set("Accept", httpHeaderAcceptSelected);
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
 
         // to determine the Content-Type header
-        let consumes: string[] = [
+        const consumes: string[] = [
         ];
 
         return this.httpClient.get<CSApiResponseUserForManagement>(`${this.basePath}/api/Users/GetTimesheetUser`,
@@ -191,6 +195,7 @@ export class UsersService {
     public usersGetTimesheetUsers(xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListUserForManagement>>;
     public usersGetTimesheetUsers(xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListUserForManagement>>;
     public usersGetTimesheetUsers(xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling usersGetTimesheetUsers.');
         }
@@ -208,13 +213,13 @@ export class UsersService {
             'text/xml',
             'multipart/form-data'
         ];
-        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set("Accept", httpHeaderAcceptSelected);
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
 
         // to determine the Content-Type header
-        let consumes: string[] = [
+        const consumes: string[] = [
         ];
 
         return this.httpClient.get<CSApiResponseListUserForManagement>(`${this.basePath}/api/Users/GetTimesheetUsers`,
@@ -239,9 +244,11 @@ export class UsersService {
     public usersUpdateTimesheetUser(request: CSUpdateUserRequest, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseUpdateUserResponse>>;
     public usersUpdateTimesheetUser(request: CSUpdateUserRequest, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseUpdateUserResponse>>;
     public usersUpdateTimesheetUser(request: CSUpdateUserRequest, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (request === null || request === undefined) {
             throw new Error('Required parameter request was null or undefined when calling usersUpdateTimesheetUser.');
         }
+
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling usersUpdateTimesheetUser.');
         }
@@ -259,13 +266,13 @@ export class UsersService {
             'text/xml',
             'multipart/form-data'
         ];
-        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set("Accept", httpHeaderAcceptSelected);
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
 
         // to determine the Content-Type header
-        let consumes: string[] = [
+        const consumes: string[] = [
             'application/json',
             'text/json',
             'application/xml',
@@ -273,9 +280,9 @@ export class UsersService {
             'application/x-www-form-urlencoded',
             'multipart/form-data'
         ];
-        let httpContentTypeSelected:string | undefined = this.configuration.selectHeaderContentType(consumes);
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
         if (httpContentTypeSelected != undefined) {
-            headers = headers.set("Content-Type", httpContentTypeSelected);
+            headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
         return this.httpClient.put<CSApiResponseUpdateUserResponse>(`${this.basePath}/api/Users/UpdateTimesheetUser`,

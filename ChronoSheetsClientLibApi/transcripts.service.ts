@@ -1,6 +1,6 @@
 /**
  * ChronoSheets API
- * <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 5 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>
+ * <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 3 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>
  *
  * OpenAPI spec version: v1
  * 
@@ -48,7 +48,7 @@ export class TranscriptsService {
      */
     private canConsumeForm(consumes: string[]): boolean {
         const form = 'multipart/form-data';
-        for (let consume of consumes) {
+        for (const consume of consumes) {
             if (form === consume) {
                 return true;
             }
@@ -69,15 +69,17 @@ export class TranscriptsService {
     public transcriptsGetMyTranscript(fileAttachmentId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedTranscription>>;
     public transcriptsGetMyTranscript(fileAttachmentId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedTranscription>>;
     public transcriptsGetMyTranscript(fileAttachmentId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (fileAttachmentId === null || fileAttachmentId === undefined) {
             throw new Error('Required parameter fileAttachmentId was null or undefined when calling transcriptsGetMyTranscript.');
         }
+
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling transcriptsGetMyTranscript.');
         }
 
         let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (fileAttachmentId !== undefined) {
+        if (fileAttachmentId !== undefined && fileAttachmentId !== null) {
             queryParameters = queryParameters.set('FileAttachmentId', <any>fileAttachmentId);
         }
 
@@ -94,13 +96,13 @@ export class TranscriptsService {
             'text/xml',
             'multipart/form-data'
         ];
-        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set("Accept", httpHeaderAcceptSelected);
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
 
         // to determine the Content-Type header
-        let consumes: string[] = [
+        const consumes: string[] = [
         ];
 
         return this.httpClient.get<CSApiResponseForPaginatedTranscription>(`${this.basePath}/api/Transcripts/GetMyTranscript`,
@@ -130,30 +132,36 @@ export class TranscriptsService {
     public transcriptsGetMyTranscripts(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, keyword?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedListOrgReportTranscript>>;
     public transcriptsGetMyTranscripts(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, keyword?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedListOrgReportTranscript>>;
     public transcriptsGetMyTranscripts(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, keyword?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling transcriptsGetMyTranscripts.');
         }
+
         if (endDate === null || endDate === undefined) {
             throw new Error('Required parameter endDate was null or undefined when calling transcriptsGetMyTranscripts.');
         }
+
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling transcriptsGetMyTranscripts.');
         }
 
+
+
+
         let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (startDate !== undefined) {
+        if (startDate !== undefined && startDate !== null) {
             queryParameters = queryParameters.set('StartDate', <any>startDate.toISOString());
         }
-        if (endDate !== undefined) {
+        if (endDate !== undefined && endDate !== null) {
             queryParameters = queryParameters.set('EndDate', <any>endDate.toISOString());
         }
-        if (skip !== undefined) {
+        if (skip !== undefined && skip !== null) {
             queryParameters = queryParameters.set('Skip', <any>skip);
         }
-        if (take !== undefined) {
+        if (take !== undefined && take !== null) {
             queryParameters = queryParameters.set('Take', <any>take);
         }
-        if (keyword !== undefined) {
+        if (keyword !== undefined && keyword !== null) {
             queryParameters = queryParameters.set('Keyword', <any>keyword);
         }
 
@@ -170,13 +178,13 @@ export class TranscriptsService {
             'text/xml',
             'multipart/form-data'
         ];
-        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set("Accept", httpHeaderAcceptSelected);
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
 
         // to determine the Content-Type header
-        let consumes: string[] = [
+        const consumes: string[] = [
         ];
 
         return this.httpClient.get<CSApiResponseForPaginatedListOrgReportTranscript>(`${this.basePath}/api/Transcripts/GetMyTranscripts`,

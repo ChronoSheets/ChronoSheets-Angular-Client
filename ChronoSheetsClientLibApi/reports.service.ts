@@ -1,6 +1,6 @@
 /**
  * ChronoSheets API
- * <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 5 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>
+ * <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 3 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>
  *
  * OpenAPI spec version: v1
  * 
@@ -55,7 +55,7 @@ export class ReportsService {
      */
     private canConsumeForm(consumes: string[]): boolean {
         const form = 'multipart/form-data';
-        for (let consume of consumes) {
+        for (const consume of consumes) {
             if (form === consume) {
                 return true;
             }
@@ -75,31 +75,36 @@ export class ReportsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, forceOnlyThisChart?: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseCombinedReportsData>;
-    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, forceOnlyThisChart?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseCombinedReportsData>>;
-    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, forceOnlyThisChart?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseCombinedReportsData>>;
-    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, forceOnlyThisChart?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, forceOnlyThisChart?: 'NotForced' | 'SeriesJobCodes' | 'SeriesClients' | 'SeriesProjects' | 'SeriesTasks' | 'TotalsClients' | 'TotalsJobCodes' | 'TotalsProjects' | 'TotalsTasks', observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseCombinedReportsData>;
+    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, forceOnlyThisChart?: 'NotForced' | 'SeriesJobCodes' | 'SeriesClients' | 'SeriesProjects' | 'SeriesTasks' | 'TotalsClients' | 'TotalsJobCodes' | 'TotalsProjects' | 'TotalsTasks', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseCombinedReportsData>>;
+    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, forceOnlyThisChart?: 'NotForced' | 'SeriesJobCodes' | 'SeriesClients' | 'SeriesProjects' | 'SeriesTasks' | 'TotalsClients' | 'TotalsJobCodes' | 'TotalsProjects' | 'TotalsTasks', observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseCombinedReportsData>>;
+    public reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, forceOnlyThisChart?: 'NotForced' | 'SeriesJobCodes' | 'SeriesClients' | 'SeriesProjects' | 'SeriesTasks' | 'TotalsClients' | 'TotalsJobCodes' | 'TotalsProjects' | 'TotalsTasks', observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling reportsGetAllChartsDataAdmin.');
         }
+
         if (endDate === null || endDate === undefined) {
             throw new Error('Required parameter endDate was null or undefined when calling reportsGetAllChartsDataAdmin.');
         }
+
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling reportsGetAllChartsDataAdmin.');
         }
 
+
+
         let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (startDate !== undefined) {
+        if (startDate !== undefined && startDate !== null) {
             queryParameters = queryParameters.set('StartDate', <any>startDate.toISOString());
         }
-        if (endDate !== undefined) {
+        if (endDate !== undefined && endDate !== null) {
             queryParameters = queryParameters.set('EndDate', <any>endDate.toISOString());
         }
-        if (userIds !== undefined) {
+        if (userIds !== undefined && userIds !== null) {
             queryParameters = queryParameters.set('UserIds', <any>userIds);
         }
-        if (forceOnlyThisChart !== undefined) {
+        if (forceOnlyThisChart !== undefined && forceOnlyThisChart !== null) {
             queryParameters = queryParameters.set('ForceOnlyThisChart', <any>forceOnlyThisChart);
         }
 
@@ -116,13 +121,13 @@ export class ReportsService {
             'text/xml',
             'multipart/form-data'
         ];
-        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set("Accept", httpHeaderAcceptSelected);
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
 
         // to determine the Content-Type header
-        let consumes: string[] = [
+        const consumes: string[] = [
         ];
 
         return this.httpClient.get<CSApiResponseCombinedReportsData>(`${this.basePath}/api/Reports/GetAllChartsDataAdmin`,
@@ -149,21 +154,24 @@ export class ReportsService {
     public reportsGetAllChartsDataUser(startDate: Date, endDate: Date, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseCombinedReportsData>>;
     public reportsGetAllChartsDataUser(startDate: Date, endDate: Date, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseCombinedReportsData>>;
     public reportsGetAllChartsDataUser(startDate: Date, endDate: Date, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling reportsGetAllChartsDataUser.');
         }
+
         if (endDate === null || endDate === undefined) {
             throw new Error('Required parameter endDate was null or undefined when calling reportsGetAllChartsDataUser.');
         }
+
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling reportsGetAllChartsDataUser.');
         }
 
         let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (startDate !== undefined) {
+        if (startDate !== undefined && startDate !== null) {
             queryParameters = queryParameters.set('StartDate', <any>startDate.toISOString());
         }
-        if (endDate !== undefined) {
+        if (endDate !== undefined && endDate !== null) {
             queryParameters = queryParameters.set('EndDate', <any>endDate.toISOString());
         }
 
@@ -180,13 +188,13 @@ export class ReportsService {
             'text/xml',
             'multipart/form-data'
         ];
-        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set("Accept", httpHeaderAcceptSelected);
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
 
         // to determine the Content-Type header
-        let consumes: string[] = [
+        const consumes: string[] = [
         ];
 
         return this.httpClient.get<CSApiResponseCombinedReportsData>(`${this.basePath}/api/Reports/GetAllChartsDataUser`,
@@ -214,24 +222,28 @@ export class ReportsService {
     public reportsGetFleetSummaryAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListFleetSummaryReportItem>>;
     public reportsGetFleetSummaryAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListFleetSummaryReportItem>>;
     public reportsGetFleetSummaryAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling reportsGetFleetSummaryAdmin.');
         }
+
         if (endDate === null || endDate === undefined) {
             throw new Error('Required parameter endDate was null or undefined when calling reportsGetFleetSummaryAdmin.');
         }
+
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling reportsGetFleetSummaryAdmin.');
         }
 
+
         let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (startDate !== undefined) {
+        if (startDate !== undefined && startDate !== null) {
             queryParameters = queryParameters.set('StartDate', <any>startDate.toISOString());
         }
-        if (endDate !== undefined) {
+        if (endDate !== undefined && endDate !== null) {
             queryParameters = queryParameters.set('EndDate', <any>endDate.toISOString());
         }
-        if (userIds !== undefined) {
+        if (userIds !== undefined && userIds !== null) {
             queryParameters = queryParameters.set('UserIds', <any>userIds);
         }
 
@@ -248,13 +260,13 @@ export class ReportsService {
             'text/xml',
             'multipart/form-data'
         ];
-        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set("Accept", httpHeaderAcceptSelected);
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
 
         // to determine the Content-Type header
-        let consumes: string[] = [
+        const consumes: string[] = [
         ];
 
         return this.httpClient.get<CSApiResponseListFleetSummaryReportItem>(`${this.basePath}/api/Reports/GetFleetSummaryAdmin`,
@@ -280,15 +292,17 @@ export class ReportsService {
     public reportsGetOrgTripById(tripId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseTrip>>;
     public reportsGetOrgTripById(tripId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseTrip>>;
     public reportsGetOrgTripById(tripId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (tripId === null || tripId === undefined) {
             throw new Error('Required parameter tripId was null or undefined when calling reportsGetOrgTripById.');
         }
+
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling reportsGetOrgTripById.');
         }
 
         let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (tripId !== undefined) {
+        if (tripId !== undefined && tripId !== null) {
             queryParameters = queryParameters.set('TripId', <any>tripId);
         }
 
@@ -305,13 +319,13 @@ export class ReportsService {
             'text/xml',
             'multipart/form-data'
         ];
-        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set("Accept", httpHeaderAcceptSelected);
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
 
         // to determine the Content-Type header
-        let consumes: string[] = [
+        const consumes: string[] = [
         ];
 
         return this.httpClient.get<CSApiResponseTrip>(`${this.basePath}/api/Reports/GetOrgTripById`,
@@ -341,30 +355,36 @@ export class ReportsService {
     public reportsGetOrganisationTimesheetFileAttachments(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, userIds?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment>>;
     public reportsGetOrganisationTimesheetFileAttachments(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, userIds?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment>>;
     public reportsGetOrganisationTimesheetFileAttachments(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, userIds?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling reportsGetOrganisationTimesheetFileAttachments.');
         }
+
         if (endDate === null || endDate === undefined) {
             throw new Error('Required parameter endDate was null or undefined when calling reportsGetOrganisationTimesheetFileAttachments.');
         }
+
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling reportsGetOrganisationTimesheetFileAttachments.');
         }
 
+
+
+
         let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (startDate !== undefined) {
+        if (startDate !== undefined && startDate !== null) {
             queryParameters = queryParameters.set('StartDate', <any>startDate.toISOString());
         }
-        if (endDate !== undefined) {
+        if (endDate !== undefined && endDate !== null) {
             queryParameters = queryParameters.set('EndDate', <any>endDate.toISOString());
         }
-        if (skip !== undefined) {
+        if (skip !== undefined && skip !== null) {
             queryParameters = queryParameters.set('Skip', <any>skip);
         }
-        if (take !== undefined) {
+        if (take !== undefined && take !== null) {
             queryParameters = queryParameters.set('Take', <any>take);
         }
-        if (userIds !== undefined) {
+        if (userIds !== undefined && userIds !== null) {
             queryParameters = queryParameters.set('UserIds', <any>userIds);
         }
 
@@ -381,13 +401,13 @@ export class ReportsService {
             'text/xml',
             'multipart/form-data'
         ];
-        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set("Accept", httpHeaderAcceptSelected);
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
 
         // to determine the Content-Type header
-        let consumes: string[] = [
+        const consumes: string[] = [
         ];
 
         return this.httpClient.get<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment>(`${this.basePath}/api/Reports/GetOrganisationTimesheetFileAttachments`,
@@ -418,33 +438,40 @@ export class ReportsService {
     public reportsGetOrganisationTranscripts(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, userIds?: string, keywords?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedListOrgReportTranscript>>;
     public reportsGetOrganisationTranscripts(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, userIds?: string, keywords?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedListOrgReportTranscript>>;
     public reportsGetOrganisationTranscripts(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, userIds?: string, keywords?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling reportsGetOrganisationTranscripts.');
         }
+
         if (endDate === null || endDate === undefined) {
             throw new Error('Required parameter endDate was null or undefined when calling reportsGetOrganisationTranscripts.');
         }
+
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling reportsGetOrganisationTranscripts.');
         }
 
+
+
+
+
         let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (startDate !== undefined) {
+        if (startDate !== undefined && startDate !== null) {
             queryParameters = queryParameters.set('StartDate', <any>startDate.toISOString());
         }
-        if (endDate !== undefined) {
+        if (endDate !== undefined && endDate !== null) {
             queryParameters = queryParameters.set('EndDate', <any>endDate.toISOString());
         }
-        if (skip !== undefined) {
+        if (skip !== undefined && skip !== null) {
             queryParameters = queryParameters.set('Skip', <any>skip);
         }
-        if (take !== undefined) {
+        if (take !== undefined && take !== null) {
             queryParameters = queryParameters.set('Take', <any>take);
         }
-        if (userIds !== undefined) {
+        if (userIds !== undefined && userIds !== null) {
             queryParameters = queryParameters.set('UserIds', <any>userIds);
         }
-        if (keywords !== undefined) {
+        if (keywords !== undefined && keywords !== null) {
             queryParameters = queryParameters.set('Keywords', <any>keywords);
         }
 
@@ -461,13 +488,13 @@ export class ReportsService {
             'text/xml',
             'multipart/form-data'
         ];
-        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set("Accept", httpHeaderAcceptSelected);
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
 
         // to determine the Content-Type header
-        let consumes: string[] = [
+        const consumes: string[] = [
         ];
 
         return this.httpClient.get<CSApiResponseForPaginatedListOrgReportTranscript>(`${this.basePath}/api/Reports/GetOrganisationTranscripts`,
@@ -497,30 +524,36 @@ export class ReportsService {
     public reportsGetOrganisationTrips(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, userIds?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedListOrgReportTrip>>;
     public reportsGetOrganisationTrips(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, userIds?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedListOrgReportTrip>>;
     public reportsGetOrganisationTrips(startDate: Date, endDate: Date, xChronosheetsAuth: string, skip?: number, take?: number, userIds?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling reportsGetOrganisationTrips.');
         }
+
         if (endDate === null || endDate === undefined) {
             throw new Error('Required parameter endDate was null or undefined when calling reportsGetOrganisationTrips.');
         }
+
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling reportsGetOrganisationTrips.');
         }
 
+
+
+
         let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (startDate !== undefined) {
+        if (startDate !== undefined && startDate !== null) {
             queryParameters = queryParameters.set('StartDate', <any>startDate.toISOString());
         }
-        if (endDate !== undefined) {
+        if (endDate !== undefined && endDate !== null) {
             queryParameters = queryParameters.set('EndDate', <any>endDate.toISOString());
         }
-        if (skip !== undefined) {
+        if (skip !== undefined && skip !== null) {
             queryParameters = queryParameters.set('Skip', <any>skip);
         }
-        if (take !== undefined) {
+        if (take !== undefined && take !== null) {
             queryParameters = queryParameters.set('Take', <any>take);
         }
-        if (userIds !== undefined) {
+        if (userIds !== undefined && userIds !== null) {
             queryParameters = queryParameters.set('UserIds', <any>userIds);
         }
 
@@ -537,13 +570,13 @@ export class ReportsService {
             'text/xml',
             'multipart/form-data'
         ];
-        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set("Accept", httpHeaderAcceptSelected);
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
 
         // to determine the Content-Type header
-        let consumes: string[] = [
+        const consumes: string[] = [
         ];
 
         return this.httpClient.get<CSApiResponseForPaginatedListOrgReportTrip>(`${this.basePath}/api/Reports/GetOrganisationTrips`,
@@ -571,40 +604,48 @@ export class ReportsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, sort?: string, order?: string, skip?: number, take?: number, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseForPaginatedListRawReportItem>;
-    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, sort?: string, order?: string, skip?: number, take?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedListRawReportItem>>;
-    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, sort?: string, order?: string, skip?: number, take?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedListRawReportItem>>;
-    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, sort?: string, order?: string, skip?: number, take?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, sort?: 'EmailAddress' | 'JobCode' | 'TaskName' | 'ClientName' | 'ProjectName' | 'StartDate' | 'EndDate' | 'SpanSeconds' | 'Description' | 'PayAmount' | 'PayOvertimeAmount' | 'TripCost' | 'TripDistanceMeters' | 'Username', order?: 'Ascending' | 'Descending', skip?: number, take?: number, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseForPaginatedListRawReportItem>;
+    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, sort?: 'EmailAddress' | 'JobCode' | 'TaskName' | 'ClientName' | 'ProjectName' | 'StartDate' | 'EndDate' | 'SpanSeconds' | 'Description' | 'PayAmount' | 'PayOvertimeAmount' | 'TripCost' | 'TripDistanceMeters' | 'Username', order?: 'Ascending' | 'Descending', skip?: number, take?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedListRawReportItem>>;
+    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, sort?: 'EmailAddress' | 'JobCode' | 'TaskName' | 'ClientName' | 'ProjectName' | 'StartDate' | 'EndDate' | 'SpanSeconds' | 'Description' | 'PayAmount' | 'PayOvertimeAmount' | 'TripCost' | 'TripDistanceMeters' | 'Username', order?: 'Ascending' | 'Descending', skip?: number, take?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedListRawReportItem>>;
+    public reportsGetRawDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, sort?: 'EmailAddress' | 'JobCode' | 'TaskName' | 'ClientName' | 'ProjectName' | 'StartDate' | 'EndDate' | 'SpanSeconds' | 'Description' | 'PayAmount' | 'PayOvertimeAmount' | 'TripCost' | 'TripDistanceMeters' | 'Username', order?: 'Ascending' | 'Descending', skip?: number, take?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling reportsGetRawDataAdmin.');
         }
+
         if (endDate === null || endDate === undefined) {
             throw new Error('Required parameter endDate was null or undefined when calling reportsGetRawDataAdmin.');
         }
+
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling reportsGetRawDataAdmin.');
         }
 
+
+
+
+
+
         let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (startDate !== undefined) {
+        if (startDate !== undefined && startDate !== null) {
             queryParameters = queryParameters.set('StartDate', <any>startDate.toISOString());
         }
-        if (endDate !== undefined) {
+        if (endDate !== undefined && endDate !== null) {
             queryParameters = queryParameters.set('EndDate', <any>endDate.toISOString());
         }
-        if (userIds !== undefined) {
+        if (userIds !== undefined && userIds !== null) {
             queryParameters = queryParameters.set('UserIds', <any>userIds);
         }
-        if (sort !== undefined) {
+        if (sort !== undefined && sort !== null) {
             queryParameters = queryParameters.set('Sort', <any>sort);
         }
-        if (order !== undefined) {
+        if (order !== undefined && order !== null) {
             queryParameters = queryParameters.set('Order', <any>order);
         }
-        if (skip !== undefined) {
+        if (skip !== undefined && skip !== null) {
             queryParameters = queryParameters.set('Skip', <any>skip);
         }
-        if (take !== undefined) {
+        if (take !== undefined && take !== null) {
             queryParameters = queryParameters.set('Take', <any>take);
         }
 
@@ -621,13 +662,13 @@ export class ReportsService {
             'text/xml',
             'multipart/form-data'
         ];
-        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set("Accept", httpHeaderAcceptSelected);
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
 
         // to determine the Content-Type header
-        let consumes: string[] = [
+        const consumes: string[] = [
         ];
 
         return this.httpClient.get<CSApiResponseForPaginatedListRawReportItem>(`${this.basePath}/api/Reports/GetRawDataAdmin`,
@@ -655,24 +696,28 @@ export class ReportsService {
     public reportsProjectCostingsAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListProjectCostingReportItem>>;
     public reportsProjectCostingsAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListProjectCostingReportItem>>;
     public reportsProjectCostingsAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: string, userIds?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling reportsProjectCostingsAdmin.');
         }
+
         if (endDate === null || endDate === undefined) {
             throw new Error('Required parameter endDate was null or undefined when calling reportsProjectCostingsAdmin.');
         }
+
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling reportsProjectCostingsAdmin.');
         }
 
+
         let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (startDate !== undefined) {
+        if (startDate !== undefined && startDate !== null) {
             queryParameters = queryParameters.set('StartDate', <any>startDate.toISOString());
         }
-        if (endDate !== undefined) {
+        if (endDate !== undefined && endDate !== null) {
             queryParameters = queryParameters.set('EndDate', <any>endDate.toISOString());
         }
-        if (userIds !== undefined) {
+        if (userIds !== undefined && userIds !== null) {
             queryParameters = queryParameters.set('UserIds', <any>userIds);
         }
 
@@ -689,13 +734,13 @@ export class ReportsService {
             'text/xml',
             'multipart/form-data'
         ];
-        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set("Accept", httpHeaderAcceptSelected);
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
 
         // to determine the Content-Type header
-        let consumes: string[] = [
+        const consumes: string[] = [
         ];
 
         return this.httpClient.get<CSApiResponseListProjectCostingReportItem>(`${this.basePath}/api/Reports/ProjectCostingsAdmin`,
@@ -722,21 +767,24 @@ export class ReportsService {
     public reportsUserJobsOverTime(startDate: Date, endDate: Date, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseListJobSeriesReportItem>>;
     public reportsUserJobsOverTime(startDate: Date, endDate: Date, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseListJobSeriesReportItem>>;
     public reportsUserJobsOverTime(startDate: Date, endDate: Date, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (startDate === null || startDate === undefined) {
             throw new Error('Required parameter startDate was null or undefined when calling reportsUserJobsOverTime.');
         }
+
         if (endDate === null || endDate === undefined) {
             throw new Error('Required parameter endDate was null or undefined when calling reportsUserJobsOverTime.');
         }
+
         if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
             throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling reportsUserJobsOverTime.');
         }
 
         let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (startDate !== undefined) {
+        if (startDate !== undefined && startDate !== null) {
             queryParameters = queryParameters.set('StartDate', <any>startDate.toISOString());
         }
-        if (endDate !== undefined) {
+        if (endDate !== undefined && endDate !== null) {
             queryParameters = queryParameters.set('EndDate', <any>endDate.toISOString());
         }
 
@@ -753,13 +801,13 @@ export class ReportsService {
             'text/xml',
             'multipart/form-data'
         ];
-        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set("Accept", httpHeaderAcceptSelected);
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
 
         // to determine the Content-Type header
-        let consumes: string[] = [
+        const consumes: string[] = [
         ];
 
         return this.httpClient.get<CSApiResponseListJobSeriesReportItem>(`${this.basePath}/api/Reports/UserJobsOverTime`,
