@@ -12,9 +12,21 @@
 import { CSUserForManagement } from './cSCSUserForManagement';
 
 
+/**
+ * A standard API response
+ */
 export interface CSApiResponseUserForManagement { 
+    /**
+     * The main Data of the response
+     */
     data?: CSUserForManagement;
+    /**
+     * The API response status. Indicates if the request was successful, failed or was unauthorised.
+     */
     status?: CSApiResponseUserForManagement.CSStatusEnum;
+    /**
+     * A message to accompany the response status.  If the Status is failed, this message will hint why it failed and what you need to do.
+     */
     message?: string;
 }
 export namespace CSApiResponseUserForManagement {

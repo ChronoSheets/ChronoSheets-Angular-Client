@@ -12,10 +12,25 @@
 import { CSOrgReportTrip } from './cSCSOrgReportTrip';
 
 
+/**
+ * A paginated API repsonse
+ */
 export interface CSApiResponseForPaginatedListOrgReportTrip { 
+    /**
+     * The count of total records that are being paginated
+     */
     totalSetCount?: number;
+    /**
+     * The main Data of the response
+     */
     data?: Array<CSOrgReportTrip>;
+    /**
+     * The API response status. Indicates if the request was successful, failed or was unauthorised.
+     */
     status?: CSApiResponseForPaginatedListOrgReportTrip.CSStatusEnum;
+    /**
+     * A message to accompany the response status.  If the Status is failed, this message will hint why it failed and what you need to do.
+     */
     message?: string;
 }
 export namespace CSApiResponseForPaginatedListOrgReportTrip {

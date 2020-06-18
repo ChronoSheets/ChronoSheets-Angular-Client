@@ -9,16 +9,31 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { CSTranscription } from './cSCSTranscription';
+import { CSExtendedGeofence } from './cSCSExtendedGeofence';
 
 
-export interface CSApiResponseForPaginatedTranscription { 
+/**
+ * A paginated API repsonse
+ */
+export interface CSApiResponseForPaginatedListExtendedGeofence { 
+    /**
+     * The count of total records that are being paginated
+     */
     totalSetCount?: number;
-    data?: CSTranscription;
-    status?: CSApiResponseForPaginatedTranscription.CSStatusEnum;
+    /**
+     * The main Data of the response
+     */
+    data?: Array<CSExtendedGeofence>;
+    /**
+     * The API response status. Indicates if the request was successful, failed or was unauthorised.
+     */
+    status?: CSApiResponseForPaginatedListExtendedGeofence.CSStatusEnum;
+    /**
+     * A message to accompany the response status.  If the Status is failed, this message will hint why it failed and what you need to do.
+     */
     message?: string;
 }
-export namespace CSApiResponseForPaginatedTranscription {
+export namespace CSApiResponseForPaginatedListExtendedGeofence {
     export type CSStatusEnum = 'Succeeded' | 'FatalException' | 'GeneralError' | 'ValidationError' | 'UnAuthorized' | 'SessionExpired';
     export const CSStatusEnum = {
         Succeeded: 'Succeeded' as CSStatusEnum,

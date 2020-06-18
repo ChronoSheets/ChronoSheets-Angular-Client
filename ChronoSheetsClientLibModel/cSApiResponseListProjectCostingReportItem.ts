@@ -12,9 +12,21 @@
 import { CSProjectCostingReportItem } from './cSCSProjectCostingReportItem';
 
 
+/**
+ * A standard API response
+ */
 export interface CSApiResponseListProjectCostingReportItem { 
+    /**
+     * The main Data of the response
+     */
     data?: Array<CSProjectCostingReportItem>;
+    /**
+     * The API response status. Indicates if the request was successful, failed or was unauthorised.
+     */
     status?: CSApiResponseListProjectCostingReportItem.CSStatusEnum;
+    /**
+     * A message to accompany the response status.  If the Status is failed, this message will hint why it failed and what you need to do.
+     */
     message?: string;
 }
 export namespace CSApiResponseListProjectCostingReportItem {

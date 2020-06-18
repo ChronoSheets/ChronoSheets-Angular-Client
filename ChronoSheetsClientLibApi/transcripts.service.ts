@@ -19,7 +19,7 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 import { Observable }                                        from 'rxjs/Observable';
 
 import { CSCSApiResponseForPaginatedListOrgReportTranscript } from '../ChronoSheetsClientLibModel/cSCSApiResponseForPaginatedListOrgReportTranscript';
-import { CSCSApiResponseForPaginatedTranscription } from '../ChronoSheetsClientLibModel/cSCSApiResponseForPaginatedTranscription';
+import { CSCSApiResponseTranscription } from '../ChronoSheetsClientLibModel/cSCSApiResponseTranscription';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -65,9 +65,9 @@ export class TranscriptsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public transcriptsGetMyTranscript(fileAttachmentId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseForPaginatedTranscription>;
-    public transcriptsGetMyTranscript(fileAttachmentId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedTranscription>>;
-    public transcriptsGetMyTranscript(fileAttachmentId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedTranscription>>;
+    public transcriptsGetMyTranscript(fileAttachmentId: number, xChronosheetsAuth: string, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseTranscription>;
+    public transcriptsGetMyTranscript(fileAttachmentId: number, xChronosheetsAuth: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseTranscription>>;
+    public transcriptsGetMyTranscript(fileAttachmentId: number, xChronosheetsAuth: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseTranscription>>;
     public transcriptsGetMyTranscript(fileAttachmentId: number, xChronosheetsAuth: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (fileAttachmentId === null || fileAttachmentId === undefined) {
@@ -105,7 +105,7 @@ export class TranscriptsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseForPaginatedTranscription>(`${this.basePath}/api/Transcripts/GetMyTranscript`,
+        return this.httpClient.get<CSApiResponseTranscription>(`${this.basePath}/api/Transcripts/GetMyTranscript`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,

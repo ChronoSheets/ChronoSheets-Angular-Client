@@ -9,27 +9,27 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { CSClient } from './cSCSClient';
+import { CSGeofence } from './cSCSGeofence';
 
 
 /**
  * A standard API response
  */
-export interface CSApiResponseClient { 
+export interface CSApiResponseGeofence { 
     /**
      * The main Data of the response
      */
-    data?: CSClient;
+    data?: CSGeofence;
     /**
      * The API response status. Indicates if the request was successful, failed or was unauthorised.
      */
-    status?: CSApiResponseClient.CSStatusEnum;
+    status?: CSApiResponseGeofence.CSStatusEnum;
     /**
      * A message to accompany the response status.  If the Status is failed, this message will hint why it failed and what you need to do.
      */
     message?: string;
 }
-export namespace CSApiResponseClient {
+export namespace CSApiResponseGeofence {
     export type CSStatusEnum = 'Succeeded' | 'FatalException' | 'GeneralError' | 'ValidationError' | 'UnAuthorized' | 'SessionExpired';
     export const CSStatusEnum = {
         Succeeded: 'Succeeded' as CSStatusEnum,

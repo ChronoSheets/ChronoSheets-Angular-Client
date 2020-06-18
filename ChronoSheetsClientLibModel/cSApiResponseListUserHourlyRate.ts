@@ -12,9 +12,21 @@
 import { CSUserHourlyRate } from './cSCSUserHourlyRate';
 
 
+/**
+ * A standard API response
+ */
 export interface CSApiResponseListUserHourlyRate { 
+    /**
+     * The main Data of the response
+     */
     data?: Array<CSUserHourlyRate>;
+    /**
+     * The API response status. Indicates if the request was successful, failed or was unauthorised.
+     */
     status?: CSApiResponseListUserHourlyRate.CSStatusEnum;
+    /**
+     * A message to accompany the response status.  If the Status is failed, this message will hint why it failed and what you need to do.
+     */
     message?: string;
 }
 export namespace CSApiResponseListUserHourlyRate {

@@ -12,9 +12,21 @@
 import { CSFleetVehicle } from './cSCSFleetVehicle';
 
 
+/**
+ * A standard API response
+ */
 export interface CSApiResponseListFleetVehicle { 
+    /**
+     * The main Data of the response
+     */
     data?: Array<CSFleetVehicle>;
+    /**
+     * The API response status. Indicates if the request was successful, failed or was unauthorised.
+     */
     status?: CSApiResponseListFleetVehicle.CSStatusEnum;
+    /**
+     * A message to accompany the response status.  If the Status is failed, this message will hint why it failed and what you need to do.
+     */
     message?: string;
 }
 export namespace CSApiResponseListFleetVehicle {

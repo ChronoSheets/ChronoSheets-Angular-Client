@@ -12,9 +12,21 @@
 import { CSUpdateUserResponse } from './cSCSUpdateUserResponse';
 
 
+/**
+ * A standard API response
+ */
 export interface CSApiResponseUpdateUserResponse { 
+    /**
+     * The main Data of the response
+     */
     data?: CSUpdateUserResponse;
+    /**
+     * The API response status. Indicates if the request was successful, failed or was unauthorised.
+     */
     status?: CSApiResponseUpdateUserResponse.CSStatusEnum;
+    /**
+     * A message to accompany the response status.  If the Status is failed, this message will hint why it failed and what you need to do.
+     */
     message?: string;
 }
 export namespace CSApiResponseUpdateUserResponse {

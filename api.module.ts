@@ -8,6 +8,7 @@ import { AggregateJobTasksService } from './ChronoSheetsClientLibApi/aggregateJo
 import { ClientsService } from './ChronoSheetsClientLibApi/clients.service';
 import { FileAttachmentsService } from './ChronoSheetsClientLibApi/fileAttachments.service';
 import { FleetService } from './ChronoSheetsClientLibApi/fleet.service';
+import { GeoFencingService } from './ChronoSheetsClientLibApi/geoFencing.service';
 import { JobCodesService } from './ChronoSheetsClientLibApi/jobCodes.service';
 import { OrganisationService } from './ChronoSheetsClientLibApi/organisation.service';
 import { OrganisationGroupUsersService } from './ChronoSheetsClientLibApi/organisationGroupUsers.service';
@@ -15,6 +16,7 @@ import { OrganisationGroupsService } from './ChronoSheetsClientLibApi/organisati
 import { ProjectsService } from './ChronoSheetsClientLibApi/projects.service';
 import { ReportsService } from './ChronoSheetsClientLibApi/reports.service';
 import { TasksService } from './ChronoSheetsClientLibApi/tasks.service';
+import { TimesheetAutomationService } from './ChronoSheetsClientLibApi/timesheetAutomation.service';
 import { TimesheetsService } from './ChronoSheetsClientLibApi/timesheets.service';
 import { TranscriptsService } from './ChronoSheetsClientLibApi/transcripts.service';
 import { TripsService } from './ChronoSheetsClientLibApi/trips.service';
@@ -34,6 +36,7 @@ import { UsualHoursService } from './ChronoSheetsClientLibApi/usualHours.service
     ClientsService,
     FileAttachmentsService,
     FleetService,
+    GeoFencingService,
     JobCodesService,
     OrganisationService,
     OrganisationGroupUsersService,
@@ -41,6 +44,7 @@ import { UsualHoursService } from './ChronoSheetsClientLibApi/usualHours.service
     ProjectsService,
     ReportsService,
     TasksService,
+    TimesheetAutomationService,
     TimesheetsService,
     TranscriptsService,
     TripsService,

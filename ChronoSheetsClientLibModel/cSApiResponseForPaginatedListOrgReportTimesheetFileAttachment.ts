@@ -12,10 +12,25 @@
 import { CSOrgReportTimesheetFileAttachment } from './cSCSOrgReportTimesheetFileAttachment';
 
 
+/**
+ * A paginated API repsonse
+ */
 export interface CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment { 
+    /**
+     * The count of total records that are being paginated
+     */
     totalSetCount?: number;
+    /**
+     * The main Data of the response
+     */
     data?: Array<CSOrgReportTimesheetFileAttachment>;
+    /**
+     * The API response status. Indicates if the request was successful, failed or was unauthorised.
+     */
     status?: CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment.CSStatusEnum;
+    /**
+     * A message to accompany the response status.  If the Status is failed, this message will hint why it failed and what you need to do.
+     */
     message?: string;
 }
 export namespace CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment {
