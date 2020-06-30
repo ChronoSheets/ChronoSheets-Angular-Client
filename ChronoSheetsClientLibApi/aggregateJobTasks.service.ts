@@ -27,7 +27,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class AggregateJobTasksService {
 
-    protected basePath = 'https://www.chronosheets.com';
+    protected basePath = 'https://api.chronosheets.com';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -94,7 +94,7 @@ export class AggregateJobTasksService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseListAggregateJobCode>(`${this.basePath}/api/AggregateJobTasks/GetAggregateJobTasks`,
+        return this.httpClient.get<CSApiResponseListAggregateJobCode>(`${this.basePath}/AggregateJobTasks/GetAggregateJobTasks`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,

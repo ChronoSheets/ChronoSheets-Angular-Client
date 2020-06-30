@@ -9,17 +9,27 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { CSBasicCoordinate } from './cSCSBasicCoordinate';
 
 
-export interface CSCreateAutomationStepRequest { 
-    geofencingId?: number;
-    nfcId?: number;
-    automationActionType?: CSCreateAutomationStepRequest.CSAutomationActionTypeEnum;
+export interface CSTimesheetAutomationWithOrgAndGeofence { 
+    orgId?: number;
+    geofenceName?: string;
+    coordinates?: Array<CSBasicCoordinate>;
+    userId?: number;
+    userName?: string;
+    firstName?: string;
+    lastName?: string;
+    automationId?: number;
+    automationActionType?: CSTimesheetAutomationWithOrgAndGeofence.CSAutomationActionTypeEnum;
+    created?: Date;
     latitude?: number;
     longitude?: number;
-    clientTime?: Date;
+    isProcessed?: boolean;
+    expires?: Date;
+    clientDateTime?: Date;
 }
-export namespace CSCreateAutomationStepRequest {
+export namespace CSTimesheetAutomationWithOrgAndGeofence {
     export type CSAutomationActionTypeEnum = 'EnterGeofence' | 'ExitGeofence' | 'TapOnNfc';
     export const CSAutomationActionTypeEnum = {
         EnterGeofence: 'EnterGeofence' as CSAutomationActionTypeEnum,

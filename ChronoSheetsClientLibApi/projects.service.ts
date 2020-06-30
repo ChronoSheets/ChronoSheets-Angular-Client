@@ -32,7 +32,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class ProjectsService {
 
-    protected basePath = 'https://www.chronosheets.com';
+    protected basePath = 'https://api.chronosheets.com';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -114,7 +114,7 @@ export class ProjectsService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/api/Projects/CreateProject`,
+        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/Projects/CreateProject`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -173,7 +173,7 @@ export class ProjectsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseProject>(`${this.basePath}/api/Projects/GetProjectById`,
+        return this.httpClient.get<CSApiResponseProject>(`${this.basePath}/Projects/GetProjectById`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -232,7 +232,7 @@ export class ProjectsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseListProject>(`${this.basePath}/api/Projects/GetProjectsForClient`,
+        return this.httpClient.get<CSApiResponseListProject>(`${this.basePath}/Projects/GetProjectsForClient`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -296,7 +296,7 @@ export class ProjectsService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CSApiResponseBoolean>(`${this.basePath}/api/Projects/UpdateProject`,
+        return this.httpClient.put<CSApiResponseBoolean>(`${this.basePath}/Projects/UpdateProject`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

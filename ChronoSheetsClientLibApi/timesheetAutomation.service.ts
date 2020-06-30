@@ -18,6 +18,7 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
+import { CSCSApiResponseForPaginatedListTimesheetAutomationWithOrgAndGeofence } from '../ChronoSheetsClientLibModel/cSCSApiResponseForPaginatedListTimesheetAutomationWithOrgAndGeofence';
 import { CSCSApiResponseInt32 } from '../ChronoSheetsClientLibModel/cSCSApiResponseInt32';
 import { CSCSCreateAutomationStepRequest } from '../ChronoSheetsClientLibModel/cSCSCreateAutomationStepRequest';
 
@@ -28,7 +29,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class TimesheetAutomationService {
 
-    protected basePath = 'https://www.chronosheets.com';
+    protected basePath = 'https://api.chronosheets.com';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -110,9 +111,102 @@ export class TimesheetAutomationService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/api/TimesheetAutomation/CreateAutomationStep`,
+        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/TimesheetAutomation/CreateAutomationStep`,
             request,
             {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * Retrieve the timesheet automation / alerts for geofences activities or NFC tap on/off.  Requires the &#39;ManageGeofencing&#39; permission.
+     * 
+     * @param geofenceId The ID of the Geofence
+     * @param userId 
+     * @param sort 
+     * @param order 
+     * @param xChronosheetsAuth The ChronoSheets Auth Token
+     * @param skip Skip this many records
+     * @param take Take this many records
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public timesheetAutomationGetTimesheetAutomationAuditTrail(geofenceId: number, userId: number, sort: 'UserName' | 'AutomationActionType' | 'ClientDateTime' | 'IsProcessed', order: 'Ascending' | 'Descending', xChronosheetsAuth: string, skip?: number, take?: number, observe?: 'body', reportProgress?: boolean): Observable<CSApiResponseForPaginatedListTimesheetAutomationWithOrgAndGeofence>;
+    public timesheetAutomationGetTimesheetAutomationAuditTrail(geofenceId: number, userId: number, sort: 'UserName' | 'AutomationActionType' | 'ClientDateTime' | 'IsProcessed', order: 'Ascending' | 'Descending', xChronosheetsAuth: string, skip?: number, take?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CSApiResponseForPaginatedListTimesheetAutomationWithOrgAndGeofence>>;
+    public timesheetAutomationGetTimesheetAutomationAuditTrail(geofenceId: number, userId: number, sort: 'UserName' | 'AutomationActionType' | 'ClientDateTime' | 'IsProcessed', order: 'Ascending' | 'Descending', xChronosheetsAuth: string, skip?: number, take?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CSApiResponseForPaginatedListTimesheetAutomationWithOrgAndGeofence>>;
+    public timesheetAutomationGetTimesheetAutomationAuditTrail(geofenceId: number, userId: number, sort: 'UserName' | 'AutomationActionType' | 'ClientDateTime' | 'IsProcessed', order: 'Ascending' | 'Descending', xChronosheetsAuth: string, skip?: number, take?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (geofenceId === null || geofenceId === undefined) {
+            throw new Error('Required parameter geofenceId was null or undefined when calling timesheetAutomationGetTimesheetAutomationAuditTrail.');
+        }
+
+        if (userId === null || userId === undefined) {
+            throw new Error('Required parameter userId was null or undefined when calling timesheetAutomationGetTimesheetAutomationAuditTrail.');
+        }
+
+        if (sort === null || sort === undefined) {
+            throw new Error('Required parameter sort was null or undefined when calling timesheetAutomationGetTimesheetAutomationAuditTrail.');
+        }
+
+        if (order === null || order === undefined) {
+            throw new Error('Required parameter order was null or undefined when calling timesheetAutomationGetTimesheetAutomationAuditTrail.');
+        }
+
+        if (xChronosheetsAuth === null || xChronosheetsAuth === undefined) {
+            throw new Error('Required parameter xChronosheetsAuth was null or undefined when calling timesheetAutomationGetTimesheetAutomationAuditTrail.');
+        }
+
+
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (geofenceId !== undefined && geofenceId !== null) {
+            queryParameters = queryParameters.set('GeofenceId', <any>geofenceId);
+        }
+        if (userId !== undefined && userId !== null) {
+            queryParameters = queryParameters.set('UserId', <any>userId);
+        }
+        if (sort !== undefined && sort !== null) {
+            queryParameters = queryParameters.set('Sort', <any>sort);
+        }
+        if (order !== undefined && order !== null) {
+            queryParameters = queryParameters.set('Order', <any>order);
+        }
+        if (skip !== undefined && skip !== null) {
+            queryParameters = queryParameters.set('Skip', <any>skip);
+        }
+        if (take !== undefined && take !== null) {
+            queryParameters = queryParameters.set('Take', <any>take);
+        }
+
+        let headers = this.defaultHeaders;
+        if (xChronosheetsAuth !== undefined && xChronosheetsAuth !== null) {
+            headers = headers.set('x-chronosheets-auth', String(xChronosheetsAuth));
+        }
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json',
+            'text/json',
+            'application/xml',
+            'text/xml',
+            'multipart/form-data'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<CSApiResponseForPaginatedListTimesheetAutomationWithOrgAndGeofence>(`${this.basePath}/TimesheetAutomation/GetTimesheetAutomationAuditTrail`,
+            {
+                params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,

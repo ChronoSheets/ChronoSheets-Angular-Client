@@ -30,7 +30,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class TripsService {
 
-    protected basePath = 'https://www.chronosheets.com';
+    protected basePath = 'https://api.chronosheets.com';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -112,7 +112,7 @@ export class TripsService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/api/Trips/CreateTrip`,
+        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/Trips/CreateTrip`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -171,7 +171,7 @@ export class TripsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseTrip>(`${this.basePath}/api/Trips/GetMyTripById`,
+        return this.httpClient.get<CSApiResponseTrip>(`${this.basePath}/Trips/GetMyTripById`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -253,7 +253,7 @@ export class TripsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseForPaginatedListTrip>(`${this.basePath}/api/Trips/GetMyTrips`,
+        return this.httpClient.get<CSApiResponseForPaginatedListTrip>(`${this.basePath}/Trips/GetMyTrips`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,

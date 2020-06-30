@@ -32,7 +32,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class OrganisationGroupsService {
 
-    protected basePath = 'https://www.chronosheets.com';
+    protected basePath = 'https://api.chronosheets.com';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -114,7 +114,7 @@ export class OrganisationGroupsService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/api/OrganisationGroups/CreateOrganisationGroup`,
+        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/OrganisationGroups/CreateOrganisationGroup`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -173,7 +173,7 @@ export class OrganisationGroupsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.delete<CSApiResponseBoolean>(`${this.basePath}/api/OrganisationGroups/DeleteOrganisationGroup`,
+        return this.httpClient.delete<CSApiResponseBoolean>(`${this.basePath}/OrganisationGroups/DeleteOrganisationGroup`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -232,7 +232,7 @@ export class OrganisationGroupsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseOrganisationGroup>(`${this.basePath}/api/OrganisationGroups/GetOrganisationGroup`,
+        return this.httpClient.get<CSApiResponseOrganisationGroup>(`${this.basePath}/OrganisationGroups/GetOrganisationGroup`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -281,7 +281,7 @@ export class OrganisationGroupsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseListOrganisationGroup>(`${this.basePath}/api/OrganisationGroups/GetOrganisationGroups`,
+        return this.httpClient.get<CSApiResponseListOrganisationGroup>(`${this.basePath}/OrganisationGroups/GetOrganisationGroups`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -339,7 +339,7 @@ export class OrganisationGroupsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseListOrganisationGroup>(`${this.basePath}/api/OrganisationGroups/GetOrganisationGroupsForJob`,
+        return this.httpClient.get<CSApiResponseListOrganisationGroup>(`${this.basePath}/OrganisationGroups/GetOrganisationGroupsForJob`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -398,7 +398,7 @@ export class OrganisationGroupsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseListOrganisationGroup>(`${this.basePath}/api/OrganisationGroups/GetOrganisationGroupsForVehicle`,
+        return this.httpClient.get<CSApiResponseListOrganisationGroup>(`${this.basePath}/OrganisationGroups/GetOrganisationGroupsForVehicle`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -462,7 +462,7 @@ export class OrganisationGroupsService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CSApiResponseBoolean>(`${this.basePath}/api/OrganisationGroups/UpdateOrganisationGroup`,
+        return this.httpClient.put<CSApiResponseBoolean>(`${this.basePath}/OrganisationGroups/UpdateOrganisationGroup`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

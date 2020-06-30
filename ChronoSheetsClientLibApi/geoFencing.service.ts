@@ -31,7 +31,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class GeoFencingService {
 
-    protected basePath = 'https://www.chronosheets.com';
+    protected basePath = 'https://api.chronosheets.com';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -113,7 +113,7 @@ export class GeoFencingService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/api/GeoFencing/CreateGeofence`,
+        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/GeoFencing/CreateGeofence`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -172,7 +172,7 @@ export class GeoFencingService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.delete<CSApiResponseGeofence>(`${this.basePath}/api/GeoFencing/DeleteGeofence`,
+        return this.httpClient.delete<CSApiResponseGeofence>(`${this.basePath}/GeoFencing/DeleteGeofence`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -231,7 +231,7 @@ export class GeoFencingService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseGeofence>(`${this.basePath}/api/GeoFencing/GetGeofenceById`,
+        return this.httpClient.get<CSApiResponseGeofence>(`${this.basePath}/GeoFencing/GetGeofenceById`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -292,7 +292,7 @@ export class GeoFencingService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseForPaginatedListExtendedGeofence>(`${this.basePath}/api/GeoFencing/GetGeofences`,
+        return this.httpClient.get<CSApiResponseForPaginatedListExtendedGeofence>(`${this.basePath}/GeoFencing/GetGeofences`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -356,7 +356,7 @@ export class GeoFencingService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CSApiResponseInt32>(`${this.basePath}/api/GeoFencing/UpdateGeofence`,
+        return this.httpClient.put<CSApiResponseInt32>(`${this.basePath}/GeoFencing/UpdateGeofence`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

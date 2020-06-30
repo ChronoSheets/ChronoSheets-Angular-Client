@@ -35,7 +35,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class ReportsService {
 
-    protected basePath = 'https://www.chronosheets.com';
+    protected basePath = 'https://api.chronosheets.com';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -130,7 +130,7 @@ export class ReportsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseCombinedReportsData>(`${this.basePath}/api/Reports/GetAllChartsDataAdmin`,
+        return this.httpClient.get<CSApiResponseCombinedReportsData>(`${this.basePath}/Reports/GetAllChartsDataAdmin`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -197,7 +197,7 @@ export class ReportsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseCombinedReportsData>(`${this.basePath}/api/Reports/GetAllChartsDataUser`,
+        return this.httpClient.get<CSApiResponseCombinedReportsData>(`${this.basePath}/Reports/GetAllChartsDataUser`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -269,7 +269,7 @@ export class ReportsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseListFleetSummaryReportItem>(`${this.basePath}/api/Reports/GetFleetSummaryAdmin`,
+        return this.httpClient.get<CSApiResponseListFleetSummaryReportItem>(`${this.basePath}/Reports/GetFleetSummaryAdmin`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -328,7 +328,7 @@ export class ReportsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseTrip>(`${this.basePath}/api/Reports/GetOrgTripById`,
+        return this.httpClient.get<CSApiResponseTrip>(`${this.basePath}/Reports/GetOrgTripById`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -410,7 +410,7 @@ export class ReportsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment>(`${this.basePath}/api/Reports/GetOrganisationTimesheetFileAttachments`,
+        return this.httpClient.get<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment>(`${this.basePath}/Reports/GetOrganisationTimesheetFileAttachments`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -497,7 +497,7 @@ export class ReportsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseForPaginatedListOrgReportTranscript>(`${this.basePath}/api/Reports/GetOrganisationTranscripts`,
+        return this.httpClient.get<CSApiResponseForPaginatedListOrgReportTranscript>(`${this.basePath}/Reports/GetOrganisationTranscripts`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -579,7 +579,7 @@ export class ReportsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseForPaginatedListOrgReportTrip>(`${this.basePath}/api/Reports/GetOrganisationTrips`,
+        return this.httpClient.get<CSApiResponseForPaginatedListOrgReportTrip>(`${this.basePath}/Reports/GetOrganisationTrips`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -671,7 +671,7 @@ export class ReportsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseForPaginatedListRawReportItem>(`${this.basePath}/api/Reports/GetRawDataAdmin`,
+        return this.httpClient.get<CSApiResponseForPaginatedListRawReportItem>(`${this.basePath}/Reports/GetRawDataAdmin`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -743,7 +743,7 @@ export class ReportsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseListProjectCostingReportItem>(`${this.basePath}/api/Reports/ProjectCostingsAdmin`,
+        return this.httpClient.get<CSApiResponseListProjectCostingReportItem>(`${this.basePath}/Reports/ProjectCostingsAdmin`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -810,7 +810,7 @@ export class ReportsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseListJobSeriesReportItem>(`${this.basePath}/api/Reports/UserJobsOverTime`,
+        return this.httpClient.get<CSApiResponseListJobSeriesReportItem>(`${this.basePath}/Reports/UserJobsOverTime`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,

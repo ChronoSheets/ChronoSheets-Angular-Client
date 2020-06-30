@@ -32,7 +32,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class UsersService {
 
-    protected basePath = 'https://www.chronosheets.com';
+    protected basePath = 'https://api.chronosheets.com';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -114,7 +114,7 @@ export class UsersService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CSApiResponseInsertUserResponse>(`${this.basePath}/api/Users/CreateTimesheetUser`,
+        return this.httpClient.post<CSApiResponseInsertUserResponse>(`${this.basePath}/Users/CreateTimesheetUser`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -173,7 +173,7 @@ export class UsersService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseUserForManagement>(`${this.basePath}/api/Users/GetTimesheetUser`,
+        return this.httpClient.get<CSApiResponseUserForManagement>(`${this.basePath}/Users/GetTimesheetUser`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -222,7 +222,7 @@ export class UsersService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseListUserForManagement>(`${this.basePath}/api/Users/GetTimesheetUsers`,
+        return this.httpClient.get<CSApiResponseListUserForManagement>(`${this.basePath}/Users/GetTimesheetUsers`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -285,7 +285,7 @@ export class UsersService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CSApiResponseUpdateUserResponse>(`${this.basePath}/api/Users/UpdateTimesheetUser`,
+        return this.httpClient.put<CSApiResponseUpdateUserResponse>(`${this.basePath}/Users/UpdateTimesheetUser`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

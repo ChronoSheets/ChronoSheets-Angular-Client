@@ -29,7 +29,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class OrganisationService {
 
-    protected basePath = 'https://www.chronosheets.com';
+    protected basePath = 'https://api.chronosheets.com';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -96,7 +96,7 @@ export class OrganisationService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseOrganisation>(`${this.basePath}/api/Organisation/GetOrganisation`,
+        return this.httpClient.get<CSApiResponseOrganisation>(`${this.basePath}/Organisation/GetOrganisation`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -159,7 +159,7 @@ export class OrganisationService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CSApiResponseUpdateOrganisationResponse>(`${this.basePath}/api/Organisation/UpdateOrganisation`,
+        return this.httpClient.put<CSApiResponseUpdateOrganisationResponse>(`${this.basePath}/Organisation/UpdateOrganisation`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

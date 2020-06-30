@@ -32,7 +32,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class ClientsService {
 
-    protected basePath = 'https://www.chronosheets.com';
+    protected basePath = 'https://api.chronosheets.com';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -114,7 +114,7 @@ export class ClientsService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/api/Clients/CreateClient`,
+        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/Clients/CreateClient`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -173,7 +173,7 @@ export class ClientsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseClient>(`${this.basePath}/api/Clients/GetClient`,
+        return this.httpClient.get<CSApiResponseClient>(`${this.basePath}/Clients/GetClient`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -222,7 +222,7 @@ export class ClientsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseListClient>(`${this.basePath}/api/Clients/GetClients`,
+        return this.httpClient.get<CSApiResponseListClient>(`${this.basePath}/Clients/GetClients`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -285,7 +285,7 @@ export class ClientsService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CSApiResponseBoolean>(`${this.basePath}/api/Clients/UpdateClient`,
+        return this.httpClient.put<CSApiResponseBoolean>(`${this.basePath}/Clients/UpdateClient`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

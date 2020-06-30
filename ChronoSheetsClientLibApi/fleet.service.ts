@@ -32,7 +32,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class FleetService {
 
-    protected basePath = 'https://www.chronosheets.com';
+    protected basePath = 'https://api.chronosheets.com';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -114,7 +114,7 @@ export class FleetService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/api/Fleet/CreateVehicle`,
+        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/Fleet/CreateVehicle`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -173,7 +173,7 @@ export class FleetService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.delete<CSApiResponseBoolean>(`${this.basePath}/api/Fleet/DeleteVehicle`,
+        return this.httpClient.delete<CSApiResponseBoolean>(`${this.basePath}/Fleet/DeleteVehicle`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -232,7 +232,7 @@ export class FleetService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseFleetVehicle>(`${this.basePath}/api/Fleet/GetVehicleById`,
+        return this.httpClient.get<CSApiResponseFleetVehicle>(`${this.basePath}/Fleet/GetVehicleById`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -288,7 +288,7 @@ export class FleetService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseListFleetVehicle>(`${this.basePath}/api/Fleet/GetVehicles`,
+        return this.httpClient.get<CSApiResponseListFleetVehicle>(`${this.basePath}/Fleet/GetVehicles`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -352,7 +352,7 @@ export class FleetService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CSApiResponseBoolean>(`${this.basePath}/api/Fleet/UpdateVehicle`,
+        return this.httpClient.put<CSApiResponseBoolean>(`${this.basePath}/Fleet/UpdateVehicle`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

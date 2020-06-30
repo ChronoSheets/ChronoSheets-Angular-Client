@@ -29,7 +29,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class FileAttachmentsService {
 
-    protected basePath = 'https://www.chronosheets.com';
+    protected basePath = 'https://api.chronosheets.com';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -106,7 +106,7 @@ export class FileAttachmentsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.delete<CSApiResponseBoolean>(`${this.basePath}/api/FileAttachments/DeleteTimesheetFileAttachment`,
+        return this.httpClient.delete<CSApiResponseBoolean>(`${this.basePath}/FileAttachments/DeleteTimesheetFileAttachment`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -165,7 +165,7 @@ export class FileAttachmentsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseTimesheetFileAttachment>(`${this.basePath}/api/FileAttachments/GetFileAttachmentById`,
+        return this.httpClient.get<CSApiResponseTimesheetFileAttachment>(`${this.basePath}/FileAttachments/GetFileAttachmentById`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -242,7 +242,7 @@ export class FileAttachmentsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseForPaginatedListTimesheetFileAttachment>(`${this.basePath}/api/FileAttachments/GetMyFileAttachments`,
+        return this.httpClient.get<CSApiResponseForPaginatedListTimesheetFileAttachment>(`${this.basePath}/FileAttachments/GetMyFileAttachments`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,

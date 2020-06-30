@@ -28,7 +28,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class TranscriptsService {
 
-    protected basePath = 'https://www.chronosheets.com';
+    protected basePath = 'https://api.chronosheets.com';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -105,7 +105,7 @@ export class TranscriptsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseTranscription>(`${this.basePath}/api/Transcripts/GetMyTranscript`,
+        return this.httpClient.get<CSApiResponseTranscription>(`${this.basePath}/Transcripts/GetMyTranscript`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -187,7 +187,7 @@ export class TranscriptsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseForPaginatedListOrgReportTranscript>(`${this.basePath}/api/Transcripts/GetMyTranscripts`,
+        return this.httpClient.get<CSApiResponseForPaginatedListOrgReportTranscript>(`${this.basePath}/Transcripts/GetMyTranscripts`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,

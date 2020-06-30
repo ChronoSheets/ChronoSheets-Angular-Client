@@ -32,7 +32,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class JobCodesService {
 
-    protected basePath = 'https://www.chronosheets.com';
+    protected basePath = 'https://api.chronosheets.com';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -114,7 +114,7 @@ export class JobCodesService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/api/JobCodes/CreateJobCode`,
+        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/JobCodes/CreateJobCode`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -173,7 +173,7 @@ export class JobCodesService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.delete<CSApiResponseBoolean>(`${this.basePath}/api/JobCodes/DeleteJobCode`,
+        return this.httpClient.delete<CSApiResponseBoolean>(`${this.basePath}/JobCodes/DeleteJobCode`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -232,7 +232,7 @@ export class JobCodesService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseJobCode>(`${this.basePath}/api/JobCodes/GetJobCodeById`,
+        return this.httpClient.get<CSApiResponseJobCode>(`${this.basePath}/JobCodes/GetJobCodeById`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -281,7 +281,7 @@ export class JobCodesService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseListJobCode>(`${this.basePath}/api/JobCodes/GetJobCodes`,
+        return this.httpClient.get<CSApiResponseListJobCode>(`${this.basePath}/JobCodes/GetJobCodes`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -344,7 +344,7 @@ export class JobCodesService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CSApiResponseBoolean>(`${this.basePath}/api/JobCodes/UpdateJobCode`,
+        return this.httpClient.put<CSApiResponseBoolean>(`${this.basePath}/JobCodes/UpdateJobCode`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

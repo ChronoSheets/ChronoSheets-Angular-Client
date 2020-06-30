@@ -29,7 +29,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class UserPayRatesService {
 
-    protected basePath = 'https://www.chronosheets.com';
+    protected basePath = 'https://api.chronosheets.com';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -111,7 +111,7 @@ export class UserPayRatesService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/api/UserPayRates/CreatePayRate`,
+        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/UserPayRates/CreatePayRate`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -170,7 +170,7 @@ export class UserPayRatesService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseListUserHourlyRate>(`${this.basePath}/api/UserPayRates/GetPayRates`,
+        return this.httpClient.get<CSApiResponseListUserHourlyRate>(`${this.basePath}/UserPayRates/GetPayRates`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,

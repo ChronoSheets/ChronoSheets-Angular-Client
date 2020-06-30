@@ -32,7 +32,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class UserProfileService {
 
-    protected basePath = 'https://www.chronosheets.com';
+    protected basePath = 'https://api.chronosheets.com';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -106,7 +106,7 @@ export class UserProfileService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CSApiResponseDoLoginResponse>(`${this.basePath}/api/UserProfile/DoLogin`,
+        return this.httpClient.put<CSApiResponseDoLoginResponse>(`${this.basePath}/UserProfile/DoLogin`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -155,7 +155,7 @@ export class UserProfileService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.delete<CSApiResponseBoolean>(`${this.basePath}/api/UserProfile/DoLogout`,
+        return this.httpClient.delete<CSApiResponseBoolean>(`${this.basePath}/UserProfile/DoLogout`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -203,7 +203,7 @@ export class UserProfileService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseUserProfile>(`${this.basePath}/api/UserProfile/GetMyProfile`,
+        return this.httpClient.get<CSApiResponseUserProfile>(`${this.basePath}/UserProfile/GetMyProfile`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -251,7 +251,7 @@ export class UserProfileService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseBoolean>(`${this.basePath}/api/UserProfile/KeepSessionAlive`,
+        return this.httpClient.get<CSApiResponseBoolean>(`${this.basePath}/UserProfile/KeepSessionAlive`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -314,7 +314,7 @@ export class UserProfileService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CSApiResponseUpdateProfileResponse>(`${this.basePath}/api/UserProfile/UpdateMyProfile`,
+        return this.httpClient.put<CSApiResponseUpdateProfileResponse>(`${this.basePath}/UserProfile/UpdateMyProfile`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

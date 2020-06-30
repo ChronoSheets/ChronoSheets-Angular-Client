@@ -30,7 +30,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class UserJobFavouritesService {
 
-    protected basePath = 'https://www.chronosheets.com';
+    protected basePath = 'https://api.chronosheets.com';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -112,7 +112,7 @@ export class UserJobFavouritesService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/api/UserJobFavourites/CreateJobFavourite`,
+        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/UserJobFavourites/CreateJobFavourite`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -171,7 +171,7 @@ export class UserJobFavouritesService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.delete<CSApiResponseBoolean>(`${this.basePath}/api/UserJobFavourites/DeleteJobFavourite`,
+        return this.httpClient.delete<CSApiResponseBoolean>(`${this.basePath}/UserJobFavourites/DeleteJobFavourite`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -220,7 +220,7 @@ export class UserJobFavouritesService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseListUserJobFavourite>(`${this.basePath}/api/UserJobFavourites/GetJobFavourites`,
+        return this.httpClient.get<CSApiResponseListUserJobFavourite>(`${this.basePath}/UserJobFavourites/GetJobFavourites`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,

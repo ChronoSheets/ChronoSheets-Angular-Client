@@ -29,7 +29,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class UsualHoursService {
 
-    protected basePath = 'https://www.chronosheets.com';
+    protected basePath = 'https://api.chronosheets.com';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -106,7 +106,7 @@ export class UsualHoursService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseListUsualHoursDay>(`${this.basePath}/api/UsualHours/GetUsualHours`,
+        return this.httpClient.get<CSApiResponseListUsualHoursDay>(`${this.basePath}/UsualHours/GetUsualHours`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -170,7 +170,7 @@ export class UsualHoursService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CSApiResponseBoolean>(`${this.basePath}/api/UsualHours/SetUsualHours`,
+        return this.httpClient.put<CSApiResponseBoolean>(`${this.basePath}/UsualHours/SetUsualHours`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

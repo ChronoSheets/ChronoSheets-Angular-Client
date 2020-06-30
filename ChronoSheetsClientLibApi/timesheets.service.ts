@@ -32,7 +32,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class TimesheetsService {
 
-    protected basePath = 'https://www.chronosheets.com';
+    protected basePath = 'https://api.chronosheets.com';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -114,7 +114,7 @@ export class TimesheetsService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/api/Timesheets/CreateSingleTimesheet`,
+        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/Timesheets/CreateSingleTimesheet`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -173,7 +173,7 @@ export class TimesheetsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.delete<CSApiResponseBoolean>(`${this.basePath}/api/Timesheets/DeleteTimesheet`,
+        return this.httpClient.delete<CSApiResponseBoolean>(`${this.basePath}/Timesheets/DeleteTimesheet`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -240,7 +240,7 @@ export class TimesheetsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseListTimesheet>(`${this.basePath}/api/Timesheets/GetTimesheets`,
+        return this.httpClient.get<CSApiResponseListTimesheet>(`${this.basePath}/Timesheets/GetTimesheets`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -304,7 +304,7 @@ export class TimesheetsService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CSApiResponseListInt32>(`${this.basePath}/api/Timesheets/UpdateTimesheets`,
+        return this.httpClient.put<CSApiResponseListInt32>(`${this.basePath}/Timesheets/UpdateTimesheets`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,

@@ -32,7 +32,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class TasksService {
 
-    protected basePath = 'https://www.chronosheets.com';
+    protected basePath = 'https://api.chronosheets.com';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -114,7 +114,7 @@ export class TasksService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/api/Tasks/CreateTask`,
+        return this.httpClient.post<CSApiResponseInt32>(`${this.basePath}/Tasks/CreateTask`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -173,7 +173,7 @@ export class TasksService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.delete<CSApiResponseBoolean>(`${this.basePath}/api/Tasks/DeleteTask`,
+        return this.httpClient.delete<CSApiResponseBoolean>(`${this.basePath}/Tasks/DeleteTask`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -232,7 +232,7 @@ export class TasksService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseTimesheetTask>(`${this.basePath}/api/Tasks/GetTaskById`,
+        return this.httpClient.get<CSApiResponseTimesheetTask>(`${this.basePath}/Tasks/GetTaskById`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -281,7 +281,7 @@ export class TasksService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseListTimesheetTask>(`${this.basePath}/api/Tasks/GetTasks`,
+        return this.httpClient.get<CSApiResponseListTimesheetTask>(`${this.basePath}/Tasks/GetTasks`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -339,7 +339,7 @@ export class TasksService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<CSApiResponseListTimesheetTask>(`${this.basePath}/api/Tasks/GetTasksForJob`,
+        return this.httpClient.get<CSApiResponseListTimesheetTask>(`${this.basePath}/Tasks/GetTasksForJob`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -403,7 +403,7 @@ export class TasksService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CSApiResponseBoolean>(`${this.basePath}/api/Tasks/UpdateTask`,
+        return this.httpClient.put<CSApiResponseBoolean>(`${this.basePath}/Tasks/UpdateTask`,
             request,
             {
                 withCredentials: this.configuration.withCredentials,
