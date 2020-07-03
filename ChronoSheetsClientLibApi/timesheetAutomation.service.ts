@@ -161,6 +161,7 @@ export class TimesheetAutomationService {
     /**
      * Retrieve the timesheet automation / alerts for geofences activities or NFC tap on/off.  Requires the \&#39;ManageGeofencing\&#39; permission.
      * @param geofenceId The ID of the Geofence
+     * @param nfcId 
      * @param userId 
      * @param sort 
      * @param order 
@@ -170,12 +171,15 @@ export class TimesheetAutomationService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public timesheetAutomationGetTimesheetAutomationAuditTrail(geofenceId: number, userId: number, sort: 'UserName' | 'AutomationActionType' | 'ClientDateTime' | 'IsProcessed', order: 'Ascending' | 'Descending', xChronosheetsAuth: string, skip?: number, take?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json' | 'text/json' | 'application/xml' | 'text/xml' | 'multipart/form-data'}): Observable<ApiResponseForPaginatedListTimesheetAutomationWithOrgAndGeofence>;
-    public timesheetAutomationGetTimesheetAutomationAuditTrail(geofenceId: number, userId: number, sort: 'UserName' | 'AutomationActionType' | 'ClientDateTime' | 'IsProcessed', order: 'Ascending' | 'Descending', xChronosheetsAuth: string, skip?: number, take?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json' | 'text/json' | 'application/xml' | 'text/xml' | 'multipart/form-data'}): Observable<HttpResponse<ApiResponseForPaginatedListTimesheetAutomationWithOrgAndGeofence>>;
-    public timesheetAutomationGetTimesheetAutomationAuditTrail(geofenceId: number, userId: number, sort: 'UserName' | 'AutomationActionType' | 'ClientDateTime' | 'IsProcessed', order: 'Ascending' | 'Descending', xChronosheetsAuth: string, skip?: number, take?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json' | 'text/json' | 'application/xml' | 'text/xml' | 'multipart/form-data'}): Observable<HttpEvent<ApiResponseForPaginatedListTimesheetAutomationWithOrgAndGeofence>>;
-    public timesheetAutomationGetTimesheetAutomationAuditTrail(geofenceId: number, userId: number, sort: 'UserName' | 'AutomationActionType' | 'ClientDateTime' | 'IsProcessed', order: 'Ascending' | 'Descending', xChronosheetsAuth: string, skip?: number, take?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json' | 'text/json' | 'application/xml' | 'text/xml' | 'multipart/form-data'}): Observable<any> {
+    public timesheetAutomationGetTimesheetAutomationAuditTrail(geofenceId: number, nfcId: number, userId: number, sort: 'UserName' | 'AutomationActionType' | 'ClientDateTime' | 'IsProcessed', order: 'Ascending' | 'Descending', xChronosheetsAuth: string, skip?: number, take?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json' | 'text/json' | 'application/xml' | 'text/xml' | 'multipart/form-data'}): Observable<ApiResponseForPaginatedListTimesheetAutomationWithOrgAndGeofence>;
+    public timesheetAutomationGetTimesheetAutomationAuditTrail(geofenceId: number, nfcId: number, userId: number, sort: 'UserName' | 'AutomationActionType' | 'ClientDateTime' | 'IsProcessed', order: 'Ascending' | 'Descending', xChronosheetsAuth: string, skip?: number, take?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json' | 'text/json' | 'application/xml' | 'text/xml' | 'multipart/form-data'}): Observable<HttpResponse<ApiResponseForPaginatedListTimesheetAutomationWithOrgAndGeofence>>;
+    public timesheetAutomationGetTimesheetAutomationAuditTrail(geofenceId: number, nfcId: number, userId: number, sort: 'UserName' | 'AutomationActionType' | 'ClientDateTime' | 'IsProcessed', order: 'Ascending' | 'Descending', xChronosheetsAuth: string, skip?: number, take?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json' | 'text/json' | 'application/xml' | 'text/xml' | 'multipart/form-data'}): Observable<HttpEvent<ApiResponseForPaginatedListTimesheetAutomationWithOrgAndGeofence>>;
+    public timesheetAutomationGetTimesheetAutomationAuditTrail(geofenceId: number, nfcId: number, userId: number, sort: 'UserName' | 'AutomationActionType' | 'ClientDateTime' | 'IsProcessed', order: 'Ascending' | 'Descending', xChronosheetsAuth: string, skip?: number, take?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json' | 'text/json' | 'application/xml' | 'text/xml' | 'multipart/form-data'}): Observable<any> {
         if (geofenceId === null || geofenceId === undefined) {
             throw new Error('Required parameter geofenceId was null or undefined when calling timesheetAutomationGetTimesheetAutomationAuditTrail.');
+        }
+        if (nfcId === null || nfcId === undefined) {
+            throw new Error('Required parameter nfcId was null or undefined when calling timesheetAutomationGetTimesheetAutomationAuditTrail.');
         }
         if (userId === null || userId === undefined) {
             throw new Error('Required parameter userId was null or undefined when calling timesheetAutomationGetTimesheetAutomationAuditTrail.');
@@ -194,6 +198,10 @@ export class TimesheetAutomationService {
         if (geofenceId !== undefined && geofenceId !== null) {
           queryParameters = this.addToHttpParams(queryParameters,
             <any>geofenceId, 'GeofenceId');
+        }
+        if (nfcId !== undefined && nfcId !== null) {
+          queryParameters = this.addToHttpParams(queryParameters,
+            <any>nfcId, 'NfcId');
         }
         if (userId !== undefined && userId !== null) {
           queryParameters = this.addToHttpParams(queryParameters,
