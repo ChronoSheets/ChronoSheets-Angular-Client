@@ -30,32 +30,10 @@ import { UsualHoursService } from './ChronoSheetsClientLibApi/usualHours.service
   imports:      [],
   declarations: [],
   exports:      [],
-  providers: [
-    AggregateClientProjectsService,
-    AggregateJobTasksService,
-    ClientsService,
-    FileAttachmentsService,
-    FleetService,
-    GeoFencingService,
-    JobCodesService,
-    OrganisationService,
-    OrganisationGroupUsersService,
-    OrganisationGroupsService,
-    ProjectsService,
-    ReportsService,
-    TasksService,
-    TimesheetAutomationService,
-    TimesheetsService,
-    TranscriptsService,
-    TripsService,
-    UserJobFavouritesService,
-    UserPayRatesService,
-    UserProfileService,
-    UsersService,
-    UsualHoursService ]
+  providers: []
 })
 export class ApiModule {
-    public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders {
+    public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders<ApiModule> {
         return {
             ngModule: ApiModule,
             providers: [ { provide: Configuration, useFactory: configurationFactory } ]

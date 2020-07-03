@@ -10,7 +10,7 @@ npm run build
 
 ### publishing
 
-First build the package than run ```npm publish dist``` (don't forget to specify the `dist` folder!)
+First build the package then run ```npm publish dist``` (don't forget to specify the `dist` folder!)
 
 ### consuming
 
@@ -25,8 +25,10 @@ npm install ChronoSheetsAPI@1.0.0 --save
 _without publishing (not recommended):_
 
 ```
-npm install PATH_TO_GENERATED_PACKAGE/dist --save
+npm install PATH_TO_GENERATED_PACKAGE/dist.tgz --save
 ```
+
+_It's important to take the tgz file, otherwise you'll get trouble with links on windows_
 
 _using `npm link`:_
 
@@ -91,6 +93,31 @@ export class AppModule {}
 ```
 
 ```
+// configuring providers with an authentication service that manages your access tokens
+import { ApiModule, Configuration } from 'ChronoSheetsAPI';
+
+@NgModule({
+    imports: [ ApiModule ],
+    declarations: [ AppComponent ],
+    providers: [
+      {
+        provide: Configuration,
+        useFactory: (authService: AuthService) => new Configuration(
+          {
+            basePath: environment.apiUrl,
+            accessToken: authService.getAccessToken.bind(authService)
+          }
+        ),
+        deps: [AuthService],
+        multi: false
+      }
+    ],
+    bootstrap: [ AppComponent ]
+})
+export class AppModule {}
+```
+
+```
 import { DefaultApi } from 'ChronoSheetsAPI';
 
 export class AppComponent {
@@ -101,8 +128,8 @@ export class AppComponent {
 Note: The ApiModule is restricted to being instantiated once app wide.
 This is to ensure that all services are treated as singletons.
 
-#### Using multiple swagger files / APIs / ApiModules
-In order to use multiple `ApiModules` generated from different swagger files,
+#### Using multiple OpenAPI files / APIs / ApiModules
+In order to use multiple `ApiModules` generated from different OpenAPI files,
 you can create an alias name when importing the modules
 in order to avoid naming conflicts:
 ```
