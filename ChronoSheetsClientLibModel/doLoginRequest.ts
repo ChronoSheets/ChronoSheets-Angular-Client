@@ -23,5 +23,9 @@ export interface DoLoginRequest {
      * Your ChronoSheets password
      */
     Password?: string;
+    /**
+     * Increase session expiry beyond default of 1 hour
+     */
+    RememberMe?: boolean;
 }
 
