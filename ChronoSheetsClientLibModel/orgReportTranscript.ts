@@ -25,29 +25,101 @@ export interface OrgReportTranscript {
     EmailAddress?: string;
     FirstName?: string;
     LastName?: string;
+    /**
+     * The ID of the timesheet this attachment is attached to.
+     */
     TimesheetId?: number;
+    /**
+     * The limited use signed URL for the document (if it\'s not an image).  This URL is unique and will eventually expire.  If the attachment is an image, then this won\'t be set.
+     */
     DocumentS3SignedUrl?: string;
+    /**
+     * The limited use signed URL for the large version of the image.  This URL is unique and will eventually expire.  Only set when the attachment is actually an image.
+     */
     ImageLargeS3SignedUrl?: string;
+    /**
+     * The limited use signed URL for the medium version of the image.  This URL is unique and will eventually expire.  Only set when the attachment is actually an image.
+     */
     ImageMediumS3SignedUrl?: string;
+    /**
+     * The limited use signed URL for the small version of the image.  This URL is unique and will eventually expire.  Only set when the attachment is actually an image.
+     */
     ImageSmallS3SignedUrl?: string;
+    /**
+     * The start date and time of the timesheet that this attachment is attached to
+     */
     TimesheetStart?: string;
+    /**
+     * The end date and time of the timesheet that this attachment is attached to
+     */
     TimesheetEnd?: string;
+    /**
+     * The ID of the file attachment
+     */
     FileAttachmentId?: number;
+    /**
+     * The ID of the user who attached the file
+     */
     UserId?: number;
+    /**
+     * The ID of the organisation that owns the file and employs the employee
+     */
     OrgId?: number;
+    /**
+     * The mobile platform that was used to attach the file
+     */
     MobilePlatform?: OrgReportTranscript.MobilePlatformEnum;
+    /**
+     * The type of file attachment
+     */
     AttachmentType?: OrgReportTranscript.AttachmentTypeEnum;
+    /**
+     * Any notes regarding the file attachment
+     */
     Notes?: string;
+    /**
+     * The path to the file attachment as hosted by ChronoSheets storage, if it\'s not an image.  If the attachment is an image then this won\'t be set.
+     */
     NonImageFilePath?: string;
+    /**
+     * The path to the file attachment as hosted by ChronoSheets storage, only set if it\'s an image.  This is regarding the large version of the image.
+     */
     ImageLargeFilePath?: string;
+    /**
+     * The path to the file attachment as hosted by ChronoSheets storage, only set if it\'s an image.  This is regarding the medium version of the image.
+     */
     ImageMediumFilePath?: string;
+    /**
+     * The path to the file attachment as hosted by ChronoSheets storage, only set if it\'s an image.  This is regarding the small version of the image.
+     */
     ImageSmallFilePath?: string;
+    /**
+     * The original file name of the attachment
+     */
     OriginalFileName?: string;
+    /**
+     * Meta-data indicating the latitude of the file attachment.  If the attachment is an image, this data originates from the meta data inside the image file.
+     */
     Latitude?: number;
+    /**
+     * Meta-data indicating the longitude of the file attachment.  If the attachment is an image, this data originates from the meta data inside the image file.
+     */
     Longitude?: number;
+    /**
+     * The date and time the attachment was uploaded.  Time is in UTC.
+     */
     DateUploaded?: string;
+    /**
+     * The original date and time the image was captured, if it was an image.  This data originates from the meta data inside the image file.
+     */
     DateImageCaptured?: string;
+    /**
+     * The number of bytes allocated for storing the file attachment.
+     */
     StorageAllocationBytes?: number;
+    /**
+     * If the attachment was an audio file, this field indicates the duration of the audio file in seconds.  This data originates from the meta data inside the audio file.
+     */
     AudioDurationSeconds?: number;
 }
 export namespace OrgReportTranscript {
@@ -69,7 +141,7 @@ export namespace OrgReportTranscript {
     export type MobilePlatformEnum = 'Unknown' | 'iOS' | 'Android';
     export const MobilePlatformEnum = {
         Unknown: 'Unknown' as MobilePlatformEnum,
-        IOS: 'iOS' as MobilePlatformEnum,
+        IOs: 'iOS' as MobilePlatformEnum,
         Android: 'Android' as MobilePlatformEnum
     };
     export type AttachmentTypeEnum = 'Image' | 'WordDoc' | 'Pdf' | 'MSSpreadSheet' | 'MSPowerPoint' | 'RichTextFormat' | 'ZipFile' | 'Other' | 'Audio';
@@ -77,8 +149,8 @@ export namespace OrgReportTranscript {
         Image: 'Image' as AttachmentTypeEnum,
         WordDoc: 'WordDoc' as AttachmentTypeEnum,
         Pdf: 'Pdf' as AttachmentTypeEnum,
-        MSSpreadSheet: 'MSSpreadSheet' as AttachmentTypeEnum,
-        MSPowerPoint: 'MSPowerPoint' as AttachmentTypeEnum,
+        MsSpreadSheet: 'MSSpreadSheet' as AttachmentTypeEnum,
+        MsPowerPoint: 'MSPowerPoint' as AttachmentTypeEnum,
         RichTextFormat: 'RichTextFormat' as AttachmentTypeEnum,
         ZipFile: 'ZipFile' as AttachmentTypeEnum,
         Other: 'Other' as AttachmentTypeEnum,

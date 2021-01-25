@@ -16,15 +16,45 @@ export interface FleetSummaryReportItem {
     TotalDistanceMeters?: number;
     TotalRunningCostDollarsFiltered?: number;
     TotalRunningCostDollars?: number;
+    /**
+     * The ID of the vehicle
+     */
     Id?: number;
+    /**
+     * The ID of the organisation managing the vehicle
+     */
     OrganisationId?: number;
+    /**
+     * A name given to the vehicle
+     */
     Name?: string;
+    /**
+     * The cost, in dollars, of running the vehicle over one kilometer
+     */
     CostPerKilometer?: number;
+    /**
+     * The make of the vehicle
+     */
     Make?: string;
+    /**
+     * The model of the vehicle
+     */
     Model?: string;
+    /**
+     * The year the vehicle was manufactured
+     */
     Year?: string;
+    /**
+     * The licence plate number of the vehicle
+     */
     LicencePlateNumber?: string;
+    /**
+     * Whether or not the vehicle is deleted
+     */
     IsDeleted?: boolean;
+    /**
+     * An array of employee IDs that are permitted to use the vehicle
+     */
     PermittedEmployees?: Array<number>;
 }
 

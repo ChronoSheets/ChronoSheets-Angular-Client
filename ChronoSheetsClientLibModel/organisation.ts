@@ -12,27 +12,93 @@
 import { OrganisationPricingPlan } from './organisationPricingPlan';
 
 
+/**
+ * An organisation in ChronoSheets
+ */
 export interface Organisation { 
+    /**
+     * The ID of the organisation
+     */
     Id?: number;
+    /**
+     * The name of the organisation
+     */
     Name?: string;
+    /**
+     * Address line 1 of the organisation
+     */
     AddressLine01?: string;
+    /**
+     * Address line 2 of the organisation
+     */
     AddressLine02?: string;
+    /**
+     * The suburb where the organisation is located
+     */
     Suburb?: string;
+    /**
+     * The state where the organisation is located
+     */
     State?: string;
+    /**
+     * The postcode of the organisation
+     */
     Postcode?: string;
+    /**
+     * The country of the organisation
+     */
     Country?: string;
+    /**
+     * The primary phone contact number of the organisation
+     */
     Phone?: string;
+    /**
+     * The primary email address of the organisation
+     */
     EmailAddress?: string;
+    /**
+     * The timezone of the organisation
+     */
     Timezone?: string;
+    /**
+     * The customer ID of the payments subscription
+     */
     SubscriptionCustomerId?: string;
+    /**
+     * The sign up token
+     */
     SignupToken?: string;
+    /**
+     * Whether or not the organisation is active
+     */
     IsActive?: boolean;
+    /**
+     * The payments coupon code
+     */
     StripeCouponCode?: string;
+    /**
+     * The source of the subscription
+     */
     SubscriptionSource?: Organisation.SubscriptionSourceEnum;
+    /**
+     * The source where the organisation signed up
+     */
     SignUpSource?: Organisation.SignUpSourceEnum;
+    /**
+     * A temporary mobile sign up code
+     */
     MobileSignUpCode?: string;
+    /**
+     * The start date and time of the organisations subscription
+     */
     SubscriptionCycleStart?: string;
+    /**
+     * The end date and time of the organisations subscription
+     */
     SubscriptionCycleEnd?: string;
+    /**
+     * The organisation\'s pricing plans
+     */
     PricingPlans?: Array<OrganisationPricingPlan>;
 }
 export namespace Organisation {
@@ -46,7 +112,7 @@ export namespace Organisation {
     export type SignUpSourceEnum = 'Desktop' | 'MobileiOS' | 'MobileAndroid';
     export const SignUpSourceEnum = {
         Desktop: 'Desktop' as SignUpSourceEnum,
-        MobileiOS: 'MobileiOS' as SignUpSourceEnum,
+        MobileiOs: 'MobileiOS' as SignUpSourceEnum,
         MobileAndroid: 'MobileAndroid' as SignUpSourceEnum
     };
 }

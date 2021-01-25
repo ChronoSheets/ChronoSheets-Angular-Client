@@ -11,8 +11,17 @@
  */
 
 
+/**
+ * A basic geofence
+ */
 export interface BasicGeofence { 
+    /**
+     * The ID of the geofence
+     */
     GeoFencingId?: number;
+    /**
+     * The descriptive name of the geofence
+     */
     Name?: string;
 }
 

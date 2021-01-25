@@ -11,14 +11,41 @@
  */
 
 
+/**
+ * A project in ChronoSheets
+ */
 export interface Project { 
+    /**
+     * The ID of the project
+     */
     Id?: number;
+    /**
+     * The ID of the client for which the project is being undertaken for
+     */
     ClientId?: number;
+    /**
+     * The ID of the organisation that is completing the project
+     */
     OrganisationId?: number;
+    /**
+     * A descriptive name of the project
+     */
     ProjectName?: string;
+    /**
+     * The project\'s estimated cost
+     */
     CostEstimation?: number;
+    /**
+     * The project\'s actual cost
+     */
     CostActual?: number;
+    /**
+     * The start date and time of the project
+     */
     StartDate?: string;
+    /**
+     * The end date and time of the project
+     */
     EndDate?: string;
 }
 

@@ -12,18 +12,54 @@
 import { Organisation } from './organisation';
 
 
+/**
+ * A user within ChronoSheets
+ */
 export interface ClientSideUser { 
+    /**
+     * The ID of the user
+     */
     Id?: number;
+    /**
+     * The ID of the organisation
+     */
     OrganisationId?: number;
+    /**
+     * The username of the user
+     */
     UserName?: string;
+    /**
+     * The first name of the user
+     */
     FirstName?: string;
+    /**
+     * The last name of the user
+     */
     LastName?: string;
+    /**
+     * The email address of the user
+     */
     EmailAddress?: string;
+    /**
+     * A BIT field designating which Roles/Permissions the employee will have when they sign in.  See the {timesheets.types.Enums.UserRoles} Enum for more details
+     */
     Roles?: number;
+    /**
+     * A BIT field designating which Alerts the employee will receive.  See the {timesheets.types.Enums.AlertSettings} Enum for more details
+     */
     AlertSettings?: number;
+    /**
+     * Whether or not the setup wizard is required
+     */
     SetupWizardRequired?: boolean;
+    /**
+     * Whether or not the user is subscribed to the user
+     */
     IsSubscribedToNewsletter?: boolean;
     Organisation?: Organisation;
+    /**
+     * Whether or not this account is the organisation\'s primary account.
+     */
     IsPrimaryAccount?: boolean;
 }
 

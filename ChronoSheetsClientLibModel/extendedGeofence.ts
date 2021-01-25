@@ -12,29 +12,101 @@
 import { BasicCoordinate } from './basicCoordinate';
 
 
+/**
+ * An extended geofence record
+ */
 export interface ExtendedGeofence { 
+    /**
+     * The Job code used when the employee enters/exits the geofence
+     */
     JobCode?: string;
+    /**
+     * The name of the task used when the employee enters/exits the geofence
+     */
     TaskName?: string;
+    /**
+     * The name of the employee who created the geofence
+     */
     CreatedBy?: string;
+    /**
+     * The name of the employee who last updated the geofence
+     */
     UpdatedBy?: string;
+    /**
+     * The name of the organisation group who will be notified when the geofence is triggered
+     */
     AlertOrganisation?: string;
+    /**
+     * The ID of the geofence
+     */
     GeoFencingId?: number;
+    /**
+     * The ID of the organisation owning the geofence record
+     */
     OrgId?: number;
+    /**
+     * The ID of the user/employee who created the geofence
+     */
     CreatedByUserId?: number;
+    /**
+     * The ID of the user/employee who last updated the geofence
+     */
     LastUpdatedByUserId?: number;
+    /**
+     * A descriptive name of the geofence
+     */
     Name?: string;
+    /**
+     * The name of the approx. location of the geofence
+     */
     LocationName?: string;
+    /**
+     * A list of co-ordinates specifying the geofence
+     */
     Coordinates?: Array<BasicCoordinate>;
+    /**
+     * The date and time the geofence was created.  Time is in UTC.
+     */
     CreatedAt?: string;
+    /**
+     * The date and time the geofence was updated last.  Time is in UTC.
+     */
     UpdatedAt?: string;
+    /**
+     * The ID of the job code used when the employee enters/exits the geofence
+     */
     TriggerJobCodeId?: number;
+    /**
+     * The ID of the task used when the employee enters/exits the geofence
+     */
     TriggerTaskId?: number;
+    /**
+     * The settings for triggering actions
+     */
     TriggerSettings?: ExtendedGeofence.TriggerSettingsEnum;
+    /**
+     * The organisation group that will be notified when the geofence is triggered
+     */
     AlertToOrgGroupId?: number;
+    /**
+     * The settings for trigger alerts
+     */
     AlertSettings?: ExtendedGeofence.AlertSettingsEnum;
+    /**
+     * The hour start time. E.g. 13 would be 1pm.  Time is in 24hr format.
+     */
     StartTimeHour?: number;
+    /**
+     * The minute start time.  E.g. 46 would be the 46th minute of the hour.
+     */
     StartTimeMinute?: number;
+    /**
+     * The hour end time. E.g. 21 would be 9pm.  Time is in 24hr format.
+     */
     EndTimeHour?: number;
+    /**
+     * The minute end time.  E.g. 13 would be the 13th minute of the hour.
+     */
     EndTimeMinute?: number;
 }
 export namespace ExtendedGeofence {

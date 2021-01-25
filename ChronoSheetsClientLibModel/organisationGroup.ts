@@ -11,10 +11,25 @@
  */
 
 
+/**
+ * An organisation group.  Organisation groups are used throughout ChronoSheets to assign many groups to one alert, action or restriction.  E.g. you can assign an organisation group to receive geofence alerts, or you could restrict access to vehicles to users within an organisation group.
+ */
 export interface OrganisationGroup { 
+    /**
+     * The ID of the organisation group
+     */
     Id?: number;
+    /**
+     * The ID of the organisation
+     */
     OrganisationId?: number;
+    /**
+     * The descriptive name of the organisation group
+     */
     OrganisationGroupName?: string;
+    /**
+     * Whether or not the organisation group is deleted
+     */
     IsDeleted?: boolean;
 }
 

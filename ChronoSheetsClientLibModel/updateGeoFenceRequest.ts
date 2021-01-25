@@ -41,7 +41,7 @@ export interface UpdateGeoFenceRequest {
      */
     SendAlertToOrgGroupId?: number;
     /**
-     * Define when you want the alerts to be setn
+     * Define when you want the alerts to be sent
      */
     AlertSettings?: UpdateGeoFenceRequest.AlertSettingsEnum;
     /**

@@ -2,7 +2,6 @@ import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core
 import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
 
-
 import { AggregateClientProjectsService } from './ChronoSheetsClientLibApi/aggregateClientProjects.service';
 import { AggregateJobTasksService } from './ChronoSheetsClientLibApi/aggregateJobTasks.service';
 import { ClientsService } from './ChronoSheetsClientLibApi/clients.service';

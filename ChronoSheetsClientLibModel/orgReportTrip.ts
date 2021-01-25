@@ -41,7 +41,7 @@ export namespace OrgReportTrip {
     export type MobilePlatformEnum = 'Unknown' | 'iOS' | 'Android';
     export const MobilePlatformEnum = {
         Unknown: 'Unknown' as MobilePlatformEnum,
-        IOS: 'iOS' as MobilePlatformEnum,
+        IOs: 'iOS' as MobilePlatformEnum,
         Android: 'Android' as MobilePlatformEnum
     };
 }
